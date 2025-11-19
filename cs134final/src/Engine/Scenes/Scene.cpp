@@ -1,21 +1,25 @@
 #include "Scene.h"
 
+#include "of3dGraphics.h"
+#include "ofGraphics.h"
+#include "ofPixels.h"
+#include "ofImage.h"
 #include "../../Entities/Entity.h"
 
 void Scene::update()
 {
-    // Update all game objects in scene
+    ///-////////////////////////////////////////////////////////////////////////////////////////
+    /// Update all game objects in scene
     auto gameObject = gameObjects.begin();
-
     while (gameObject != gameObjects.end())
     {
-        // Erase if age exceeds lifespan
+        // Delete if object is pending for destroy
         if ((*gameObject)->pendingDestroy)
         {
             (*gameObject)->onDestroy();
             gameObject = gameObjects.erase(gameObject); // erase returns the next iterator
         }
-        // Otherwise, integrate game object
+        // Otherwise, update game object
         else
         {
             (*gameObject)->update();
@@ -23,23 +27,36 @@ void Scene::update()
         }
     }
 
-    // Queue pending game objects - we use it because we don't want to modify gameObjects iterator while its updating
+    ///-////////////////////////////////////////////////////////////////////////////////////////
+    /// Add any new pending game objects - we use it because we don't want to modify
+    /// gameObjects iterator while its updating
     for (auto* pending : pendingGameObjects)
     {
         gameObjects.emplace_back(pending);
     }
     pendingGameObjects.clear();
-    
+
+    ///-////////////////////////////////////////////////////////////////////////////////////////
+    /// Calculate collisions
     calculateCollisions();
 }
 
 void Scene::draw()
 {
+    ofEnableDepthTest();
+    if (mainCamera)  mainCamera->begin();
+    
     // Draw all game objects in scene
     for (int i = 0; i < gameObjects.size(); i++)
     {
         gameObjects[i]->draw();
     }
+
+    if (mainCamera)  mainCamera->end();
+    ofDisableDepthTest();
+
+    // Draw User Interface
+    if (userInterface) userInterface->draw();
 }
 
 void Scene::calculateCollisions()

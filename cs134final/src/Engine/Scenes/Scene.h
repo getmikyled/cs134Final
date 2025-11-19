@@ -1,4 +1,6 @@
 #pragma once
+#include "ofEasyCam.h"
+#include "UserInterface.h"
 #include "../Core/GameObject.h"
 
 class Scene
@@ -20,9 +22,13 @@ public:
     {
         pendingGameObjects.emplace_back(gameObject);
     }
-
+    
     virtual void setup() {};
     virtual void update();
     virtual void draw();
     virtual void calculateCollisions();
+
+    ofEasyCam* mainCamera;
+
+    UserInterface* userInterface;
 };

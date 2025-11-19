@@ -3,16 +3,23 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
+    // Set up scene manager
+    Scene* scene = new Scene();
+    
+    SceneManager::getInstance().scenes.push_back(scene);
+    SceneManager::getInstance().activeScene = scene;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
+    SceneManager::getInstance().update();
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
-
+void ofApp::draw()
+{
+    SceneManager::getInstance().draw();
 }
 
 //--------------------------------------------------------------

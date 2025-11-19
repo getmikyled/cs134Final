@@ -3,7 +3,7 @@
 #include <unordered_set>
 
 #include "Forces.h"
-#include "..\Engine\GameObject.h"
+#include "..\Engine\Core\GameObject.h"
 
 class Entity: public GameObject
 {
