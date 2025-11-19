@@ -104,6 +104,7 @@
 		<PostBuildEvent />
 	</ItemDefinitionGroup>
 	<ItemGroup>
+		<ClCompile Include="src\Engine\Cameras\CameraManager.cpp" />
 		<ClCompile Include="src\Engine\Core\Component.cpp">
 		  <AssemblerOutput>NoListing</AssemblerOutput>
 		  <AssemblerListingLocation>obj\x64\Debug\</AssemblerListingLocation>
@@ -416,6 +417,11 @@
 		  <MultiProcessorCompilation>true</MultiProcessorCompilation>
 		  <LinkCompiled>true</LinkCompiled>
 		</ClCompile>
+		<ClCompile Include="src\Engine\Octree\box.cc" />
+		<ClCompile Include="src\Engine\Octree\main.cpp" />
+		<ClCompile Include="src\Engine\Octree\Octree.cpp" />
+		<ClCompile Include="src\Engine\Octree\ofApp.cpp" />
+		<ClCompile Include="src\Engine\Octree\Util.cpp" />
 		<ClCompile Include="src\Engine\Scenes\Scene.cpp">
 		  <AssemblerOutput>NoListing</AssemblerOutput>
 		  <AssemblerListingLocation>obj\x64\Debug\</AssemblerListingLocation>
@@ -578,10 +584,18 @@
 		<ClCompile Include="src\ofApp.cpp" />
 	</ItemGroup>
 	<ItemGroup>
+		<ClInclude Include="src\Engine\Cameras\CameraManager.h" />
 		<ClInclude Include="src\Engine\Core\Component.h" />
 		<ClInclude Include="src\Engine\Core\GameObject.h" />
 		<ClInclude Include="src\Engine\Core\InputSystem.h" />
 		<ClInclude Include="src\Engine\Core\Transform.h" />
+		<ClInclude Include="src\Engine\Octree\box.h" />
+		<ClInclude Include="src\Engine\Octree\Octree.h" />
+		<ClInclude Include="src\Engine\Octree\ofApp.h" />
+		<ClInclude Include="src\Engine\Octree\Primitives.h" />
+		<ClInclude Include="src\Engine\Octree\ray.h" />
+		<ClInclude Include="src\Engine\Octree\Util.h" />
+		<ClInclude Include="src\Engine\Octree\vector3.h" />
 		<ClInclude Include="src\Engine\Scenes\Scene.h" />
 		<ClInclude Include="src\Engine\Scenes\SceneManager.h" />
 		<ClInclude Include="src\Entities\Entity.h" />
@@ -598,6 +612,10 @@
 			<AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
 			<AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
 		</ResourceCompile>
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="src\Engine\Octree\octree-readme.txt" />
+	  <Content Include="src\Engine\Octree\Octree.readme" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ProjectExtensions>
