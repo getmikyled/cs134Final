@@ -2,7 +2,7 @@
 
 #include "ofAppRunner.h"
 
-void Entity::update()
+void Entity::onUpdate(ofEventArgs & args)
 {
     collidedEntities.clear();
 

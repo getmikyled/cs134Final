@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"
+#include "ofEvents.h"
 #include "Transform.h"
 
 class GameObject
@@ -21,8 +22,11 @@ public:
         return component;
     }
 
-    virtual void draw();
-    virtual void update();
+    virtual void onEnable();
+    virtual void onDisable();
+
+    virtual void onDraw(ofEventArgs & args);
+    virtual void onUpdate(ofEventArgs & args);
     virtual void onDestroy() {};
 
     bool pendingDestroy = false;

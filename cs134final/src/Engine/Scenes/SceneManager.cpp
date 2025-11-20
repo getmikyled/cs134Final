@@ -1,20 +1,30 @@
 #include "SceneManager.h"
 
-void SceneManager::update()
+void SceneManager::addScene(Scene* scene)
 {
-    if (activeScene != nullptr)
-    {
-        activeScene->update();   
-    }
+    scenes.push_back(scene);
 }
 
-void SceneManager::draw()
+Scene* SceneManager::getActiveScene()
 {
+    return activeScene;
+}
+
+void SceneManager::setActiveScene(Scene* scene)
+{
+    // Disable currently active scene
     if (activeScene != nullptr)
     {
-        activeScene->draw();
+        activeScene->onDisable();
+        activeScene->isActive = false;
     }
+
+    // Enable currently active scene
+    activeScene = scene;
+    activeScene->onEnable();
+    activeScene->isActive = true;
 }
+
 
 void SceneManager::addGameObject(GameObject* gameObject)
 {

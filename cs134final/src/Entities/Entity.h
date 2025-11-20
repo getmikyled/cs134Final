@@ -9,7 +9,7 @@ class Entity: public GameObject
 {
 public:
 
-    void update() override;
+    void onUpdate(ofEventArgs & args) override;
     ofVec3f calculateForces();
     void integrate();
     virtual void onCollisionTriggered(Entity* entity);

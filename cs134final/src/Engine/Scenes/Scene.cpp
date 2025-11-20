@@ -1,12 +1,41 @@
 #include "Scene.h"
 
-#include "of3dGraphics.h"
 #include "ofGraphics.h"
-#include "ofPixels.h"
-#include "ofImage.h"
 #include "../../Entities/Entity.h"
 
-void Scene::update()
+void Scene::onEnable()
+{
+    // Subscribe events
+    ofAddListener(ofEvents().update, this, &Scene::update);
+    
+    for (GameObject* gameObject : gameObjects)
+    {
+        gameObject->onEnable();
+    }
+
+    for (GameObject* gameObject : pendingGameObjects)
+    {
+        gameObject->onEnable();
+    }
+}
+
+void Scene::onDisable()
+{
+    // Subscribe events
+    ofRemoveListener(ofEvents().update, this, &Scene::update);
+    
+    for (GameObject* gameObject : gameObjects)
+    {
+        gameObject->onDisable();
+    }
+
+    for (GameObject* gameObject : pendingGameObjects)
+    {
+        gameObject->onDisable();
+    }
+}
+
+void Scene::update(ofEventArgs & args)
 {
     ///-////////////////////////////////////////////////////////////////////////////////////////
     /// Update all game objects in scene
@@ -22,7 +51,6 @@ void Scene::update()
         // Otherwise, update game object
         else
         {
-            (*gameObject)->update();
             ++gameObject;
         }
     }
@@ -41,16 +69,10 @@ void Scene::update()
     calculateCollisions();
 }
 
-void Scene::draw()
+void Scene::draw(ofEventArgs & args)
 {
     ofEnableDepthTest();
     if (mainCamera)  mainCamera->begin();
-    
-    // Draw all game objects in scene
-    for (int i = 0; i < gameObjects.size(); i++)
-    {
-        gameObjects[i]->draw();
-    }
 
     if (mainCamera)  mainCamera->end();
     ofDisableDepthTest();

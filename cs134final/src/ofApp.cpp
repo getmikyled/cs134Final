@@ -1,25 +1,26 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(){
-
+void ofApp::setup()
+{
     // Set up scene manager
     Scene* scene = new Scene();
+    scene->createGameObject<GameObject>();
     
-    SceneManager::getInstance().scenes.push_back(scene);
-    SceneManager::getInstance().activeScene = scene;
+    SceneManager::getInstance().addScene(scene);
+    SceneManager::getInstance().setActiveScene(scene);
 }
 
 //--------------------------------------------------------------
-void ofApp::update(){
-
-    SceneManager::getInstance().update();
+void ofApp::update()
+{
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-    SceneManager::getInstance().draw();
+    
 }
 
 //--------------------------------------------------------------

@@ -10,16 +10,19 @@ public:
         static SceneManager instance;
         return instance;
     }
-
-    void update();
-    void draw();
+    
     void addGameObject(GameObject* gameObject);
 
-    Scene* activeScene = nullptr;
-    std::vector<Scene*> scenes;
+    Scene* getActiveScene();
+    void setActiveScene(Scene* scene);
+
+    void addScene(Scene* scene);
 
 private:
     SceneManager() {} // Private constructor
     SceneManager(const SceneManager&) = delete;
     SceneManager& operator=(const SceneManager&) = delete;
+
+    Scene* activeScene;
+    std::vector<Scene*> scenes;
 };
