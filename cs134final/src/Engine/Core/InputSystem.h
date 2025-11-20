@@ -19,6 +19,7 @@ public:
 
     ofVec2f mousePosition;
     bool leftClickPressed = false;
+    bool rightClickPressed = false;
 
     bool spacePressed = false;
     bool ctrlPressed = false;
@@ -27,6 +28,13 @@ public:
     bool upArrowPressed = false;
     bool downArrowPressed = false;
     
+    bool wPressed = false;
+    bool aPressed = false;
+    bool sPressed = false;
+    bool dPressed = false;
+
+
+
 private:
     InputSystem() {} // Private constructor
     InputSystem(const InputSystem&) = delete;

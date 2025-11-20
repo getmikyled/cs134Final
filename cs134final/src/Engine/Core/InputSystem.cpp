@@ -13,14 +13,33 @@ void InputSystem::onKeyPressed(int key)
     case OF_KEY_UP:
         upArrowPressed = true;
         break;
+    case 'w':
+    case 'W':
+        wPressed = true;
+        break;
     case OF_KEY_DOWN:
         downArrowPressed = true;
+        break;
+    case 's':
+    case 'S':
+        sPressed = true;
         break;
     case OF_KEY_LEFT:
         leftArrowPressed = true;
         break;
+    case 'a':
+    case 'A':
+        aPressed = true;
+        break;
     case OF_KEY_RIGHT:
         rightArrowPressed = true;
+        break;
+    case 'd':
+    case 'D':
+        dPressed = true;
+        break;
+
+        
     case ' ':
         spacePressed = true;
         break;
@@ -38,15 +57,32 @@ void InputSystem::onKeyReleased(int key)
     case OF_KEY_UP:
         upArrowPressed = false;
         break;
+    case 'w':
+    case 'W':
+        wPressed = false;
+        break;
     case OF_KEY_DOWN:
         downArrowPressed = false;
+        break;
+    case 's':
+    case 'S':
+        sPressed = false;
         break;
     case OF_KEY_LEFT:
         leftArrowPressed = false;
         break;
+    case 'a':
+    case 'A':
+        aPressed = false;
+        break;
     case OF_KEY_RIGHT:
         rightArrowPressed = false;
         break;
+    case 'd':
+    case 'D':
+        dPressed = false;
+        break;
+        
     case ' ':
         spacePressed = false;
         break;
