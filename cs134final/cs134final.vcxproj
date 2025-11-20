@@ -192,7 +192,6 @@
     <ClCompile Include="src\Engine\Octree\Octree.cpp" />
     <ClCompile Include="src\Engine\Octree\Util.cpp" />
     <ClCompile Include="src\Engine\Octree\box.cc" />
-    <ClCompile Include="src\Engine\Octree\main.cpp" />
     <ClCompile Include="src\Engine\Octree\ofApp.cpp" />
     <ClCompile Include="src\Engine\Scenes\Scene.cpp" />
     <ClCompile Include="src\Engine\Scenes\SceneManager.cpp" />
@@ -212,6 +211,7 @@
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxSlider.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
+    <ClCompile Include="src\Player\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\UserInterface\Elements\UiElement.h" />
@@ -331,6 +331,7 @@
     <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxSlider.h" />
     <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxToggle.h" />
+    <ClInclude Include="src\Player\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
