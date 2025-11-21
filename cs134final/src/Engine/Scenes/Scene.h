@@ -45,7 +45,7 @@ public:
     virtual void draw(ofEventArgs & args);
     virtual void calculateCollisions();
 
-    bool isActive;
+    bool isActive = false;
     
     ofEasyCam* mainCamera;
 

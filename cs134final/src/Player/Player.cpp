@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "InputSystem.h"
 #include "Forces.h"
+#include "of3dGraphics.h"
+#include "ofGraphics.h"
 
 
 glm::vec3 Player::getFrontVector()
@@ -28,13 +30,21 @@ void Player::onUpdate(ofEventArgs& args)
 
     inputZ = (InputSystem::getInstance().dPressed || InputSystem::getInstance().rightArrowPressed)
         - (InputSystem::getInstance().aPressed || InputSystem::getInstance().leftArrowPressed);
-
     
     forces.push_back(new Force(getFrontVector(), speed*inputX, false));
     forces.push_back(new Force(getUpVector(), speed*inputY, false));
     forces.push_back(new Force(getRightVector(), speed*inputZ, false)); 
 
     Entity::onUpdate(args);
-
-    
 }
+
+void Player::onDraw(ofEventArgs& args)
+{
+    ofPushMatrix();
+    ofMultMatrix(transform.getTransform());
+
+    ofDrawSphere(0, 0, 0, 200);
+    
+    ofPopMatrix();
+}
+

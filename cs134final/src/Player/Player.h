@@ -6,6 +6,7 @@ class Player : public Entity
 {
 public:
     void onUpdate(ofEventArgs& args) override;
+    void onDraw(ofEventArgs& args) override;
 
     glm::vec3 getFrontVector();
     glm::vec3 getRightVector();
@@ -15,7 +16,7 @@ public:
     float inputY;
     float inputZ;
 
-    float speed = 50;
+    float speed = 500;
 
     
     
