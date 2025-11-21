@@ -1,5 +1,5 @@
 #pragma once
-#include "MainMenuUI.h"
+#include "..\UI\MainMenuUI.h"
 #include "Scene.h"
 
 class MainMenuScene : public Scene

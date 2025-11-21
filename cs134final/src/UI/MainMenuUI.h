@@ -9,15 +9,15 @@ public:
     {
         // Initialize play button
         playButton = new Label();
-        playButton->text = "Play";
-        playButton->fontSize = 0.07f;
-        playButton->position = new ofVec2f(0.15f, 0.4f);
+        playButton->text = "PLAY";
+        playButton->fontSize = 0.05f;
+        playButton->position = new ofVec2f(0.15f, 0.5f);
         uiElements.emplace_back(playButton);
 
         // Initialize quit button
         quitButton = new Label();
-        quitButton->text = "Quit";
-        quitButton->fontSize = 0.07f;
+        quitButton->text = "QUIT";
+        quitButton->fontSize = 0.05f;
         quitButton->position = new ofVec2f(0.15f, 0.7f);
         uiElements.emplace_back(quitButton);
         

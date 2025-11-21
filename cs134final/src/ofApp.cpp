@@ -1,6 +1,6 @@
 #include "ofApp.h"
 
-#include "Scenes/MainMenu/MainMenuScene.h"
+#include "Scenes/MainMenuScene.h"
 
 //--------------------------------------------------------------
 void ofApp::setup()
