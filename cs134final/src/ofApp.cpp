@@ -1,5 +1,6 @@
 #include "ofApp.h"
 
+#include "Scenes/GameplayScene.h"
 #include "Scenes/MainMenuScene.h"
 
 //--------------------------------------------------------------
@@ -8,9 +9,12 @@ void ofApp::setup()
     // Set up scene manager
 
     MainMenuScene* mainMenuScene = new MainMenuScene();
+    GameplayScene* gameplayScene = new GameplayScene();
     
     SceneManager::getInstance().addScene(mainMenuScene);
-    SceneManager::getInstance().setActiveScene(mainMenuScene);
+    SceneManager::getInstance().addScene(gameplayScene);
+    
+    SceneManager::getInstance().setActiveScene(0);
 }
 
 //--------------------------------------------------------------

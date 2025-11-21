@@ -7,8 +7,11 @@ void Scene::onEnable()
 {
     // Subscribe events
     ofAddListener(ofEvents().update, this, &Scene::update);
-    userInterface->onEnable();
-    
+
+    // Enable user interface
+    if (userInterface != nullptr) userInterface->onEnable();
+
+    // Enable game objects
     for (GameObject* gameObject : gameObjects)
     {
         gameObject->onEnable();
@@ -24,8 +27,11 @@ void Scene::onDisable()
 {
     // Subscribe events
     ofRemoveListener(ofEvents().update, this, &Scene::update);
-    userInterface->onDisable();
-    
+
+    // Disable userInterface
+    if (userInterface != nullptr) userInterface->onDisable();
+
+    // Disable game objects
     for (GameObject* gameObject : gameObjects)
     {
         gameObject->onDisable();

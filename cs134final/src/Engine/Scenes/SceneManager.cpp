@@ -10,7 +10,7 @@ Scene* SceneManager::getActiveScene()
     return activeScene;
 }
 
-void SceneManager::setActiveScene(Scene* scene)
+void SceneManager::setActiveScene(int index)
 {
     // Disable currently active scene
     if (activeScene != nullptr)
@@ -20,7 +20,7 @@ void SceneManager::setActiveScene(Scene* scene)
     }
 
     // Enable currently active scene
-    activeScene = scene;
+    activeScene = scenes[index];
     activeScene->onEnable();
     activeScene->isActive = true;
 }

@@ -6,6 +6,7 @@
 class Scene
 {
 public:
+    
     std::vector<GameObject*> pendingGameObjects;
     std::vector<GameObject*> gameObjects;
 
@@ -48,5 +49,5 @@ public:
     
     ofEasyCam* mainCamera;
 
-    UserInterface* userInterface;
+    UserInterface* userInterface = nullptr;
 };

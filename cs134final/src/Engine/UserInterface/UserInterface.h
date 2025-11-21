@@ -6,6 +6,7 @@
 class UserInterface
 {
 public:
+    
     void onEnable();
     void onDisable();
     void update();

@@ -104,6 +104,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\GameManager.cpp" />
     <ClCompile Include="src\Engine\UserInterface\Elements\Button.cpp" />
     <ClCompile Include="src\Engine\UserInterface\Elements\Label.cpp" />
     <ClCompile Include="src\Engine\UserInterface\Elements\UiElement.cpp" />
@@ -214,6 +215,7 @@
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="src\Player\Player.cpp" />
+    <ClCompile Include="src\Scenes\GameplayScene.cpp" />
     <ClCompile Include="src\Scenes\MainMenuScene.cpp">
       <AssemblerOutput>NoListing</AssemblerOutput>
       <AssemblerListingLocation>obj\x64\Debug\</AssemblerListingLocation>
@@ -373,6 +375,7 @@
     <ClCompile Include="src\UI\PauseMenuUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\GameManager.h" />
     <ClInclude Include="src\Engine\UserInterface\Elements\Button.h" />
     <ClInclude Include="src\Engine\UserInterface\Elements\Label.h" />
     <ClInclude Include="src\Engine\UserInterface\Elements\UiElement.h" />
@@ -493,6 +496,7 @@
     <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxToggle.h" />
     <ClInclude Include="src\Player\Player.h" />
+    <ClInclude Include="src\Scenes\GameplayScene.h" />
     <ClInclude Include="src\Scenes\MainMenuScene.h" />
     <ClInclude Include="src\UI\MainMenuUI.h" />
     <ClInclude Include="src\UI\PauseMenuUI.h" />

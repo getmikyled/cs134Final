@@ -14,7 +14,7 @@ public:
     void addGameObject(GameObject* gameObject);
 
     Scene* getActiveScene();
-    void setActiveScene(Scene* scene);
+    void setActiveScene(int index);
 
     void addScene(Scene* scene);
 
