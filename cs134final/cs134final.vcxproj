@@ -104,6 +104,8 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Engine\UserInterface\Elements\Button.cpp" />
+    <ClCompile Include="src\Engine\UserInterface\Elements\Label.cpp" />
     <ClCompile Include="src\Engine\UserInterface\Elements\UiElement.cpp" />
     <ClCompile Include="src\Engine\UserInterface\UserInterface.cpp">
       <AssemblerOutput>NoListing</AssemblerOutput>
@@ -212,8 +214,12 @@
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
     <ClCompile Include="src\Player\Player.cpp" />
+    <ClCompile Include="src\Scenes\MainMenu\MainMenuScene.cpp" />
+    <ClCompile Include="src\Scenes\MainMenu\MainMenuUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Engine\UserInterface\Elements\Button.h" />
+    <ClInclude Include="src\Engine\UserInterface\Elements\Label.h" />
     <ClInclude Include="src\Engine\UserInterface\Elements\UiElement.h" />
     <ClInclude Include="src\Engine\UserInterface\UserInterface.h" />
     <ClInclude Include="src\ofApp.h" />
@@ -332,6 +338,8 @@
     <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\..\addons\ofxGui\src\ofxToggle.h" />
     <ClInclude Include="src\Player\Player.h" />
+    <ClInclude Include="src\Scenes\MainMenu\MainMenuScene.h" />
+    <ClInclude Include="src\Scenes\MainMenu\MainMenuUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

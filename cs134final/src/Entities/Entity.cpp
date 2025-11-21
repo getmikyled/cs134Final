@@ -52,5 +52,5 @@ void Entity::onCollisionTriggered(Entity* entity)
 
 bool Entity::canCollideWith(Entity* entity)
 {
-    return collidedEntities.find(entity) == collidedEntities.end();
+    return collisionsEnabled && collidedEntities.find(entity) == collidedEntities.end();
 }

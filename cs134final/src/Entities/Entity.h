@@ -26,7 +26,6 @@ public:
     float damping = 1;
     
     ofVec3f headingDirection = ofVec3f(0, -1, 0);
-    bool edgeWrap = false;
 
-    bool physicsEnabled = true;
+    bool collisionsEnabled = true;
 };

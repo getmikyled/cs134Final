@@ -7,6 +7,7 @@ void Scene::onEnable()
 {
     // Subscribe events
     ofAddListener(ofEvents().update, this, &Scene::update);
+    userInterface->onEnable();
     
     for (GameObject* gameObject : gameObjects)
     {
@@ -23,6 +24,7 @@ void Scene::onDisable()
 {
     // Subscribe events
     ofRemoveListener(ofEvents().update, this, &Scene::update);
+    userInterface->onDisable();
     
     for (GameObject* gameObject : gameObjects)
     {
@@ -69,7 +71,7 @@ void Scene::update(ofEventArgs & args)
     calculateCollisions();
 }
 
-void Scene::draw(ofEventArgs & args)
+void Scene::draw(ofEventArgs &args)
 {
     ofEnableDepthTest();
     if (mainCamera)  mainCamera->begin();
@@ -87,7 +89,7 @@ void Scene::calculateCollisions()
     {
         if (Entity* entity = dynamic_cast<Entity*>(gameObjects[i]))
         {
-            if (entity->physicsEnabled)
+            if (entity->collisionsEnabled)
             {
                 for (int j = 0; j < gameObjects.size(); j++)
                 {
@@ -95,7 +97,7 @@ void Scene::calculateCollisions()
                     {
                         if (Entity* otherEntity = dynamic_cast<Entity*>(gameObjects[j]))
                         {
-                            if (otherEntity->physicsEnabled && entity->canCollideWith(otherEntity))
+                            if (otherEntity->collisionsEnabled && entity->canCollideWith(otherEntity))
                             {
                                 float distance = ofDist(entity->transform.position.x, entity->transform.position.y,
                                     otherEntity->transform.position.x, otherEntity->transform.position.y);

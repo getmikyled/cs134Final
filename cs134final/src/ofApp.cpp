@@ -1,14 +1,16 @@
 #include "ofApp.h"
 
+#include "Scenes/MainMenu/MainMenuScene.h"
+
 //--------------------------------------------------------------
 void ofApp::setup()
 {
     // Set up scene manager
-    Scene* scene = new Scene();
-    scene->createGameObject<GameObject>();
+
+    MainMenuScene* mainMenuScene = new MainMenuScene();
     
-    SceneManager::getInstance().addScene(scene);
-    SceneManager::getInstance().setActiveScene(scene);
+    SceneManager::getInstance().addScene(mainMenuScene);
+    SceneManager::getInstance().setActiveScene(mainMenuScene);
 }
 
 //--------------------------------------------------------------
@@ -64,8 +66,21 @@ void ofApp::mouseExited(int x, int y){
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
+void ofApp::windowResized(int w, int h)
+{
+    float currentRatio = static_cast<float>(w) / static_cast<float>(h);
+    if (abs(currentRatio - WINDOW_ASPECT_RATIO) > 0.01f)
+    {
+        if (currentRatio > WINDOW_ASPECT_RATIO) {
+            // Fix width
+            int newWidth = int(h * WINDOW_ASPECT_RATIO);
+            ofSetWindowShape(newWidth, h);
+        } else {
+            // Fix height
+            int newHeight = int(w / WINDOW_ASPECT_RATIO);
+            ofSetWindowShape(w, newHeight);
+        }
+    }
 }
 
 //--------------------------------------------------------------
