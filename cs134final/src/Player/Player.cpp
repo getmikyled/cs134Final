@@ -17,7 +17,7 @@ glm::vec3 Player::getRightVector()
 
 glm::vec3 Player::getUpVector()
 {
-    return glm::vec3(ofVec3f(0,1,0) * transform.getRotation());
+    return glm::vec3(ofVec3f(0,-1,0) * transform.getRotation());
 }
 
 
@@ -34,7 +34,7 @@ void Player::onUpdate(ofEventArgs& args)
     forces.push_back(new Force(getFrontVector(), speed*inputX, false));
     forces.push_back(new Force(getUpVector(), speed*inputY, false));
     
-    forces.push_back(new Force(getRightVector(), speed*inputZ, false));
+    forces.push_back(new Force(getRightVector(), speed*inputZ, false, true));
     
 
     Entity::onUpdate(args);

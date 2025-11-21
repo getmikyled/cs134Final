@@ -12,19 +12,18 @@ void Entity::onUpdate(ofEventArgs & args)
 ofVec3f Entity::calculateForces()
 {
     ofVec3f result = ofVec3f(0, 0, 0);
-    auto force = forces.begin();
 
-    while (force != forces.end())
+    for (int i = forces.size() - 1; i >= 0; i--)
     {
-
-        if (!(*force)->rotation)
+        Force* force = forces[i];
+        if (!force->rotation)
         {
-            result += (*force)->getForce();
+            result += force->getForce();
         
             // Erase if force is NOT indefinite on the system
-            if ((*force)->indefinite == false)
+            if (force->indefinite == false)
             {
-                force = forces.erase(force);
+                forces.erase(forces.begin() + i);
             }
         }
         
@@ -36,19 +35,18 @@ ofVec3f Entity::calculateForces()
 ofVec3f Entity::calculateRotationalForces()
 {
     ofVec3f result = ofVec3f(0, 0, 0);
-    auto force = forces.begin();
 
-    while (force != forces.end())
+    for (int i = forces.size() - 1; i >= 0; i--)
     {
-
-        if ((*force)->rotation)
+        Force* force = forces[i];
+        if (force->rotation)
         {
-            result += (*force)->getForce();
+            result += force->getForce();
         
             // Erase if force is NOT indefinite on the system
-            if ((*force)->indefinite == false)
+            if (force->indefinite == false)
             {
-                force = forces.erase(force);
+                forces.erase(forces.begin() + i);
             }
         }
         

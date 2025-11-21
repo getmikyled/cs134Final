@@ -24,11 +24,11 @@ public:
     float mass = 10;
     ofVec3f velocity = ofVec3f(0, 0, 0);
     ofVec3f acceleration = ofVec3f(0, 0, 0);
-    float damping = 1;
+    float damping = .99;
     
     ofVec3f headingDirection = ofVec3f(0, -1, 0);
 
-    float maxSpeed = 10;
+    float maxSpeed = 1000;
 
     bool collisionsEnabled = true;
 };

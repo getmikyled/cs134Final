@@ -16,7 +16,7 @@ public:
     float inputY;
     float inputZ;
 
-    float speed = 10;
+    float speed = 300;
 
     
     
