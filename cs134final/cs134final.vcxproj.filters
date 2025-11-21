@@ -7,6 +7,9 @@
 		<ClCompile Include="src\main.cpp">
 			<Filter>src</Filter>
 		</ClCompile>
+		<ClCompile Include="src\Core\GameManager.cpp">
+			<Filter>src\Core</Filter>
+		</ClCompile>
 		<ClCompile Include="src\Engine\Core\Component.cpp">
 			<Filter>src\Engine\Core</Filter>
 		</ClCompile>
@@ -22,19 +25,10 @@
 		<ClCompile Include="src\Engine\Octree\Octree.cpp">
 			<Filter>src\Engine\Octree</Filter>
 		</ClCompile>
-		<ClCompile Include="src\Engine\Octree\Octree.readme">
-			<Filter>src\Engine\Octree</Filter>
-		</ClCompile>
 		<ClCompile Include="src\Engine\Octree\Util.cpp">
 			<Filter>src\Engine\Octree</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Engine\Octree\box.cc">
-			<Filter>src\Engine\Octree</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Engine\Octree\main.cpp">
-			<Filter>src\Engine\Octree</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Engine\Octree\octree-readme.txt">
 			<Filter>src\Engine\Octree</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Engine\Octree\ofApp.cpp">
@@ -46,11 +40,38 @@
 		<ClCompile Include="src\Engine\Scenes\SceneManager.cpp">
 			<Filter>src\Engine\Scenes</Filter>
 		</ClCompile>
+		<ClCompile Include="src\Engine\UserInterface\Elements\Button.cpp">
+			<Filter>src\Engine\UserInterface\Elements</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Engine\UserInterface\Elements\Label.cpp">
+			<Filter>src\Engine\UserInterface\Elements</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Engine\UserInterface\Elements\UiElement.cpp">
+			<Filter>src\Engine\UserInterface\Elements</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Engine\UserInterface\UserInterface.cpp">
+			<Filter>src\Engine\UserInterface</Filter>
+		</ClCompile>
 		<ClCompile Include="src\Entities\Entity.cpp">
 			<Filter>src\Entities</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Entities\Forces.cpp">
 			<Filter>src\Entities</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Player\Player.cpp">
+			<Filter>src\Player</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Scenes\GameplayScene.cpp">
+			<Filter>src\Scenes</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Scenes\MainMenuScene.cpp">
+			<Filter>src\Scenes</Filter>
+		</ClCompile>
+		<ClCompile Include="src\UI\MainMenuUI.cpp">
+			<Filter>src\UI</Filter>
+		</ClCompile>
+		<ClCompile Include="src\UI\PauseMenuUI.cpp">
+			<Filter>src\UI</Filter>
 		</ClCompile>
 		<ClCompile Include="src\main.cpp">
 			<Filter>src</Filter>
@@ -105,61 +126,82 @@
 		<Filter Include="src">
 			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
 		</Filter>
+		<Filter Include="src\Core">
+			<UniqueIdentifier>{C5CCDCC2--928-4-4D-A8-8-677-8A0FE203228B}</UniqueIdentifier>
+		</Filter>
 		<Filter Include="src\Engine">
-			<UniqueIdentifier>{2D0E2E50--C70-6-4C-F6-8-43D-5BDD9FB30AF8}</UniqueIdentifier>
+			<UniqueIdentifier>{B78D5EB8--582-E-44-DD-B-3CA-8D594D578355}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\Core">
-			<UniqueIdentifier>{1A14A30B--BFE-A-40-F3-B-64C-7F3053EDB4F0}</UniqueIdentifier>
+			<UniqueIdentifier>{D6C153D4--C0C-C-41-C8-9-F8D-7D800429884B}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\Octree">
-			<UniqueIdentifier>{90AA0C7C--88D-B-41-F7-B-150-665496AA74D5}</UniqueIdentifier>
+			<UniqueIdentifier>{FB8A845B--D66-F-45-CB-B-EA6-0381D2693FA6}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\Scenes">
-			<UniqueIdentifier>{12BC8E18--515-8-44-8D-9-779-4774EBE562E1}</UniqueIdentifier>
+			<UniqueIdentifier>{D8494ED8--BA1-C-46-AC-B-757-0E6492B90072}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\Engine\UserInterface">
+			<UniqueIdentifier>{C907EEFB--AC5-E-42-C3-B-8E1-9D8AFAF9DAC5}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\Engine\UserInterface\Elements">
+			<UniqueIdentifier>{FD0094BB--993-E-47-3A-9-289-26077CB64FBA}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Entities">
-			<UniqueIdentifier>{A0F1BA5C--E52-2-49-A8-8-274-190B40930EFB}</UniqueIdentifier>
+			<UniqueIdentifier>{B678E9EB--1C0-4-4A-3D-B-E20-3BDDEA9EC559}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\Player">
+			<UniqueIdentifier>{980F6BA1--C93-8-4F-94-B-D77-7445D4B39D45}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\Scenes">
+			<UniqueIdentifier>{ED8F7F77--394-7-43-A7-B-1D2-D0499C38A580}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\UI">
+			<UniqueIdentifier>{B8A51BB6--F7D-9-46-71-8-A14-1460532359A0}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons">
-			<UniqueIdentifier>{144B7F76--D99-C-41-D3-8-C43-4CE637026911}</UniqueIdentifier>
+			<UniqueIdentifier>{9BC380DA--EA1-6-4C-E9-A-D65-460D44B9E3F6}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader">
-			<UniqueIdentifier>{367CEDEC--08C-F-48-10-B-116-FE4242326FD0}</UniqueIdentifier>
+			<UniqueIdentifier>{765C85AD--A43-E-49-A5-9-189-126D7575BCB0}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\src">
-			<UniqueIdentifier>{04064A30--1C3-C-4C-E7-8-345-F647BA22D1FB}</UniqueIdentifier>
+			<UniqueIdentifier>{0C6B9E9A--277-5-4B-B7-B-BC4-CE8787FD6B70}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs">
-			<UniqueIdentifier>{6C68582A--294-A-44-1E-B-64B-C14CC9EB9E87}</UniqueIdentifier>
+			<UniqueIdentifier>{DC567DE0--5DB-6-4F-23-8-426-E3E142F4B84B}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp">
-			<UniqueIdentifier>{558309AB--B9E-1-49-1E-8-105-32E673F6C839}</UniqueIdentifier>
+			<UniqueIdentifier>{DE65D616--D7D-9-4B-3A-A-B62-96DAB98990B5}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include">
-			<UniqueIdentifier>{92FBDE15--699-A-45-55-9-4ED-759D481E42FA}</UniqueIdentifier>
+			<UniqueIdentifier>{799ADB52--85D-0-4F-31-9-2F1-6CB1F64F1413}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp">
-			<UniqueIdentifier>{C7A7A12E--2C8-C-49-17-8-D83-48C6955459FC}</UniqueIdentifier>
+			<UniqueIdentifier>{2BDA9AAD--1A2-6-4B-4F-B-F7A-18E10E3CBA1B}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler">
-			<UniqueIdentifier>{1E1D0AD8--46E-5-46-63-B-B89-08BBB77FD914}</UniqueIdentifier>
+			<UniqueIdentifier>{C5520476--17B-9-40-EE-8-E2C-09893146CC19}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\port">
-			<UniqueIdentifier>{AF59449F--400-5-47-AE-A-F43-402C6AFDDD05}</UniqueIdentifier>
+			<UniqueIdentifier>{20DE9B38--A00-0-4A-88-B-855-808CD0A652B7}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\port\AndroidJNI">
-			<UniqueIdentifier>{F88DF25B--31D-E-4B-B1-9-0F0-B10E73363E71}</UniqueIdentifier>
+			<UniqueIdentifier>{D650D7BD--715-6-46-21-B-060-0862597E3906}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxGui">
-			<UniqueIdentifier>{C4F3E21A--A24-5-46-DD-8-820-687392B2B6F8}</UniqueIdentifier>
+			<UniqueIdentifier>{60779C05--EA5-6-4C-BD-A-A70-6BD07A15EFEB}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxGui\src">
-			<UniqueIdentifier>{73662892--BE7-0-4A-C0-8-CE2-534FF19E96A7}</UniqueIdentifier>
+			<UniqueIdentifier>{E1BF91F0--756-8-48-F6-9-9CA-948F9C3DE821}</UniqueIdentifier>
 		</Filter>
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="src\ofApp.h">
 			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Core\GameManager.h">
+			<Filter>src\Core</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Engine\Core\Component.h">
 			<Filter>src\Engine\Core</Filter>
@@ -200,11 +242,38 @@
 		<ClInclude Include="src\Engine\Scenes\SceneManager.h">
 			<Filter>src\Engine\Scenes</Filter>
 		</ClInclude>
+		<ClInclude Include="src\Engine\UserInterface\Elements\Button.h">
+			<Filter>src\Engine\UserInterface\Elements</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Engine\UserInterface\Elements\Label.h">
+			<Filter>src\Engine\UserInterface\Elements</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Engine\UserInterface\Elements\UiElement.h">
+			<Filter>src\Engine\UserInterface\Elements</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Engine\UserInterface\UserInterface.h">
+			<Filter>src\Engine\UserInterface</Filter>
+		</ClInclude>
 		<ClInclude Include="src\Entities\Entity.h">
 			<Filter>src\Entities</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Entities\Forces.h">
 			<Filter>src\Entities</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Player\Player.h">
+			<Filter>src\Player</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Scenes\GameplayScene.h">
+			<Filter>src\Scenes</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Scenes\MainMenuScene.h">
+			<Filter>src\Scenes</Filter>
+		</ClInclude>
+		<ClInclude Include="src\UI\MainMenuUI.h">
+			<Filter>src\UI</Filter>
+		</ClInclude>
+		<ClInclude Include="src\UI\PauseMenuUI.h">
+			<Filter>src\UI</Filter>
 		</ClInclude>
 		<ClInclude Include="src\ofApp.h">
 			<Filter>src</Filter>

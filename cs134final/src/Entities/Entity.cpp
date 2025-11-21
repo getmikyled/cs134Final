@@ -16,17 +16,47 @@ ofVec3f Entity::calculateForces()
 
     while (force != forces.end())
     {
-        result = (*force)->getForce();
-        
-        // Erase if force is NOT indefinite on the system
-        if ((*force)->indefinite == false)
+
+        if (!(*force)->rotation)
         {
-            force = forces.erase(force);
+            result += (*force)->getForce();
+        
+            // Erase if force is NOT indefinite on the system
+            if ((*force)->indefinite == false)
+            {
+                force = forces.erase(force);
+            }
         }
+        
     }
 
     return result;
 }
+
+ofVec3f Entity::calculateRotationalForces()
+{
+    ofVec3f result = ofVec3f(0, 0, 0);
+    auto force = forces.begin();
+
+    while (force != forces.end())
+    {
+
+        if ((*force)->rotation)
+        {
+            result += (*force)->getForce();
+        
+            // Erase if force is NOT indefinite on the system
+            if ((*force)->indefinite == false)
+            {
+                force = forces.erase(force);
+            }
+        }
+        
+    }
+
+    return result;
+}
+
 
 void Entity::integrate()
 {
@@ -43,6 +73,8 @@ void Entity::integrate()
     accel += calculateForces() * (1.0 / mass);
     velocity += accel * dt;
     velocity *= damping;
+
+    if (velocity.length() > maxSpeed) velocity = velocity.normalize() * maxSpeed;
 }
 
 void Entity::onCollisionTriggered(Entity* entity)

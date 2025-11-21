@@ -11,6 +11,7 @@ public:
 
     void onUpdate(ofEventArgs & args) override;
     ofVec3f calculateForces();
+    ofVec3f calculateRotationalForces();
     void integrate();
     virtual void onCollisionTriggered(Entity* entity);
     virtual bool canCollideWith(Entity* entity);
@@ -26,6 +27,8 @@ public:
     float damping = 1;
     
     ofVec3f headingDirection = ofVec3f(0, -1, 0);
+
+    float maxSpeed = 10;
 
     bool collisionsEnabled = true;
 };
