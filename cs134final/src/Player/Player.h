@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entity.h"
+#include "ofxAssimpModelLoader.h"
 
 class Player : public Entity
 {
@@ -17,6 +18,8 @@ public:
     float inputZ;
 
     float speed = 300;
+    
+    ofxAssimpModelLoader playerModel;
 
     
     

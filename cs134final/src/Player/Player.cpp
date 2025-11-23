@@ -42,10 +42,15 @@ void Player::onUpdate(ofEventArgs& args)
 
 void Player::onDraw(ofEventArgs& args)
 {
+
+    
+    
     ofPushMatrix();
     ofMultMatrix(transform.getTransform());
 
-    ofDrawSphere(0, 0, 0, 200);
+    //ofDrawSphere(0, 0, 0, 200);
+    playerModel.loadModel("models/objects/car.obj");
+    playerModel.drawFaces();
     
     ofPopMatrix();
 }
