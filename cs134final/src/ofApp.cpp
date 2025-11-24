@@ -8,7 +8,6 @@
 void ofApp::setup()
 {
     // Set up scene manager
-
     MainMenuScene* mainMenuScene = new MainMenuScene();
     GameplayScene* gameplayScene = new GameplayScene();
     

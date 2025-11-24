@@ -25,7 +25,7 @@ public:
     virtual void onEnable();
     virtual void onDisable();
 
-    virtual void onDraw(ofEventArgs & args);
+    virtual void draw();
     virtual void onUpdate(ofEventArgs & args);
     virtual void onDestroy() {};
 

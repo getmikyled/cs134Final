@@ -47,7 +47,6 @@ public:
 
     bool isActive = false;
     
-    ofEasyCam* mainCamera;
-
+    ofEasyCam* mainCamera = nullptr;
     UserInterface* userInterface = nullptr;
 };

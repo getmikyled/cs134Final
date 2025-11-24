@@ -7,6 +7,7 @@ void Scene::onEnable()
 {
     // Subscribe events
     ofAddListener(ofEvents().update, this, &Scene::update);
+    ofAddListener(ofEvents().update, this, &Scene::draw);
 
     // Enable user interface
     if (userInterface != nullptr) userInterface->onEnable();
@@ -27,6 +28,7 @@ void Scene::onDisable()
 {
     // Subscribe events
     ofRemoveListener(ofEvents().update, this, &Scene::update);
+    ofRemoveListener(ofEvents().update, this, &Scene::draw);
 
     // Disable userInterface
     if (userInterface != nullptr) userInterface->onDisable();
@@ -81,6 +83,11 @@ void Scene::draw(ofEventArgs &args)
 {
     ofEnableDepthTest();
     if (mainCamera)  mainCamera->begin();
+
+    for (GameObject* gameObject : gameObjects)
+    {
+        gameObject->draw();
+    }
 
     if (mainCamera)  mainCamera->end();
     ofDisableDepthTest();
