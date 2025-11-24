@@ -104,6 +104,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Graphics\Model.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Core\GameManager.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Graphics\Model.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Core\GameManager.h" />
     <ClInclude Include="src\Engine\Core\Component.h" />

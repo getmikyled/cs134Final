@@ -39,19 +39,3 @@ void Player::onUpdate(ofEventArgs& args)
 
     Entity::onUpdate(args);
 }
-
-void Player::onDraw(ofEventArgs& args)
-{
-
-    
-    
-    ofPushMatrix();
-    ofMultMatrix(transform.getTransform());
-
-    //ofDrawSphere(0, 0, 0, 200);
-    playerModel.loadModel("models/objects/car.obj");
-    playerModel.drawFaces();
-    
-    ofPopMatrix();
-}
-

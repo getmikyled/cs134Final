@@ -2,12 +2,18 @@
 
 #include "Entity.h"
 #include "ofxAssimpModelLoader.h"
+#include "Graphics/Model.h"
 
 class Player : public Entity
 {
 public:
+    Player()
+    {
+        model = addComponent<Model>();
+        model->load("models/objects/ufo.obj");
+    }
+    
     void onUpdate(ofEventArgs& args) override;
-    void onDraw(ofEventArgs& args) override;
 
     glm::vec3 getFrontVector();
     glm::vec3 getRightVector();
@@ -18,9 +24,6 @@ public:
     float inputZ;
 
     float speed = 300;
-    
-    ofxAssimpModelLoader playerModel;
 
-    
-    
+    Model* model;
 };
