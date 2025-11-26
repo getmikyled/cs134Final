@@ -10,7 +10,7 @@ public:
     Player()
     {
         model = addComponent<Model>();
-        model->load("models/objects/ufo.obj");
+        model->load("models/objects/car.obj");
     }
     
     void onUpdate(ofEventArgs& args) override;

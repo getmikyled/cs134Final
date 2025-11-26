@@ -6,7 +6,6 @@
 void Model::draw()
 {
     ofPushMatrix();
-    ofMultMatrix(gameObject->transform.getTransform());
 
     model->drawFaces();
     ofPopMatrix();
@@ -15,4 +14,7 @@ void Model::draw()
 void Model::load(std::string path)
 {
     model->load(path);
+    model->setScaleNormalization(false);
+    model->enableMaterials();
+    model->enableNormals();
 }

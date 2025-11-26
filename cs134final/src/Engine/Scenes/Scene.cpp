@@ -1,13 +1,15 @@
 #include "Scene.h"
 
+#include "of3dGraphics.h"
 #include "ofGraphics.h"
+#include "ofLight.h"
 #include "../../Entities/Entity.h"
 
 void Scene::onEnable()
 {
     // Subscribe events
     ofAddListener(ofEvents().update, this, &Scene::update);
-    ofAddListener(ofEvents().update, this, &Scene::draw);
+    ofAddListener(ofEvents().draw, this, &Scene::draw);
 
     // Enable user interface
     if (userInterface != nullptr) userInterface->onEnable();
@@ -28,7 +30,7 @@ void Scene::onDisable()
 {
     // Subscribe events
     ofRemoveListener(ofEvents().update, this, &Scene::update);
-    ofRemoveListener(ofEvents().update, this, &Scene::draw);
+    ofRemoveListener(ofEvents().draw, this, &Scene::draw);
 
     // Disable userInterface
     if (userInterface != nullptr) userInterface->onDisable();
@@ -81,19 +83,30 @@ void Scene::update(ofEventArgs & args)
 
 void Scene::draw(ofEventArgs &args)
 {
+
     ofEnableDepthTest();
-    if (mainCamera)  mainCamera->begin();
+    ofEnableLighting();
+    if (mainCamera != nullptr)
+    {
+        mainCamera->begin();
+    }
 
     for (GameObject* gameObject : gameObjects)
     {
         gameObject->draw();
     }
 
-    if (mainCamera)  mainCamera->end();
+    for (ofLight* light : lights)
+    {
+        light->draw();
+    }
+
+    if (mainCamera != nullptr)  mainCamera->end();
+    ofDisableLighting();
     ofDisableDepthTest();
 
     // Draw User Interface
-    if (userInterface) userInterface->draw();
+    if (userInterface  != nullptr) userInterface->draw();
 }
 
 void Scene::calculateCollisions()

@@ -1,12 +1,14 @@
 #pragma once
 #include "ofEasyCam.h"
+#include "ofLight.h"
 #include "../UserInterface/UserInterface.h"
 #include "../Core/GameObject.h"
 
 class Scene
 {
 public:
-    
+
+    std::vector<ofLight*> lights;
     std::vector<GameObject*> pendingGameObjects;
     std::vector<GameObject*> gameObjects;
 
