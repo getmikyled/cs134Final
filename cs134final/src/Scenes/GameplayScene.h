@@ -1,5 +1,7 @@
 #pragma once
+
 #include "Scene.h"
+#include "Engine/Octree/Octree.h"
 #include "Player/Player.h"
 
 class GameplayScene : public Scene
@@ -9,13 +11,13 @@ public:
     {
         player = createGameObject<Player>();
         environment = createGameObject<GameObject>();
-        Model* terrainModel = environment->addComponent<Model>();
+        terrainModel = environment->addComponent<Model>();
         terrainModel->load("models/terrain/terrain.obj");
-        Model* buildingsModel = environment->addComponent<Model>();
+        buildingsModel = environment->addComponent<Model>();
         buildingsModel->load("models/terrain/buildings_noid.obj");
-        Model* roadLampSignModel = environment->addComponent<Model>();
+        roadLampSignModel = environment->addComponent<Model>();
         roadLampSignModel->load("models/terrain/SM_roadlampsign.obj");
-        Model* treesFencesModel = environment->addComponent<Model>();
+        treesFencesModel = environment->addComponent<Model>();
         treesFencesModel->load("models/terrain/treesandfence.obj");
 
         mainCamera = new ofEasyCam();
@@ -30,8 +32,25 @@ public:
         directionalLight->enable();
         directionalLight->setDirectional();
         lights.push_back(directionalLight);
+
+        octree = new Octree();
+        addGameObject(octree);
+        octree->staticMeshes.push_back(terrainModel);
+        octree->staticMeshes.push_back(buildingsModel);
+        octree->staticMeshes.push_back(roadLampSignModel);
+        octree->staticMeshes.push_back(treesFencesModel);
+        octree->create(20);
     }
 
+    void draw(ofEventArgs& args) override;
+    void update(ofEventArgs& args) override;
+
+    Model* terrainModel;
+    Model* buildingsModel;
+    Model* roadLampSignModel;
+    Model* treesFencesModel;
+
+    Octree* octree;
     GameObject* environment;
     Player* player;
 };
