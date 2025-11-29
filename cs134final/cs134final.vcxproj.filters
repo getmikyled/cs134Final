@@ -25,13 +25,7 @@
 		<ClCompile Include="src\Engine\Octree\Octree.cpp">
 			<Filter>src\Engine\Octree</Filter>
 		</ClCompile>
-		<ClCompile Include="src\Engine\Octree\Util.cpp">
-			<Filter>src\Engine\Octree</Filter>
-		</ClCompile>
 		<ClCompile Include="src\Engine\Octree\box.cc">
-			<Filter>src\Engine\Octree</Filter>
-		</ClCompile>
-		<ClCompile Include="src\Engine\Octree\ofApp.cpp">
 			<Filter>src\Engine\Octree</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Engine\Scenes\Scene.cpp">
@@ -57,6 +51,9 @@
 		</ClCompile>
 		<ClCompile Include="src\Entities\Forces.cpp">
 			<Filter>src\Entities</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Graphics\Model.cpp">
+			<Filter>src\Graphics</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Player\Player.cpp">
 			<Filter>src\Player</Filter>
@@ -127,73 +124,76 @@
 			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Core">
-			<UniqueIdentifier>{C5CCDCC2--928-4-4D-A8-8-677-8A0FE203228B}</UniqueIdentifier>
+			<UniqueIdentifier>{A0AC489A--334-6-42-41-B-65B-CE7A77E682F4}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine">
-			<UniqueIdentifier>{B78D5EB8--582-E-44-DD-B-3CA-8D594D578355}</UniqueIdentifier>
+			<UniqueIdentifier>{8D528010--E96-7-42-93-B-6EB-05A1D8B43907}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\Core">
-			<UniqueIdentifier>{D6C153D4--C0C-C-41-C8-9-F8D-7D800429884B}</UniqueIdentifier>
+			<UniqueIdentifier>{9717CFEB--DB8-8-4E-3F-B-6D2-7845AD54C8EF}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\Octree">
-			<UniqueIdentifier>{FB8A845B--D66-F-45-CB-B-EA6-0381D2693FA6}</UniqueIdentifier>
+			<UniqueIdentifier>{0695C01B--CC6-F-44-EE-A-E9C-802A8CCC5042}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\Scenes">
-			<UniqueIdentifier>{D8494ED8--BA1-C-46-AC-B-757-0E6492B90072}</UniqueIdentifier>
+			<UniqueIdentifier>{4C76AF62--449-7-48-C4-8-D96-DF0DC397C4C8}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\UserInterface">
-			<UniqueIdentifier>{C907EEFB--AC5-E-42-C3-B-8E1-9D8AFAF9DAC5}</UniqueIdentifier>
+			<UniqueIdentifier>{4141BA61--09B-E-4D-0E-9-D8A-712E866843A1}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\UserInterface\Elements">
-			<UniqueIdentifier>{FD0094BB--993-E-47-3A-9-289-26077CB64FBA}</UniqueIdentifier>
+			<UniqueIdentifier>{654B0594--B6E-8-41-88-9-1FE-33AE02BA543B}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Entities">
-			<UniqueIdentifier>{B678E9EB--1C0-4-4A-3D-B-E20-3BDDEA9EC559}</UniqueIdentifier>
+			<UniqueIdentifier>{EDEB9022--22D-C-46-E9-9-91A-E56889AAE483}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\Graphics">
+			<UniqueIdentifier>{4A3516BB--1FB-3-4D-0E-9-CAF-42130C1C010C}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Player">
-			<UniqueIdentifier>{980F6BA1--C93-8-4F-94-B-D77-7445D4B39D45}</UniqueIdentifier>
+			<UniqueIdentifier>{864B244D--843-6-47-2F-8-521-8809871AC9C4}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Scenes">
-			<UniqueIdentifier>{ED8F7F77--394-7-43-A7-B-1D2-D0499C38A580}</UniqueIdentifier>
+			<UniqueIdentifier>{3AF0F5AB--5D5-4-4C-EF-A-711-FDCE0D9560B9}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\UI">
-			<UniqueIdentifier>{B8A51BB6--F7D-9-46-71-8-A14-1460532359A0}</UniqueIdentifier>
+			<UniqueIdentifier>{2123BB46--942-F-47-21-8-A9C-4BFDD18C0684}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons">
-			<UniqueIdentifier>{9BC380DA--EA1-6-4C-E9-A-D65-460D44B9E3F6}</UniqueIdentifier>
+			<UniqueIdentifier>{24CBD546--FDD-B-42-D2-9-4EF-45456889FE41}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader">
-			<UniqueIdentifier>{765C85AD--A43-E-49-A5-9-189-126D7575BCB0}</UniqueIdentifier>
+			<UniqueIdentifier>{32BE5DBA--D1B-C-4E-72-A-56A-4E961CC47D05}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\src">
-			<UniqueIdentifier>{0C6B9E9A--277-5-4B-B7-B-BC4-CE8787FD6B70}</UniqueIdentifier>
+			<UniqueIdentifier>{61F01E25--F91-3-4D-02-B-AF0-391E9DFE2437}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs">
-			<UniqueIdentifier>{DC567DE0--5DB-6-4F-23-8-426-E3E142F4B84B}</UniqueIdentifier>
+			<UniqueIdentifier>{6A9B3AF9--8D7-7-42-42-A-0DD-FB56BA69DD78}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp">
-			<UniqueIdentifier>{DE65D616--D7D-9-4B-3A-A-B62-96DAB98990B5}</UniqueIdentifier>
+			<UniqueIdentifier>{CC62FFD6--F6B-6-48-A8-9-349-6D96CB53ADC9}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include">
-			<UniqueIdentifier>{799ADB52--85D-0-4F-31-9-2F1-6CB1F64F1413}</UniqueIdentifier>
+			<UniqueIdentifier>{62F41C19--E2B-7-46-EE-9-A39-7C9614DC6780}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp">
-			<UniqueIdentifier>{2BDA9AAD--1A2-6-4B-4F-B-F7A-18E10E3CBA1B}</UniqueIdentifier>
+			<UniqueIdentifier>{563E337F--D9C-E-4C-F5-B-051-7593A1D79075}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler">
-			<UniqueIdentifier>{C5520476--17B-9-40-EE-8-E2C-09893146CC19}</UniqueIdentifier>
+			<UniqueIdentifier>{5656A853--B01-0-40-E2-8-665-5B2C0A1A2D3A}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\port">
-			<UniqueIdentifier>{20DE9B38--A00-0-4A-88-B-855-808CD0A652B7}</UniqueIdentifier>
+			<UniqueIdentifier>{2A94C984--920-2-4E-E4-8-440-0D5CE3075BA3}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\port\AndroidJNI">
-			<UniqueIdentifier>{D650D7BD--715-6-46-21-B-060-0862597E3906}</UniqueIdentifier>
+			<UniqueIdentifier>{54793419--5A2-0-42-B4-9-5D9-4DFBEF629AA3}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxGui">
-			<UniqueIdentifier>{60779C05--EA5-6-4C-BD-A-A70-6BD07A15EFEB}</UniqueIdentifier>
+			<UniqueIdentifier>{4BC4C529--BFA-F-4C-19-8-D35-CC3DE39A21DC}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxGui\src">
-			<UniqueIdentifier>{E1BF91F0--756-8-48-F6-9-9CA-948F9C3DE821}</UniqueIdentifier>
+			<UniqueIdentifier>{B129D334--C60-9-44-34-A-5C9-CA9151E20A2E}</UniqueIdentifier>
 		</Filter>
 	</ItemGroup>
 	<ItemGroup>
@@ -218,16 +218,7 @@
 		<ClInclude Include="src\Engine\Octree\Octree.h">
 			<Filter>src\Engine\Octree</Filter>
 		</ClInclude>
-		<ClInclude Include="src\Engine\Octree\Primitives.h">
-			<Filter>src\Engine\Octree</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Engine\Octree\Util.h">
-			<Filter>src\Engine\Octree</Filter>
-		</ClInclude>
 		<ClInclude Include="src\Engine\Octree\box.h">
-			<Filter>src\Engine\Octree</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Engine\Octree\ofApp.h">
 			<Filter>src\Engine\Octree</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Engine\Octree\ray.h">
@@ -259,6 +250,9 @@
 		</ClInclude>
 		<ClInclude Include="src\Entities\Forces.h">
 			<Filter>src\Entities</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Graphics\Model.h">
+			<Filter>src\Graphics</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Player\Player.h">
 			<Filter>src\Player</Filter>
