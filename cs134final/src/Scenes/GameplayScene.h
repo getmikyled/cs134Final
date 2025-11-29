@@ -34,12 +34,11 @@ public:
         lights.push_back(directionalLight);
 
         octree = new Octree();
-        addGameObject(octree);
-        octree->staticMeshes.push_back(terrainModel);
-        octree->staticMeshes.push_back(buildingsModel);
+        //octree->staticMeshes.push_back(terrainModel);
+        //octree->staticMeshes.push_back(buildingsModel);
         octree->staticMeshes.push_back(roadLampSignModel);
-        octree->staticMeshes.push_back(treesFencesModel);
         octree->create(20);
+        std::cout << "FINISHED" << std::endl;
     }
 
     void draw(ofEventArgs& args) override;

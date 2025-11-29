@@ -156,6 +156,8 @@ void Octree::create(int numLevels) {
 		root.points.push_back(points);
 	}
 
+	cout << "Finished adding points to root" << endl;
+
 	// recursively buid octree
 	//
 	level++;
@@ -185,7 +187,8 @@ void Octree::subdivide(TreeNode & node, int numLevels, int level)
 	subDivideBox8(node.box, boxlist);
 	
 	for (int i = 0; i < boxlist.size(); i++) {
-		for (int j = 0; j < node.points.size(); j++)
+		cout << "box " << i << endl;
+		for (int j = 0; j < staticMeshes.size(); j++)
 		{
 			std::vector<int> pointsInBox;
 			if (getMeshPointsInBox(staticMeshes[j]->model->getMesh(0), node.points[j], boxlist[i], pointsInBox)) {
