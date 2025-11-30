@@ -12,20 +12,20 @@ public:
         
         player = createGameObject<Player>();
         environment = createGameObject<GameObject>();
-        cout << "Starting to load terrain" << endl;
+
         terrainModel = environment->addComponent<Model>();
         terrainModel->load("models/terrain/terrain.obj");
-        cout << "Starting to load buildings" << endl;
+
         buildingsModel = environment->addComponent<Model>();
         buildingsModel->load("models/terrain/buildings_noid.obj");
-        cout << "Starting to load roadsign" << endl;
+   
         roadLampSignModel = environment->addComponent<Model>();
         roadLampSignModel->load("models/terrain/SM_roadlampsign.obj");
-        cout << "Starting to load trees" << endl;
+      
         treesFencesModel = environment->addComponent<Model>();
         treesFencesModel->load("models/terrain/treesandfence.obj");
-        cout << "Finished loading all models" << endl;
-
+      
+        
         mainCamera = new ofEasyCam();
         mainCamera->enableMouseInput();
         mainCamera->setPosition(100, 0, 100);
@@ -43,6 +43,7 @@ public:
         octree->staticMeshes.push_back(terrainModel);
         octree->staticMeshes.push_back(buildingsModel);
         octree->staticMeshes.push_back(roadLampSignModel);
+        octree->staticMeshes.push_back(treesFencesModel);
         octree->create(20);
         std::cout << "FINISHED" << std::endl;
     }
