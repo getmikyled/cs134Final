@@ -10,9 +10,9 @@ class Transform
 public:
     Transform()
     {
-        position = glm::vec3(0, 0, 0);
-        rotation = 0;
-        scale = glm::vec3(1, 1, 1);
+        position = ofVec3f(0, 0, 0);
+        rotation = ofVec3f(0, 0, 0);
+        scale = ofVec3f(1, 1, 1);
     }
     
     ofMatrix4x4 getTransform()
@@ -26,10 +26,16 @@ public:
 
     ofMatrix4x4 getRotation()
     {
-        return glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0, 0, 1));
+        ofMatrix4x4 rotationMatrix;
+        rotationMatrix.makeRotationMatrix(
+            rotation.x, ofVec3f(1, 0, 0),
+            rotation.y, ofVec3f(0, 1, 0),
+            rotation.z, ofVec3f(0, 0, 1)
+        );
+        return rotationMatrix;
     }
     
     ofVec3f position;
-    float rotation;
+    ofVec3f rotation;
     ofVec3f scale;
 };

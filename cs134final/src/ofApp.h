@@ -4,6 +4,7 @@
 #include "MainMenuScene.h"
 #include "ofMain.h"
 #include "ofxPanel.h"
+#include "ofxSliderGroup.h"
 #include "Engine/Scenes/SceneManager.h"
 
 class ofApp : public ofBaseApp{
@@ -30,6 +31,8 @@ class ofApp : public ofBaseApp{
 
 	ofxPanel gui;
 	ofxIntSlider octreeLevels;
+	ofxVec3Slider positionTest;
+	ofxVec3Slider rotationTest;
 
 	// Scenes
 	MainMenuScene* mainMenuScene;

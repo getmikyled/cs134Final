@@ -6,6 +6,7 @@
 void Model::draw()
 {
     ofPushMatrix();
+    ofMultMatrix(gameObject->transform.getTransform());
 
     model->drawFaces();
     ofPopMatrix();

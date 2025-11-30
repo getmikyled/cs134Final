@@ -39,8 +39,8 @@ public:
         }
     }
 
-    void onEnable();
-    void onDisable();
+    virtual void onEnable();
+    virtual void onDisable();
     
     virtual void setup() {};
     virtual void update(ofEventArgs & args);
