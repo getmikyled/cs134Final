@@ -314,7 +314,7 @@ void Octree::draw()
 {
 	GameObject::draw();
 
-	draw(root, 20, 1);
+	draw(root, octreeLevels, 1);
 }
 
 

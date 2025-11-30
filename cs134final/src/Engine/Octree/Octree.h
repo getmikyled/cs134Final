@@ -47,5 +47,7 @@ public:
     vector<Model*> dynamicMeshes;
     ofMesh mesh;
     TreeNode root;
+
+    int octreeLevels = 1;
     
 };

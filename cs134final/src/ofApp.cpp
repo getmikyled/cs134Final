@@ -8,25 +8,29 @@
 void ofApp::setup()
 {
     // Set up scene manager
-    MainMenuScene* mainMenuScene = new MainMenuScene();
-    GameplayScene* gameplayScene = new GameplayScene();
+    mainMenuScene = new MainMenuScene();
+    gameplayScene = new GameplayScene();
     
     SceneManager::getInstance().addScene(mainMenuScene);
     SceneManager::getInstance().addScene(gameplayScene);
     
     SceneManager::getInstance().setActiveScene(0);
+
+    // Setup gui
+    gui.setup();
+    gui.add(octreeLevels.setup("Octree Levels", 1, 0, 20));
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
-    
+    gameplayScene->octree->octreeLevels = octreeLevels;
 }
 
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-   
+   gui.draw();
 }
 
 //--------------------------------------------------------------

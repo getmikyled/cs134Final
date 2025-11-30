@@ -1,6 +1,9 @@
 #pragma once
 
+#include "GameplayScene.h"
+#include "MainMenuScene.h"
 #include "ofMain.h"
+#include "ofxPanel.h"
 #include "Engine/Scenes/SceneManager.h"
 
 class ofApp : public ofBaseApp{
@@ -24,4 +27,11 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		const float WINDOW_ASPECT_RATIO = 16.0f / 9.0f;
+
+	ofxPanel gui;
+	ofxIntSlider octreeLevels;
+
+	// Scenes
+	MainMenuScene* mainMenuScene;
+	GameplayScene* gameplayScene;
 };
