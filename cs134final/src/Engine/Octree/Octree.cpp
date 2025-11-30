@@ -33,6 +33,7 @@ void Octree::drawBox(const Box &box) {
 // return a Mesh Bounding Box for the entire Mesh
 //
 Box Octree::meshBounds(const ofMesh & mesh) {
+	
 	int n = mesh.getNumVertices();
 	ofVec3f v = mesh.getVertex(0);
 	ofVec3f max = v;
@@ -135,11 +136,12 @@ void Octree::create(int numLevels) {
 
 	// Set root box to the largest bounding box given all static meshes
 	cout << "Starting to set mesh bounds" << endl;
-	root.box = meshBounds(staticMeshes[0]->model->getMesh(0));
+	
+	root.box = meshBounds(staticMeshes[0]->mesh);
 	cout << "Set initial mesh bounds" << endl;
 	for (int i = 1; i < staticMeshes.size(); i++)
 	{
-		Box tempBox = meshBounds(staticMeshes[i]->model->getMesh(0));
+		Box tempBox = meshBounds(staticMeshes[i]->mesh);
 		root.box.parameters[0] = min(tempBox.parameters[0], root.box.parameters[0]);
 		root.box.parameters[1] = max(tempBox.parameters[1], root.box.parameters[1]);
 	}
@@ -151,7 +153,7 @@ void Octree::create(int numLevels) {
 	for (int i = 0; i < staticMeshes.size(); i++)
 	{
 		vector<int> points;
-		int numVertices = staticMeshes[i]->model->getMesh(0).getNumVertices();
+		int numVertices = staticMeshes[i]->mesh.getNumVertices();
 		
 		for (int j = 0; j < numVertices; j++)
 		{
@@ -201,7 +203,7 @@ void Octree::subdivide(TreeNode & node, int numLevels, int level)
 		for (int j = 0; j < staticMeshes.size(); j++)
 		{
 			
-			ofMesh meshModel = staticMeshes[j]->model->getMesh(0);
+			ofMesh meshModel = staticMeshes[j]->mesh;
 
 			vector<int> points;
 			getMeshPointsInBox(meshModel, node.points[j], boxlist[i], points);

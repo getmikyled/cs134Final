@@ -8,6 +8,7 @@ public:
     Model()
     {
         model = new ofxAssimpModelLoader();
+        
     }
 
     void load(std::string path);

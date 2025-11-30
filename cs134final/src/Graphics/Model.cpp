@@ -17,4 +17,5 @@ void Model::load(std::string path)
     model->setScaleNormalization(false);
     model->enableMaterials();
     model->enableNormals();
+    mesh = model->getMesh(0);
 }
