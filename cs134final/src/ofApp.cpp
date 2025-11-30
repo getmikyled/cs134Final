@@ -19,9 +19,9 @@ void ofApp::setup()
     // Setup gui
     gui.setup();
     gui.add(octreeLevels.setup("Octree Levels", 1, 0, 20));
-    gui.add(positionTest.setup("Octree Levels", ofVec3f(0, 0, 0),
+    gui.add(positionTest.setup("Position Test", ofVec3f(0, 0, 0),
         ofVec3f(-50, -50, -50), ofVec3f(50, 50, 50)));
-    gui.add(rotationTest.setup("Octree Levels", ofVec3f(0, 0, 0),
+    gui.add(rotationTest.setup("Rotation Test", ofVec3f(0, 0, 0),
         ofVec3f(0, 0, 0), ofVec3f(360, 360, 360)));
 }
 
