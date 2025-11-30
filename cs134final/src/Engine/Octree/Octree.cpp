@@ -192,33 +192,44 @@ void Octree::subdivide(TreeNode & node, int numLevels, int level)
 	cout << level << " ";
 	std::vector<Box> boxlist;
 	subDivideBox8(node.box, boxlist);
+
+	const size_t meshCount = staticMeshes.size();
+	const size_t boxListLen = boxlist.size();
 	
-	for (int i = 0; i < boxlist.size(); i++) {
+	for (int i = 0; i < boxListLen; i++) {
 
 		int index = node.children.size();
 		int pointCount = 0;
 
 		std::vector<vector<int>> pointsInBox;
+		pointsInBox.resize(meshCount);
 		
-		for (int j = 0; j < staticMeshes.size(); j++)
+		for (int j = 0; j < meshCount; j++)
 		{
 			
-			ofMesh meshModel = staticMeshes[j]->mesh;
+			const ofMesh &meshModel = staticMeshes[j]->mesh;
 
 			vector<int> points;
-			getMeshPointsInBox(meshModel, node.points[j], boxlist[i], points);
-			pointCount += points.size();
-			pointsInBox.push_back(points);
+			if (getMeshPointsInBox(meshModel, node.points[j], boxlist[i], points))
+			{
+				pointCount += points.size();
+			}
+			
+			pointsInBox[j] = points;
 		}
 
-		if (pointCount > 5)
+		if (pointCount > 0)
 		{
-			TreeNode newTreeNode;
+			node.children.emplace_back();  
+			TreeNode &child = node.children.back();
+			child.box = boxlist[i];
+			child.points = std::move(pointsInBox);
 			
-			node.children.push_back(newTreeNode);
-			node.children[index].box = boxlist[i];
-			node.children[index].points = pointsInBox;
-			subdivide(node.children[index], numLevels, level + 1);
+			if (pointCount > 5)
+			{
+				subdivide(child, numLevels, level + 1);
+			}
+			
 		}
 
 		
