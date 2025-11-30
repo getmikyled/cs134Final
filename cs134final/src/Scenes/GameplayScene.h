@@ -45,6 +45,7 @@ public:
         octree->staticMeshes.push_back(roadLampSignModel);
         octree->staticMeshes.push_back(treesFencesModel);
         octree->create(20);
+        addGameObject(octree);
         std::cout << "FINISHED" << std::endl;
     }
 
