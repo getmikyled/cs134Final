@@ -146,10 +146,14 @@ void Octree::create(int numLevels) {
 	cout << "Finished setting mesh bounds" << endl;
 
 	// Add points from all meshes
+	
+
 	for (int i = 0; i < staticMeshes.size(); i++)
 	{
 		vector<int> points;
-		for (int j = 0; j < staticMeshes[i]->model->getMesh(0).getNumVertices(); j++)
+		int numVertices = staticMeshes[i]->model->getMesh(0).getNumVertices();
+		
+		for (int j = 0; j < numVertices; j++)
 		{
 			points.push_back(j);
 		}
@@ -183,26 +187,41 @@ void Octree::create(int numLevels) {
 void Octree::subdivide(TreeNode & node, int numLevels, int level)
 	{
 	if (level >= numLevels) return;
-
+	cout << level << " ";
 	std::vector<Box> boxlist;
 	subDivideBox8(node.box, boxlist);
 	
 	for (int i = 0; i < boxlist.size(); i++) {
+
+		int index = node.children.size();
+		int pointCount = 0;
+
+		std::vector<vector<int>> pointsInBox;
+		
 		for (int j = 0; j < staticMeshes.size(); j++)
 		{
+			
 			ofMesh meshModel = staticMeshes[j]->model->getMesh(0);
-			std::vector<int> pointsInBox;
-			if (getMeshPointsInBox(meshModel, node.points[j], boxlist[i], pointsInBox)) {
-				TreeNode newTreeNode;
-				int index = node.children.size();
-				node.children.push_back(newTreeNode);
-				node.children[index].box = boxlist[i];
-				node.children[index].points.push_back(pointsInBox);
-				if (pointsInBox.size() > 1) {
-					subdivide(node.children[index], numLevels, level + 1);
-				}
-			}
+
+			vector<int> points;
+			getMeshPointsInBox(meshModel, node.points[j], boxlist[i], points);
+			pointCount += points.size();
+			pointsInBox.push_back(points);
 		}
+
+		if (pointCount > 5)
+		{
+			TreeNode newTreeNode;
+			
+			node.children.push_back(newTreeNode);
+			node.children[index].box = boxlist[i];
+			node.children[index].points = pointsInBox;
+			subdivide(node.children[index], numLevels, level + 1);
+		}
+
+		
+					
+		
 	}
 }
 

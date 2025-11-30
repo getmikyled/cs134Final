@@ -40,8 +40,8 @@ public:
         lights.push_back(directionalLight);
         cout << "Starting to load octree" << endl;
         octree = new Octree();
-        //octree->staticMeshes.push_back(terrainModel);
-        //octree->staticMeshes.push_back(buildingsModel);
+        octree->staticMeshes.push_back(terrainModel);
+        octree->staticMeshes.push_back(buildingsModel);
         octree->staticMeshes.push_back(roadLampSignModel);
         octree->create(20);
         std::cout << "FINISHED" << std::endl;

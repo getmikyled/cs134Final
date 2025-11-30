@@ -14,4 +14,5 @@ public:
     void draw() override;
     
     ofxAssimpModelLoader* model;
+    ofMesh mesh;
 };
