@@ -24,6 +24,11 @@ void Scene::onEnable()
     {
         gameObject->onEnable();
     }
+
+    for (ofLight* light : lights)
+    {
+        light->enable();
+    }
 }
 
 void Scene::onDisable()
@@ -44,6 +49,11 @@ void Scene::onDisable()
     for (GameObject* gameObject : pendingGameObjects)
     {
         gameObject->onDisable();
+    }
+
+    for (ofLight* light : lights)
+    {
+        light->disable();
     }
 }
 
@@ -95,12 +105,7 @@ void Scene::draw(ofEventArgs &args)
     {
         gameObject->draw();
     }
-
-    for (ofLight* light : lights)
-    {
-        light->draw();
-    }
-
+    
     if (mainCamera != nullptr)  mainCamera->end();
     ofDisableLighting();
     ofDisableDepthTest();

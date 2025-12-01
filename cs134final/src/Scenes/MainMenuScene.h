@@ -13,18 +13,31 @@ public:
         mainCamera = new ofEasyCam();
         mainCamera->setPosition(ofVec3f(0, 0, -30));
         mainCamera->lookAt(ofVec3f(0, 0, 0));
-        mainCamera->disableMouseInput();
+        mainCamera->enableMouseInput();
 
+        // Set up ufo object
         ufoObject = createGameObject<GameObject>();
         ufoObject->transform.position = ofVec3f(-13.75, 5.1f, 0);
         ufoObject->transform.rotation = ofVec3f(321, 0, 0);
         ufoModel = ufoObject->addComponent<Model>();
         ufoModel->load("models/objects/ufo.obj");
-        std::cout<< ufoModel->model->getMesh(0).getNumVertices()<<std::endl;
+
+        // Set up lighting
+        mainLight = new ofLight();
+        mainLight->setup();
+        mainLight->setSpotlight();
+        mainLight->setSpotlightCutOff(50);
+        mainLight->setAmbientColor(ofColor::white);
+        mainLight->setDiffuseColor(ofColor::white);
+        mainLight->setSpecularColor(ofColor::white);
+        mainLight->setPosition(ofVec3f(10, 0, 10));
+        lights.push_back(mainLight);
     }   
 
     void onEnable() override;
 
     GameObject* ufoObject;
     Model* ufoModel;
+
+    ofLight* mainLight;
 };
