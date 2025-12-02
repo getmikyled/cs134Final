@@ -17,7 +17,7 @@ glm::vec3 Player::getRightVector()
 
 glm::vec3 Player::getUpVector()
 {
-    return glm::vec3(ofVec3f(0,-1,0) * transform.getRotation());
+    return glm::vec3(ofVec3f(0,1,0) * transform.getRotation());
 }
 
 

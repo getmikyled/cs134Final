@@ -15,6 +15,7 @@ public:
     void onDraw(ofEventArgs& args) override;
     bool inside(ofPoint point) override;
 
+    ofColor fontColor = ofColor::white;
     float fontSize = 0.1f;
     std::string text = "Text";
 

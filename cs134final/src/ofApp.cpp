@@ -1,5 +1,6 @@
 #include "ofApp.h"
 
+#include "GameManager.h"
 #include "InputSystem.h"
 #include "Scenes/GameplayScene.h"
 #include "Scenes/MainMenuScene.h"
@@ -28,6 +29,7 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
+    GameManager::getInstance().onUpdateGameState();
     gameplayScene->octree->octreeLevels = octreeLevels;
 }
 

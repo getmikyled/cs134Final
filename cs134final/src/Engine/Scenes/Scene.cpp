@@ -59,6 +59,12 @@ void Scene::onDisable()
 
 void Scene::update(ofEventArgs & args)
 {
+    // Update ui
+    if (userInterface != nullptr)
+    {
+        userInterface->update();
+    }
+    
     ///-////////////////////////////////////////////////////////////////////////////////////////
     /// Update all game objects in scene
     auto gameObject = gameObjects.begin();

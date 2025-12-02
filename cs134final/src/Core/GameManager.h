@@ -1,4 +1,5 @@
 #pragma once
+#include "ofTimer.h"
 
 enum GameState
 {
@@ -17,17 +18,27 @@ public:
     }
 
     void setGameState(GameState argState);
+    void onUpdateGameState();
     void onMainMenuStateEntered();
+    void onMainMenuStateExited();
     void onGameplayStateEntered();
+    void onGameplayStateExited();
+    void onUpdateGameplayState();
     void onPausedStateEntered();
     void onGameOverStateEntered();
-    void onMainMenuStateExited();
-    void onGameplayStateExited();
-    void onPausedStateExited();
     void onGameOverStateExited();
+    void onPausedStateExited();
 
     int getScore();
     void addScore(int argScore);
+
+    void resetGameTimer();
+    void startGameTimer();
+    void stopGameTimer();
+    float gameTimerDuration = 120;
+    bool gameTimerActive = false;
+    double gameTimer = 0;
+    
 
 private:
     GameState gameState = MAIN_MENU;

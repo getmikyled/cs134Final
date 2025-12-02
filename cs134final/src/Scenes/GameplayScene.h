@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GameplayUI.h"
 #include "Scene.h"
 #include "Engine/Octree/Octree.h"
 #include "Player/Player.h"
@@ -9,6 +10,10 @@ class GameplayScene : public Scene
 public:
     GameplayScene()
     {
+
+        // Set up ui
+        gameplayUi = new GameplayUI();
+        userInterface = gameplayUi;
         
         player = createGameObject<Player>();
         environment = createGameObject<GameObject>();
@@ -51,6 +56,10 @@ public:
 
     void draw(ofEventArgs& args) override;
     void update(ofEventArgs& args) override;
+
+    void startGame();
+
+    GameplayUI* gameplayUi;
 
     Model* terrainModel;
     Model* buildingsModel;

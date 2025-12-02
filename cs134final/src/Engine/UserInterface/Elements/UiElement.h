@@ -20,7 +20,7 @@ public:
     ofEvent<ofMouseEventArgs> mousePressedEvent;
     ofEvent<ofMouseEventArgs> mouseReleasedEvent;
 
-    ofVec2f* position = new ofVec2f(0, 0);
+    ofVec2f position = ofVec2f(0, 0);
     
 protected:
     void onMousePressed(ofMouseEventArgs &args)

@@ -1,5 +1,6 @@
 #include "GameManager.h"
 
+#include "ofAppRunner.h"
 #include "SceneManager.h"
 
 void GameManager::setGameState(GameState argState)
@@ -42,6 +43,22 @@ void GameManager::setGameState(GameState argState)
     }
 }
 
+void GameManager::onUpdateGameState()
+{
+    switch (gameState)
+    {
+    case MAIN_MENU:
+    case GAME_OVER:
+        break;
+    case GAMEPLAY:
+        onUpdateGameplayState();
+        break;
+    case PAUSED:
+        break;
+    }
+}
+
+
 void GameManager::onMainMenuStateEntered()
 {
     SceneManager::getInstance().setActiveScene(0);
@@ -54,6 +71,8 @@ void GameManager::onMainMenuStateExited()
 
 void GameManager::onGameplayStateEntered()
 {
+    resetGameTimer();
+    startGameTimer();
     SceneManager::getInstance().setActiveScene(1);
 }
 
@@ -61,6 +80,20 @@ void GameManager::onGameplayStateExited()
 {
     
 }
+
+void GameManager::onUpdateGameplayState()
+{
+    if (gameTimerActive)
+    {
+        gameTimer -= ofGetLastFrameTime();
+
+        if (gameTimer <= 0)
+        {
+            setGameState(GAME_OVER);
+        }
+    }
+}
+
 
 void GameManager::onPausedStateEntered()
 {
@@ -92,3 +125,20 @@ void GameManager::addScore(int argScore)
 {
     score += argScore;
 }
+
+void GameManager::resetGameTimer()
+{
+    gameTimer = gameTimerDuration;
+}
+
+
+void GameManager::startGameTimer()
+{
+    gameTimerActive = true;
+}
+
+void GameManager::stopGameTimer()
+{
+    gameTimerActive = false;
+}
+

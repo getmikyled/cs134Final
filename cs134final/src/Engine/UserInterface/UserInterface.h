@@ -9,7 +9,7 @@ public:
     
     void onEnable();
     void onDisable();
-    void update();
+    virtual void update();
     void draw();
 
     std::vector<UiElement*> uiElements;

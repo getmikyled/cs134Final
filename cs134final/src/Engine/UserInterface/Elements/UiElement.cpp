@@ -23,5 +23,5 @@ ofVec2f UiElement::getPosition()
     float width = static_cast<float>(ofGetWindowWidth());
     float height = static_cast<float>(ofGetWindowHeight());
     
-    return ofVec2f(width * position->x, height * position->y);
+    return ofVec2f(width * position.x, height * position.y);
 }

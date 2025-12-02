@@ -11,14 +11,14 @@ public:
         playButton = new Label();
         playButton->text = "PLAY";
         playButton->fontSize = 0.05f;
-        playButton->position = new ofVec2f(0.15f, 0.5f);
+        playButton->position = ofVec2f(0.15f, 0.5f);
         uiElements.emplace_back(playButton);
 
         // Initialize quit button
         quitButton = new Label();
         quitButton->text = "QUIT";
         quitButton->fontSize = 0.05f;
-        quitButton->position = new ofVec2f(0.15f, 0.7f);
+        quitButton->position = ofVec2f(0.15f, 0.7f);
         uiElements.emplace_back(quitButton);
         
         ofAddListener(playButton->mousePressedEvent, this, &MainMenuUI::onPlayButtonPressed);

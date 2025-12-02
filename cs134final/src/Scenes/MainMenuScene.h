@@ -13,7 +13,7 @@ public:
         mainCamera = new ofEasyCam();
         mainCamera->setPosition(ofVec3f(0, 0, -30));
         mainCamera->lookAt(ofVec3f(0, 0, 0));
-        mainCamera->enableMouseInput();
+        mainCamera->disableMouseInput();
 
         // Set up ufo object
         ufoObject = createGameObject<GameObject>();
@@ -25,9 +25,8 @@ public:
         // Set up lighting
         mainLight = new ofLight();
         mainLight->setup();
-        mainLight->setSpotlight();
-        mainLight->setSpotlightCutOff(50);
-        mainLight->setAmbientColor(ofColor::white);
+        mainLight->setDirectional();
+        mainLight->setAmbientColor(ofColor::purple);
         mainLight->setDiffuseColor(ofColor::white);
         mainLight->setSpecularColor(ofColor::white);
         mainLight->setPosition(ofVec3f(10, 0, 10));

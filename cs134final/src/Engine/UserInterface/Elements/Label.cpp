@@ -1,5 +1,7 @@
 #include "Label.h"
 
+#include "ofxColorPicker.h"
+
 void Label::onUpdate(ofEventArgs& args)
 {
     font->load("fonts/JosefinSans-SemiBold.ttf", ofGetWindowWidth() * fontSize);
@@ -7,6 +9,7 @@ void Label::onUpdate(ofEventArgs& args)
 
 void Label::onDraw(ofEventArgs& args)
 {
+    ofSetColor(fontColor);
     ofVec2f pos = getPosition();
     ofRectangle bounds = font->getStringBoundingBox(text, pos.x, pos.y);
     font->drawString(text, pos.x, pos.y + bounds.height);
