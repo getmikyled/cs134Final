@@ -68,13 +68,3 @@ void Rigidbody::integrate()
 
     if (velocity.length() > maxSpeed) velocity = velocity.normalize() * maxSpeed;
 }
-
-void Rigidbody::onCollisionTriggered(GameObject* argGameObject)
-{
-    
-}
-
-bool Rigidbody::canCollideWith(GameObject* argGameObject)
-{
-    return collisionsEnabled && collidedObjects.find(argGameObject) == collidedObjects.end();
-}

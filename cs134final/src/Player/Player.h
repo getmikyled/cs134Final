@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "ofEasyCam.h"
 #include "ofxAssimpModelLoader.h"
+#include "Engine/Physics/Collider.h"
 #include "Engine/Physics/Rigidbody.h"
 #include "Graphics/Model.h"
 
@@ -11,16 +12,18 @@ class Player : public GameObject
 public:
     Player()
     {
+        // Initialize model
+        model = addComponent<Model>();
+        model->load("models/objects/ufo.obj");
+        
         // Initialize rigidbody
         rigidbody = addComponent<Rigidbody>();
         rigidbody->maxSpeed = 300;
 
         // Initialize colliders
+        collider = addComponent<Collider>();
+        collider->initializeBounds(model);
         
-        // Initialize model
-        model = addComponent<Model>();
-        model->load("models/objects/ufo.obj");
-
         // Initialize camera
         camera = new ofEasyCam();
         camera->setPosition(ofVec3f(50, 0, 0));
@@ -44,6 +47,7 @@ public:
     // Components
     Rigidbody* rigidbody;
     Model* model;
+    Collider* collider;
 
     ofVec2f previousMousePosition = ofVec2f(0, 0);
     float cameraDistance = 50;

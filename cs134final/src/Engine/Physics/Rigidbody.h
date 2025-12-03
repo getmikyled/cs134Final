@@ -1,5 +1,5 @@
 #pragma once
-#include <unordered_set>
+
 #include <vector>
 
 #include "Component.h"
@@ -14,10 +14,7 @@ public:
     ofVec3f calculateForces();
     ofVec3f calculateRotationalForces();
     void integrate();
-    virtual void onCollisionTriggered(GameObject* argGameObject);
-    virtual bool canCollideWith(GameObject* argGameObject);
-
-    std::unordered_set<GameObject*> collidedObjects;
+    
     std::vector<Force*> forces;
 
     float radius;
@@ -30,6 +27,4 @@ public:
     ofVec3f headingDirection = ofVec3f(0, -1, 0);
 
     float maxSpeed = 1000;
-
-    bool collisionsEnabled = true;
 };

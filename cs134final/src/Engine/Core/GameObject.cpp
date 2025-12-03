@@ -1,6 +1,7 @@
 #include "GameObject.h"
 
 #include "ofEvents.h"
+#include "Engine/Physics/Collider.h"
 
 void GameObject::onEnable()
 {
@@ -26,4 +27,22 @@ void GameObject::onUpdate(ofEventArgs & args)
     {
         components[i]->update();
     }
+}
+
+void GameObject::onCollisionTriggered(GameObject* argGameObject)
+{
+    
+}
+
+bool GameObject::canCollideWith(GameObject* argGameObject)
+{
+    // Check if object has a collider
+    Collider* collider = getComponent<Collider>();
+    if (collider != nullptr)
+    {
+        // Check if the collision was already triggered
+        return collider->collidedObjects.find(argGameObject) == collider->collidedObjects.end();
+    }
+
+    return false;
 }
