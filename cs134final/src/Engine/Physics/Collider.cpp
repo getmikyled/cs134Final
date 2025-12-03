@@ -1,5 +1,13 @@
 #include "Collider.h"
 
+void Collider::update()
+{
+    Component::update();
+    
+    collidedObjects.clear();
+}
+
+
 void Collider::initializeBounds(Model* model)
 {
     ofVec3f min = model->model->getSceneMin() + model->model->getPosition();

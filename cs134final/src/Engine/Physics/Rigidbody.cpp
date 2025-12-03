@@ -5,8 +5,8 @@
 
 void Rigidbody::update()
 {
-    collidedObjects.clear();
-
+    Component::update();
+    
     integrate();
 }
 

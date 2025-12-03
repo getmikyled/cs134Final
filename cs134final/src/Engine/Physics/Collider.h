@@ -8,6 +8,9 @@
 class Collider : public Component
 {
 public:
+
+    void update() override;
+    
     void initializeBounds(Model* model);
     
     Box bounds;
