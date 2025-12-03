@@ -11,8 +11,8 @@ public:
 
     void update() override;
     
-    void initializeBounds(Model* model);
+    Box getBounds();
     
-    Box bounds;
+    Model* model;
     std::unordered_set<GameObject*> collidedObjects;
 };

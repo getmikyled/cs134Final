@@ -229,12 +229,7 @@ void Octree::subdivide(TreeNode & node, int numLevels, int level)
 			{
 				subdivide(child, numLevels, level + 1);
 			}
-			
 		}
-
-		
-					
-		
 	}
 }
 

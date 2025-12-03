@@ -44,6 +44,7 @@ public:
     void subDivideBox8(const Box &b, vector<Box> & boxList);
 
     vector<Model*> staticMeshes;
+    vector<Model*> dynamicMeshes;
     ofMesh mesh;
     TreeNode root;
 

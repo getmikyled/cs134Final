@@ -28,9 +28,10 @@ public:
       
         treesFencesModel = environment->addComponent<Model>();
         treesFencesModel->load("models/terrain/treesandfence.obj");
-      
         
-        mainCamera = player->camera;
+        mainCamera = new ofEasyCam();
+        mainCamera->enableMouseMiddleButton();
+        mainCamera->enableMouseInput();
 
         ofLight* directionalLight = new ofLight();
         directionalLight->setup();

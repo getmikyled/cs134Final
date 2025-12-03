@@ -1,5 +1,7 @@
 #include "Collider.h"
 
+#include "GameObject.h"
+
 void Collider::update()
 {
     Component::update();
@@ -8,9 +10,10 @@ void Collider::update()
 }
 
 
-void Collider::initializeBounds(Model* model)
+Box Collider::getBounds()
 {
-    ofVec3f min = model->model->getSceneMin() + model->model->getPosition();
-    ofVec3f max = model->model->getSceneMax() + model->model->getPosition();
-    bounds = Box(Vector3(min.x, min.y, min.z), Vector3(max.x, max.y, max.z));
+    glm::mat4x4 transform = gameObject->transform.getTransform();
+    glm::vec3 min = transform * glm::vec4(model->model->getSceneMin() + model->model->getPosition(), 1.0f);
+    glm::vec3 max = transform * glm::vec4(model->model->getSceneMax() + model->model->getPosition(), 1.0f);
+    return Box(Vector3(min.x, min.y, min.z), Vector3(max.x, max.y, max.z));
 }

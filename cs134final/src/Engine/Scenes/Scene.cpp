@@ -1,7 +1,9 @@
 #include "Scene.h"
 
+#include "InputSystem.h"
 #include "ofGraphics.h"
 #include "ofLight.h"
+#include "Engine/Physics/Collider.h"
 
 void Scene::onEnable()
 {
@@ -109,7 +111,7 @@ void Scene::draw(ofEventArgs &args)
     {
         gameObject->draw();
     }
-    
+
     if (mainCamera != nullptr)  mainCamera->end();
     ofDisableLighting();
     ofDisableDepthTest();
@@ -120,30 +122,36 @@ void Scene::draw(ofEventArgs &args)
 
 void Scene::calculateCollisions()
 {
-    for (int i = 0; i < gameObjects.size(); i++)
+    if (octree != nullptr)
     {
-        /*if (Entity* entityA = dynamic_cast<Entity*>(gameObjects[i]))
+        for (GameObject* gameObject : gameObjects)
         {
-            if (entityA->collisionsEnabled)
+            Collider* collider = gameObject->getComponent<Collider>();
+            if (collider != nullptr)
             {
-                for (int j = 0; j < gameObjects.size(); j++)
+                // Check for collisions with octree
+                Box& bounds = collider->getBounds();
+                vector<Box> colBoxList;
+                octree->intersect(bounds, octree->root, colBoxList);
+                
+                if (colBoxList.size() >= 10)
                 {
-                    if (i != j)
+                    glm::vec3 avergageBoxPosition = glm::vec3(0, 0, 0);
+                    for (int i = 0; i < colBoxList.size(); i++)
                     {
-                        if (Entity* entityB = dynamic_cast<Entity*>(gameObjects[j]))
-                        {
-                            if (entityB->collisionsEnabled && entityA->canCollideWith(entityB))
-                            {
-                                // Get entity A bounds
-                                ofVec3f min = entityA->model->getSceneMin() + entityA.getPosition();
-                                ofVec3f max = lander.getSceneMax() + lander.getPosition();
-
-                                Box bounds = Box(Vector3(min.x, min.y, min.z), Vector3(max.x, max.y, max.z));
-                            }
-                        }
+                        Vector3 center = bounds.center();
+                        avergageBoxPosition += glm::vec3(center.x(), center.y(), center.z());
                     }
-                }   
+                    avergageBoxPosition /= colBoxList.size();
+
+                    glm::vec3 direction = normalize(glm::vec3(gameObject->transform.position) - avergageBoxPosition);
+
+                    std::cout << gameObject->transform.position + direction * 100 * ofGetLastFrameTime() << std::endl;
+                    //gameObject->transform.position = gameObject->transform.position + direction * 100 * ofGetLastFrameTime();
+                }
+
+                // Check for collisions with other objects
             }
-        }*/
+        }
     }
 }

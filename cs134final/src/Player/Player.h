@@ -22,7 +22,7 @@ public:
 
         // Initialize colliders
         collider = addComponent<Collider>();
-        collider->initializeBounds(model);
+        collider->model = model;
         
         // Initialize camera
         camera = new ofEasyCam();
