@@ -5,18 +5,16 @@ class Force
 {
 public:
 
-    Force(ofVec3f argDirection, float argMagnitude, bool argIndefinite, bool argRotation = false)
+    Force(ofVec3f argDirection, float argMagnitude, bool argIndefinite)
     {
         direction = argDirection;
         magnitude = argMagnitude;
         indefinite = argIndefinite;
-        rotation = argRotation;
     }
     
     ofVec3f direction;
     float magnitude;
     bool indefinite;
-    bool rotation;
     
     virtual ofVec3f getForce()
     {

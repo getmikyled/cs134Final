@@ -16,17 +16,13 @@ ofVec3f Entity::calculateForces()
     for (int i = forces.size() - 1; i >= 0; i--)
     {
         Force* force = forces[i];
-        if (!force->rotation)
+        result += force->getForce();
+    
+        // Erase if force is NOT indefinite on the system
+        if (force->indefinite == false)
         {
-            result += force->getForce();
-        
-            // Erase if force is NOT indefinite on the system
-            if (force->indefinite == false)
-            {
-                forces.erase(forces.begin() + i);
-            }
+            forces.erase(forces.begin() + i);
         }
-        
     }
 
     return result;
@@ -39,15 +35,12 @@ ofVec3f Entity::calculateRotationalForces()
     for (int i = forces.size() - 1; i >= 0; i--)
     {
         Force* force = forces[i];
-        if (force->rotation)
+        result += force->getForce();
+    
+        // Erase if force is NOT indefinite on the system
+        if (force->indefinite == false)
         {
-            result += force->getForce();
-        
-            // Erase if force is NOT indefinite on the system
-            if (force->indefinite == false)
-            {
-                forces.erase(forces.begin() + i);
-            }
+            forces.erase(forces.begin() + i);
         }
         
     }

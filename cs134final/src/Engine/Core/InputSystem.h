@@ -10,6 +10,8 @@ public:
         return instance;
     }
 
+    void setMouseControl(bool argValue);
+    
     void onKeyPressed(int key);
     void onKeyReleased(int key);
     void onMouseMoved(int x, int y);
@@ -17,7 +19,7 @@ public:
     void onMousePressed(int x, int y, int button);
     void onMouseReleased(int x, int y, int button);
 
-    ofVec2f mousePosition;
+    ofVec2f mousePosition = ofVec2f(0, 0);
     bool leftClickPressed = false;
     bool rightClickPressed = false;
 

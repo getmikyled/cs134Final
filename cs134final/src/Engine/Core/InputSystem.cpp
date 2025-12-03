@@ -1,6 +1,33 @@
 #include "InputSystem.h"
 
+#include <GLFW/glfw3.h>
+
+#include "ofAppGLFWWindow.h"
+#include "ofAppRunner.h"
 #include "ofEvents.h"
+
+void InputSystem::setMouseControl(bool argValue)
+{
+    GLFWwindow *window = static_cast<ofAppGLFWWindow*>(ofGetWindowPtr())->getGLFWWindow();
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+    int win_w;
+    int win_h;
+    glfwGetWindowSize(window, &win_w, &win_h);
+    int win_center_x = win_w / 2.0f;
+    int win_center_y = win_h / 2.0f;
+    glfwSetCursorPos(window, win_center_x, win_center_y);
+    
+    if (argValue)
+    {
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    }
+    else
+    {
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    }
+}
 
 void InputSystem::onKeyPressed(int key)
 {

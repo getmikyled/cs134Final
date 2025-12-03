@@ -31,12 +31,7 @@ public:
         treesFencesModel->load("models/terrain/treesandfence.obj");
       
         
-        mainCamera = new ofEasyCam();
-        mainCamera->enableMouseInput();
-        mainCamera->setPosition(100, 0, 100);
-        mainCamera->lookAt(glm::vec3(0, 0, 0));
-        mainCamera->setNearClip(.1f);
-        mainCamera->setFarClip(100000.0f);
+        mainCamera = player->camera;
 
         ofLight* directionalLight = new ofLight();
         directionalLight->setup();

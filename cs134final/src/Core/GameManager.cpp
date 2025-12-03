@@ -1,5 +1,6 @@
 #include "GameManager.h"
 
+#include "InputSystem.h"
 #include "ofAppRunner.h"
 #include "SceneManager.h"
 
@@ -61,6 +62,10 @@ void GameManager::onUpdateGameState()
 
 void GameManager::onMainMenuStateEntered()
 {
+    // Set mouse input
+    InputSystem::getInstance().setMouseControl(true);
+    
+    // Set active scene
     SceneManager::getInstance().setActiveScene(0);
 }
 
@@ -71,8 +76,14 @@ void GameManager::onMainMenuStateExited()
 
 void GameManager::onGameplayStateEntered()
 {
+    // Reset game timer
     resetGameTimer();
     startGameTimer();
+
+    // Set mouse control
+    InputSystem::getInstance().setMouseControl(false);
+
+    // Set active scene
     SceneManager::getInstance().setActiveScene(1);
 }
 
@@ -97,7 +108,8 @@ void GameManager::onUpdateGameplayState()
 
 void GameManager::onPausedStateEntered()
 {
-    
+    // Set mouse input
+    InputSystem::getInstance().setMouseControl(true);
 }
 
 void GameManager::onPausedStateExited()
@@ -107,7 +119,8 @@ void GameManager::onPausedStateExited()
 
 void GameManager::onGameOverStateEntered()
 {
-    
+    // Set mouse input
+    InputSystem::getInstance().setMouseControl(true);
 }
 
 void GameManager::onGameOverStateExited()
