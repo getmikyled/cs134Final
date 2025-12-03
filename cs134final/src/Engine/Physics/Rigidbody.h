@@ -1,22 +1,23 @@
 #pragma once
-
 #include <unordered_set>
+#include <vector>
 
+#include "Component.h"
 #include "Forces.h"
-#include "..\Engine\Core\GameObject.h"
 
-class Entity: public GameObject
+class Rigidbody : public Component
 {
 public:
 
-    void onUpdate(ofEventArgs & args) override;
+    void update() override;
+    
     ofVec3f calculateForces();
     ofVec3f calculateRotationalForces();
     void integrate();
-    virtual void onCollisionTriggered(Entity* entity);
-    virtual bool canCollideWith(Entity* entity);
+    virtual void onCollisionTriggered(GameObject* argGameObject);
+    virtual bool canCollideWith(GameObject* argGameObject);
 
-    std::unordered_set<Entity*> collidedEntities;
+    std::unordered_set<GameObject*> collidedObjects;
     std::vector<Force*> forces;
 
     float radius;

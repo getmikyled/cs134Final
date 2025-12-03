@@ -1,22 +1,21 @@
 #include "Player.h"
 #include "InputSystem.h"
-#include "Forces.h"
 #include "of3dGraphics.h"
 #include "ofGraphics.h"
 
 void Player::onEnable()
 {
-    Entity::onEnable();
+    GameObject::onEnable();
 
     ofAddListener(ofEvents().mouseMoved, this, &Player::onMouseMoved);
 
     // Add gravity
-    forces.push_back(new Force(getUpVector(), gravity, true));
+    rigidbody->forces.push_back(new Force(getUpVector(), gravity, true));
 }
 
 void Player::onDisable()
 {
-    Entity::onDisable();
+    GameObject::onDisable();
 
     ofRemoveListener(ofEvents().mouseMoved, this, &Player::onMouseMoved);
 }
@@ -42,7 +41,7 @@ glm::vec3 Player::getUpVector()
 
 void Player::onUpdate(ofEventArgs& args)
 {
-    Entity::onUpdate(args);
+    GameObject::onUpdate(args);
     
     // Update movement force
     inputX = (InputSystem::getInstance().wPressed || InputSystem::getInstance().upArrowPressed)
@@ -53,9 +52,9 @@ void Player::onUpdate(ofEventArgs& args)
     inputZ = (InputSystem::getInstance().dPressed || InputSystem::getInstance().rightArrowPressed)
         - (InputSystem::getInstance().aPressed || InputSystem::getInstance().leftArrowPressed);
     
-    forces.push_back(new Force(getFrontVector(), speed*inputX, false));
-    forces.push_back(new Force(getUpVector(), speed*inputY, false));
-    forces.push_back(new Force(getRightVector(), speed*inputZ, false));
+    rigidbody->forces.push_back(new Force(getFrontVector(), speed*inputX, false));
+    rigidbody->forces.push_back(new Force(getUpVector(), speed*inputY, false));
+    rigidbody->forces.push_back(new Force(getRightVector(), speed*inputZ, false));
     
     // Update player
     float yawRadians = ofDegToRad(cameraYaw);
@@ -72,8 +71,8 @@ void Player::onUpdate(ofEventArgs& args)
 
 void Player::onMouseMoved(ofMouseEventArgs& args)
 {
-    float mouseX = args.x - previousMousePosition.x;
-    float mouseY = previousMousePosition.y - args.y;
+    float mouseX = previousMousePosition.x - args.x;
+    float mouseY = args.y - previousMousePosition.y;
 
     previousMousePosition = ofVec2f(args.x, args.y);
 

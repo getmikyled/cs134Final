@@ -11,8 +11,3 @@ void GameplayScene::draw(ofEventArgs& args)
 {
     Scene::draw(args);
 }
-
-void GameplayScene::startGame()
-{
-    
-}

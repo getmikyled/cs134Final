@@ -1,15 +1,16 @@
-#include "Entity.h"
+#include "Rigidbody.h"
 
+#include "GameObject.h"
 #include "ofAppRunner.h"
 
-void Entity::onUpdate(ofEventArgs & args)
+void Rigidbody::update()
 {
-    collidedEntities.clear();
+    collidedObjects.clear();
 
     integrate();
 }
 
-ofVec3f Entity::calculateForces()
+ofVec3f Rigidbody::calculateForces()
 {
     ofVec3f result = ofVec3f(0, 0, 0);
 
@@ -28,7 +29,7 @@ ofVec3f Entity::calculateForces()
     return result;
 }
 
-ofVec3f Entity::calculateRotationalForces()
+ofVec3f Rigidbody::calculateRotationalForces()
 {
     ofVec3f result = ofVec3f(0, 0, 0);
 
@@ -49,7 +50,7 @@ ofVec3f Entity::calculateRotationalForces()
 }
 
 
-void Entity::integrate()
+void Rigidbody::integrate()
 {
     float frameRate = ofGetFrameRate();
     if (frameRate < 1.0f)
@@ -59,7 +60,7 @@ void Entity::integrate()
     }
     float dt = 1.0f / frameRate;
     
-    transform.position += (velocity * dt);
+    gameObject->transform.position += (velocity * dt);
     ofVec3f accel = acceleration;
     accel += calculateForces() * (1.0 / mass);
     velocity += accel * dt;
@@ -68,12 +69,12 @@ void Entity::integrate()
     if (velocity.length() > maxSpeed) velocity = velocity.normalize() * maxSpeed;
 }
 
-void Entity::onCollisionTriggered(Entity* entity)
+void Rigidbody::onCollisionTriggered(GameObject* argGameObject)
 {
     
 }
 
-bool Entity::canCollideWith(Entity* entity)
+bool Rigidbody::canCollideWith(GameObject* argGameObject)
 {
-    return collisionsEnabled && collidedEntities.find(entity) == collidedEntities.end();
+    return collisionsEnabled && collidedObjects.find(argGameObject) == collidedObjects.end();
 }

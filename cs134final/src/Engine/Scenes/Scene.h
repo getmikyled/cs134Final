@@ -1,4 +1,5 @@
 #pragma once
+#include "Octree.h"
 #include "ofEasyCam.h"
 #include "ofLight.h"
 #include "../UserInterface/UserInterface.h"
@@ -51,4 +52,6 @@ public:
     
     ofEasyCam* mainCamera = nullptr;
     UserInterface* userInterface = nullptr;
+
+    Octree* octree;
 };

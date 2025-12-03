@@ -1,9 +1,7 @@
 #include "Scene.h"
 
-#include "of3dGraphics.h"
 #include "ofGraphics.h"
 #include "ofLight.h"
-#include "../../Entities/Entity.h"
 
 void Scene::onEnable()
 {
@@ -124,29 +122,28 @@ void Scene::calculateCollisions()
 {
     for (int i = 0; i < gameObjects.size(); i++)
     {
-        if (Entity* entity = dynamic_cast<Entity*>(gameObjects[i]))
+        /*if (Entity* entityA = dynamic_cast<Entity*>(gameObjects[i]))
         {
-            if (entity->collisionsEnabled)
+            if (entityA->collisionsEnabled)
             {
                 for (int j = 0; j < gameObjects.size(); j++)
                 {
                     if (i != j)
                     {
-                        if (Entity* otherEntity = dynamic_cast<Entity*>(gameObjects[j]))
+                        if (Entity* entityB = dynamic_cast<Entity*>(gameObjects[j]))
                         {
-                            if (otherEntity->collisionsEnabled && entity->canCollideWith(otherEntity))
+                            if (entityB->collisionsEnabled && entityA->canCollideWith(entityB))
                             {
-                                float distance = ofDist(entity->transform.position.x, entity->transform.position.y,
-                                    otherEntity->transform.position.x, otherEntity->transform.position.y);
-                                if (distance < entity->radius + otherEntity->radius)
-                                {
-                                    entity->onCollisionTriggered(otherEntity);
-                                }
+                                // Get entity A bounds
+                                ofVec3f min = entityA->model->getSceneMin() + entityA.getPosition();
+                                ofVec3f max = lander.getSceneMax() + lander.getPosition();
+
+                                Box bounds = Box(Vector3(min.x, min.y, min.z), Vector3(max.x, max.y, max.z));
                             }
                         }
                     }
                 }   
             }
-        }
+        }*/
     }
 }

@@ -2,7 +2,6 @@
 
 #include "GameplayUI.h"
 #include "Scene.h"
-#include "Engine/Octree/Octree.h"
 #include "Player/Player.h"
 
 class GameplayScene : public Scene
@@ -52,16 +51,13 @@ public:
     void draw(ofEventArgs& args) override;
     void update(ofEventArgs& args) override;
 
-    void startGame();
-
     GameplayUI* gameplayUi;
 
     Model* terrainModel;
     Model* buildingsModel;
     Model* roadLampSignModel;
     Model* treesFencesModel;
-
-    Octree* octree;
+    
     GameObject* environment;
     Player* player;
 };
