@@ -16,7 +16,7 @@ public:
         // Initialize ufo model and collider
         ufoModel = addComponent<Model>();
         ufoModel->load("models/objects/ufo.obj");
-        ufoModel->color = ofColor(255, 255, 255, 15);
+        ufoModel->color = ofColor(255, 255, 255, 255);
         
         ufoCollider = addComponent<Collider>();
         ufoCollider->model = ufoModel;

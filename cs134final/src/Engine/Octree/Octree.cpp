@@ -215,7 +215,7 @@ void Octree::subdivide(TreeNode & node, int numLevels, int level)
 				pointCount += points.size();
 			}
 			
-			pointsInBox[j] = points;
+			pointsInBox.push_back(points);
 		}
 
 		if (pointCount > 0)
@@ -225,7 +225,7 @@ void Octree::subdivide(TreeNode & node, int numLevels, int level)
 			child.box = boxlist[i];
 			child.points = std::move(pointsInBox);
 			
-			if (pointCount > 5)
+			if (pointCount > 1)
 			{
 				subdivide(child, numLevels, level + 1);
 			}

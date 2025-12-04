@@ -6,8 +6,8 @@
 void Model::draw()
 {
     ofPushMatrix();
-    std::cout << color << std::endl;
     ofSetColor(color);
+    
     ofMultMatrix(gameObject->transform.getTransform());
     model->drawFaces();
     
@@ -18,7 +18,7 @@ void Model::load(std::string path)
 {
     model->load(path);
     model->setScaleNormalization(false);
-    model->enableMaterials();
+    model->disableMaterials();
     model->enableNormals();
     mesh = model->getMesh(0);
 }

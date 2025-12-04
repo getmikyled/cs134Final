@@ -8,6 +8,10 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
+    // Set up openframeworks settings
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     // Set up scene manager
     mainMenuScene = new MainMenuScene();
     gameplayScene = new GameplayScene();

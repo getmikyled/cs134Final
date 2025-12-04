@@ -102,21 +102,21 @@ void Scene::draw(ofEventArgs &args)
 
     ofEnableDepthTest();
     ofEnableLighting();
+    ofEnableAlphaBlending();
     if (mainCamera != nullptr)
     {
         mainCamera->begin();
     }
 
-    ofEnableAlphaBlending();
 
     for (GameObject* gameObject : gameObjects)
     {
         gameObject->draw();
     }
 
-    ofDisableAlphaBlending();
 
     if (mainCamera != nullptr)  mainCamera->end();
+    ofDisableAlphaBlending();
     ofDisableLighting();
     ofDisableDepthTest();
 

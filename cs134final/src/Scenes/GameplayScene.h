@@ -13,13 +13,8 @@ public:
         // Set up ui
         gameplayUi = new GameplayUI();
         userInterface = gameplayUi;
-        
-        player = createGameObject<Player>();
-        player->transform.position = ofVec3f(0, 50, 0);
-        beam = createGameObject<Beam>();
-        player->beam = beam;
 
-        
+        // Set up environment
         environment = createGameObject<GameObject>();
 
         terrainModel = environment->addComponent<Model>();
@@ -33,6 +28,13 @@ public:
       
         treesFencesModel = environment->addComponent<Model>();
         treesFencesModel->load("models/terrain/treesandfence.obj");
+
+        // Set up player
+        player = createGameObject<Player>();
+        player->transform.position = ofVec3f(0, 50, 0);
+        beam = createGameObject<Beam>();
+        player->beam = beam;
+        lights.push_back(beam->light);
         
         mainCamera = player->camera;
 
@@ -65,4 +67,6 @@ public:
     GameObject* environment;
     Player* player;
     Beam* beam;
+
+    ofVec3f intersectedPoint = ofVec3f(0, 0, 0);
 };
