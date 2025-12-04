@@ -107,10 +107,14 @@ void Scene::draw(ofEventArgs &args)
         mainCamera->begin();
     }
 
+    ofEnableAlphaBlending();
+
     for (GameObject* gameObject : gameObjects)
     {
         gameObject->draw();
     }
+
+    ofDisableAlphaBlending();
 
     if (mainCamera != nullptr)  mainCamera->end();
     ofDisableLighting();
@@ -134,7 +138,7 @@ void Scene::calculateCollisions()
                 vector<Box> colBoxList;
                 octree->intersect(bounds, octree->root, colBoxList);
                 
-                if (colBoxList.size() >= 10)
+                if (colBoxList.size() >= 5)
                 {
                     glm::vec3 avergageBoxPosition = glm::vec3(0, 0, 0);
                     for (int i = 0; i < colBoxList.size(); i++)
@@ -144,10 +148,8 @@ void Scene::calculateCollisions()
                     }
                     avergageBoxPosition /= colBoxList.size();
 
-                    glm::vec3 direction = normalize(glm::vec3(gameObject->transform.position) - avergageBoxPosition);
-
-                    std::cout << gameObject->transform.position + direction * 100 * ofGetLastFrameTime() << std::endl;
-                    //gameObject->transform.position = gameObject->transform.position + direction * 100 * ofGetLastFrameTime();
+                    glm::vec3 direction = normalize(avergageBoxPosition - glm::vec3(gameObject->transform.position));
+                    gameObject->onCollisionTriggered(octree, direction);
                 }
 
                 // Check for collisions with other objects

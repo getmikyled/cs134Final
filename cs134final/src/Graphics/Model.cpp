@@ -6,9 +6,11 @@
 void Model::draw()
 {
     ofPushMatrix();
+    std::cout << color << std::endl;
+    ofSetColor(color);
     ofMultMatrix(gameObject->transform.getTransform());
-
     model->drawFaces();
+    
     ofPopMatrix();
 }
 

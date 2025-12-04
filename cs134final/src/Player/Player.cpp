@@ -18,8 +18,24 @@ void Player::onDisable()
     GameObject::onDisable();
 
     ofRemoveListener(ofEvents().mouseMoved, this, &Player::onMouseMoved);
+    
+    rigidbody->forces.clear();
 }
 
+void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
+{
+    GameObject::onCollisionTriggered(argGameObject, normal);
+    if (rigidbody->velocity.length() > 20)
+    {
+        std::cout << "Player - BLAST OFF" << std::endl;
+        rigidbody->maxSpeed = 1000;
+        rigidbody->forces.push_back(new Force(normal, 20000, false));
+    }
+    else
+    {
+        rigidbody->forces.push_back(new Force(normal, -gravity + 1.2 * rigidbody->velocity.length(), false));
+    }
+}
 
 glm::vec3 Player::getFrontVector()
 {
@@ -42,6 +58,10 @@ glm::vec3 Player::getUpVector()
 void Player::onUpdate(ofEventArgs& args)
 {
     GameObject::onUpdate(args);
+
+    // Update beam
+    beam->transform.position = transform.position;
+    beam->transform.position = transform.position;
     
     // Update movement force
     inputX = (InputSystem::getInstance().wPressed || InputSystem::getInstance().upArrowPressed)

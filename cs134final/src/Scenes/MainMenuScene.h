@@ -21,6 +21,13 @@ public:
         ufoObject->transform.rotation = ofVec3f(321, 0, 0);
         ufoModel = ufoObject->addComponent<Model>();
         ufoModel->load("models/objects/ufo.obj");
+        ufoModel->color = ofColor(255, 255, 255, 0);
+        beamObject = createGameObject<GameObject>();
+        beamObject->transform.position = ofVec3f(-13.75, 5.1f, 0);
+        beamObject->transform.rotation = ofVec3f(321, 0, 0);
+        beamModel = ufoObject->addComponent<Model>();
+        beamModel->load("models/objects/ufo_beam.obj");
+        beamModel->color = ofColor(0, 0, 0, 0);
 
         // Set up lighting
         mainLight = new ofLight();
@@ -37,6 +44,8 @@ public:
 
     GameObject* ufoObject;
     Model* ufoModel;
+    GameObject* beamObject;
+    Model* beamModel;
 
     ofLight* mainLight;
 };

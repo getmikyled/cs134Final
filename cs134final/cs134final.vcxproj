@@ -200,6 +200,7 @@
     <ClCompile Include="src\Engine\UserInterface\Elements\UiElement.cpp" />
     <ClCompile Include="src\Engine\UserInterface\UserInterface.cpp" />
     <ClCompile Include="src\Graphics\Model.cpp" />
+    <ClCompile Include="src\Player\Beam.cpp" />
     <ClCompile Include="src\Player\Player.cpp" />
     <ClCompile Include="src\Scenes\GameplayScene.cpp" />
     <ClCompile Include="src\Scenes\MainMenuScene.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="src\Engine\UserInterface\Elements\UiElement.h" />
     <ClInclude Include="src\Engine\UserInterface\UserInterface.h" />
     <ClInclude Include="src\Graphics\Model.h" />
+    <ClInclude Include="src\Player\Beam.h" />
     <ClInclude Include="src\Player\Player.h" />
     <ClInclude Include="src\Scenes\GameplayScene.h" />
     <ClInclude Include="src\Scenes\MainMenuScene.h" />

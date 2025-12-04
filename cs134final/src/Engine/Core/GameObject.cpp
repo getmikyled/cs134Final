@@ -29,7 +29,7 @@ void GameObject::onUpdate(ofEventArgs & args)
     }
 }
 
-void GameObject::onCollisionTriggered(GameObject* argGameObject)
+void GameObject::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
 {
     
 }

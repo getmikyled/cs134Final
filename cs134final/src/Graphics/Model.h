@@ -13,6 +13,8 @@ public:
 
     void load(std::string path);
     void draw() override;
+
+    ofColor color = ofColor::white;
     
     ofxAssimpModelLoader* model;
     ofMesh mesh;

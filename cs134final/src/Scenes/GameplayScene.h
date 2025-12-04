@@ -15,6 +15,11 @@ public:
         userInterface = gameplayUi;
         
         player = createGameObject<Player>();
+        player->transform.position = ofVec3f(0, 50, 0);
+        beam = createGameObject<Beam>();
+        player->beam = beam;
+
+        
         environment = createGameObject<GameObject>();
 
         terrainModel = environment->addComponent<Model>();
@@ -29,9 +34,7 @@ public:
         treesFencesModel = environment->addComponent<Model>();
         treesFencesModel->load("models/terrain/treesandfence.obj");
         
-        mainCamera = new ofEasyCam();
-        mainCamera->enableMouseMiddleButton();
-        mainCamera->enableMouseInput();
+        mainCamera = player->camera;
 
         ofLight* directionalLight = new ofLight();
         directionalLight->setup();
@@ -61,4 +64,5 @@ public:
     
     GameObject* environment;
     Player* player;
+    Beam* beam;
 };

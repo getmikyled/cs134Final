@@ -81,7 +81,7 @@ void GameManager::onGameplayStateEntered()
     startGameTimer();
 
     // Set mouse control
-    //InputSystem::getInstance().setMouseControl(false);
+    InputSystem::getInstance().setMouseControl(false);
 
     // Set active scene
     SceneManager::getInstance().setActiveScene(1);

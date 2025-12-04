@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Beam.h"
 #include "GameObject.h"
 #include "ofEasyCam.h"
 #include "ofxAssimpModelLoader.h"
@@ -12,17 +13,17 @@ class Player : public GameObject
 public:
     Player()
     {
-        // Initialize model
-        model = addComponent<Model>();
-        model->load("models/objects/ufo.obj");
+        // Initialize ufo model and collider
+        ufoModel = addComponent<Model>();
+        ufoModel->load("models/objects/ufo.obj");
+        ufoModel->color = ofColor(255, 255, 255, 15);
+        
+        ufoCollider = addComponent<Collider>();
+        ufoCollider->model = ufoModel;
         
         // Initialize rigidbody
         rigidbody = addComponent<Rigidbody>();
         rigidbody->maxSpeed = 300;
-
-        // Initialize colliders
-        collider = addComponent<Collider>();
-        collider->model = model;
         
         // Initialize camera
         camera = new ofEasyCam();
@@ -39,6 +40,7 @@ public:
     void onDisable() override;
     void onUpdate(ofEventArgs& args) override;
     void onMouseMoved(ofMouseEventArgs& args);
+    void onCollisionTriggered(GameObject* argGameObject, ofVec3f normal) override;
 
     glm::vec3 getFrontVector();
     glm::vec3 getRightVector();
@@ -46,8 +48,10 @@ public:
 
     // Components
     Rigidbody* rigidbody;
-    Model* model;
-    Collider* collider;
+    Model* ufoModel;
+    Collider* ufoCollider;
+
+    Beam* beam;
 
     ofVec2f previousMousePosition = ofVec2f(0, 0);
     float cameraDistance = 50;
@@ -60,7 +64,7 @@ public:
     float inputY;
     float inputZ;
 
-    float gravity = -9.8f;
+    float gravity = -75;
     float speed = 300;
 
 };
