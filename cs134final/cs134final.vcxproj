@@ -184,6 +184,7 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="src\Engine\Physics\Rigidbody.cpp" />
+    <ClCompile Include="src\Gameplay\BeamableObject.cpp" />
     <ClCompile Include="src\Gameplay\BeamableObjectSpawner.cpp" />
     <ClCompile Include="src\Gameplay\GameManager.cpp">
       <AssemblerOutput>NoListing</AssemblerOutput>
@@ -304,6 +305,7 @@
     <ClInclude Include="src\Engine\Physics\Collider.h" />
     <ClInclude Include="src\Engine\Physics\Forces.h" />
     <ClInclude Include="src\Engine\Physics\Rigidbody.h" />
+    <ClInclude Include="src\Gameplay\BeamableObject.h" />
     <ClInclude Include="src\Gameplay\BeamableObjectSpawner.h" />
     <ClInclude Include="src\Gameplay\GameManager.h" />
     <ClInclude Include="src\ofApp.h" />
