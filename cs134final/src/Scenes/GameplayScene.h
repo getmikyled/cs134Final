@@ -2,6 +2,7 @@
 
 #include "GameplayUI.h"
 #include "Scene.h"
+#include "Gameplay/BeamableObjectSpawner.h"
 #include "Player/Player.h"
 
 class GameplayScene : public Scene
@@ -52,6 +53,10 @@ public:
         octree->create(20);
         addGameObject(octree);
         std::cout << "FINISHED" << std::endl;
+
+        // Set up beamable object spawner
+        beamableObjectSpawner = new BeamableObjectSpawner();
+        beamableObjectSpawner->spawnBeamableObjects(this, 20);
     }
 
     void draw(ofEventArgs& args) override;
@@ -67,6 +72,8 @@ public:
     GameObject* environment;
     Player* player;
     Beam* beam;
+
+    BeamableObjectSpawner* beamableObjectSpawner;
 
     ofVec3f intersectedPoint = ofVec3f(0, 0, 0);
 };
