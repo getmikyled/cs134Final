@@ -1,12 +1,10 @@
 #pragma once
 #include "GameObject.h"
+#include "Octree.h"
 
 class BeamableObjectSpawner : public GameObject
 {
 public:
-    void onEnable() override;
 
-    void spawnBeamableObjects(int argAmount);
-
-    int initialSpawnCount = 20;
+    void spawnBeamableObjects(Octree* octree, int argAmount);
 };

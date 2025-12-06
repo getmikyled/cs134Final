@@ -1,11 +1,10 @@
 #include "BeamableObjectSpawner.h"
 
-void BeamableObjectSpawner::onEnable()
+void BeamableObjectSpawner::spawnBeamableObjects(Octree* octree, int argAmount)
 {
-    spawnBeamableObjects(initialSpawnCount);
+    for (int i = 0; i < argAmount; i++)
+    {
+        
+    }
 }
 
-void spawnBeamableObjects()
-{
-    
-}
