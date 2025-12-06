@@ -1,6 +1,6 @@
 #include "ofApp.h"
 
-#include "GameManager.h"
+#include "Gameplay/GameManager.h"
 #include "InputSystem.h"
 #include "Scenes/GameplayScene.h"
 #include "Scenes/MainMenuScene.h"
