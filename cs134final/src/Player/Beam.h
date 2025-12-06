@@ -21,7 +21,6 @@ public:
         light->setup();
         light->setPointLight();
         light->setAttenuation(2.0f, 0.001f, 0.01f);
-        //  light->setAmbientColor(ofColor::green);
         light->setDiffuseColor(ofColor::green);
         light->setSpecularColor(ofColor::green);
     }

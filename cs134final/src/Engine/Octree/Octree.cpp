@@ -221,7 +221,7 @@ void Octree::subdivide(TreeNode & node, int numLevels, int level)
 				pointCount += points.size();
 			}
 			
-			pointsInBox.push_back(points);
+			pointsInBox[j] = points;
 		}
 
 		if (pointCount > 0)
