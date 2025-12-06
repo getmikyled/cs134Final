@@ -20,7 +20,7 @@ void BeamableObjectSpawner::spawnBeamableObjects(Scene* scene, int argAmount)
                 if (intersectedNode.points[i].size() > 0)
                 {
                     ofMesh& mesh = scene->octree->staticMeshes[i]->model->getMesh(0);
-                    spawnBeamableObject(mesh.getVertex(intersectedNode.points[i][0]));
+                    spawnBeamableObject(scene, mesh.getVertex(intersectedNode.points[i][0]));
                 }
             }
         }
