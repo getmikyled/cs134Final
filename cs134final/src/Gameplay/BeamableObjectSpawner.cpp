@@ -1,22 +1,25 @@
 #include "BeamableObjectSpawner.h"
 
-void BeamableObjectSpawner::spawnBeamableObjects(Octree* octree, int argAmount)
+#include "BeamableObject.h"
+#include "Scene.h"
+
+void BeamableObjectSpawner::spawnBeamableObjects(Scene* scene, int argAmount)
 {
-    Box spawnBounds = octree->getBounds();
+    Box spawnBounds = scene->octree->getBounds();
     for (int i = 0; i < argAmount; i++)
     {
         TreeNode intersectedNode;
         Vector3 rayOrigin = Vector3(ofRandom(spawnBounds.min().x(), spawnBounds.max().x()),
             spawnBounds.max().y(),
             ofRandom(spawnBounds.min().z(), spawnBounds.max().z())); 
-        bool intersected = octree->intersect(Ray(rayOrigin, Vector3(0, -1, 0)), octree->root, intersectedNode);
+        bool intersected = scene->octree->intersect(Ray(rayOrigin, Vector3(0, -1, 0)), scene->octree->root, intersectedNode);
         if (intersected)
         {
-            for (int i = 0; i < octree->staticMeshes.size(); i++)
+            for (int i = 0; i < scene->octree->staticMeshes.size(); i++)
             {
                 if (intersectedNode.points[i].size() > 0)
                 {
-                    ofMesh& mesh = octree->staticMeshes[i]->model->getMesh(0);
+                    ofMesh& mesh = scene->octree->staticMeshes[i]->model->getMesh(0);
                     spawnBeamableObject(mesh.getVertex(intersectedNode.points[i][0]));
                 }
             }
@@ -28,8 +31,9 @@ void BeamableObjectSpawner::spawnBeamableObjects(Octree* octree, int argAmount)
     }
 }
 
-void BeamableObjectSpawner::spawnBeamableObject(ofVec3f position)
+void BeamableObjectSpawner::spawnBeamableObject(Scene* scene, ofVec3f position)
 {
-    
+    BeamableObject* beamableObject = scene->createGameObject<BeamableObject>();
+    beamableObject->transform.position = position;
 }
 

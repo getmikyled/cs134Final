@@ -1,11 +1,11 @@
 #pragma once
 #include "GameObject.h"
-#include "Octree.h"
+#include "Scene.h"
 
 class BeamableObjectSpawner : public GameObject
 {
 public:
 
-    void spawnBeamableObjects(Octree* octree, int argAmount);
-    void spawnBeamableObject(ofVec3f position);
+    void spawnBeamableObjects(Scene* scene, int argAmount);
+    void spawnBeamableObject(Scene* scene, ofVec3f position);
 };
