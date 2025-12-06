@@ -28,5 +28,4 @@ void GameplayScene::draw(ofEventArgs& args)
 
     ofSetColor(ofColor::lightGreen);
     ofDrawSphere(intersectedPoint, 50);
-    std::cout << intersectedPoint << std::endl;
 }

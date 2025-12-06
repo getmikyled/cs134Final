@@ -142,8 +142,14 @@ void Octree::create(int numLevels) {
 	for (int i = 1; i < staticMeshes.size(); i++)
 	{
 		Box tempBox = meshBounds(staticMeshes[i]->mesh);
-		root.box.parameters[0] = min(tempBox.parameters[0], root.box.parameters[0]);
-		root.box.parameters[1] = max(tempBox.parameters[1], root.box.parameters[1]);
+		float minX = min(tempBox.parameters[0].x(), root.box.parameters[0].x());
+		float minY = min(tempBox.parameters[0].y(), root.box.parameters[0].y());
+		float minZ = min(tempBox.parameters[0].z(), root.box.parameters[0].z());
+		float maxX = max(tempBox.parameters[1].x(), root.box.parameters[1].x());
+		float maxY = max(tempBox.parameters[1].y(), root.box.parameters[1].y());
+		float maxZ = max(tempBox.parameters[1].z(), root.box.parameters[1].z());
+		root.box.parameters[0] = Vector3(minX, minY, minZ);
+		root.box.parameters[1] = Vector3(maxX, maxY, maxZ);
 	}
 
 

@@ -33,7 +33,7 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
     }
     else
     {
-        rigidbody->forces.push_back(new Force(normal, -gravity + 1.2 * rigidbody->velocity.length(), false));
+        rigidbody->forces.push_back(new Force(normal, -gravity + 5 * rigidbody->velocity.length(), false));
     }
 }
 
@@ -61,7 +61,7 @@ void Player::onUpdate(ofEventArgs& args)
 
     // Update beam
     beam->transform.position = transform.position;
-    beam->transform.position = transform.position;
+    beam->transform.rotation = transform.rotation;
     
     // Update movement force
     inputX = (InputSystem::getInstance().wPressed || InputSystem::getInstance().upArrowPressed)
