@@ -12,3 +12,8 @@ void GameplayUI::update()
     timerStringStream << std::fixed << std::setprecision(1) << GameManager::getInstance().gameTimer;
     timeLabel->text = timerStringStream.str() + " secs";
 }
+
+void GameplayUI::setAltitude(int altitude)
+{
+    altitudeLabel->text = "Altitude: " + std::to_string(altitude) + " m";
+}

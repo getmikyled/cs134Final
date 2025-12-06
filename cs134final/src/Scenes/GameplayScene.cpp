@@ -17,8 +17,13 @@ void GameplayScene::update(ofEventArgs& args)
             {
                 ofMesh& mesh = octree->staticMeshes[i]->model->getMesh(0);
                 intersectedPoint = mesh.getVertex(intersectedNode.points[i][0]);
+                gameplayUi->setAltitude(int(playerPosition.y() - intersectedPoint.y));
             }
         }
+    }
+    else
+    {
+        gameplayUi->setAltitude(-1);
     }
 }
 
@@ -26,6 +31,8 @@ void GameplayScene::draw(ofEventArgs& args)
 {
     Scene::draw(args);
 
+    mainCamera->begin();
     ofSetColor(ofColor::lightGreen);
-    ofDrawSphere(intersectedPoint, 50);
+    ofDrawSphere(intersectedPoint, 2);
+    mainCamera->end();
 }
