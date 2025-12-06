@@ -10,7 +10,7 @@ void BeamableObjectSpawner::spawnBeamableObjects(Scene* scene, int argAmount)
     {
         TreeNode intersectedNode;
         Vector3 rayOrigin = Vector3(ofRandom(spawnBounds.min().x(), spawnBounds.max().x()),
-            spawnBounds.max().y(),
+            spawnBounds.max().y() + 5,
             ofRandom(spawnBounds.min().z(), spawnBounds.max().z())); 
         bool intersected = scene->octree->intersect(Ray(rayOrigin, Vector3(0, -1, 0)), scene->octree->root, intersectedNode);
         if (intersected)

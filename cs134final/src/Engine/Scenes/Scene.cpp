@@ -137,7 +137,7 @@ void Scene::calculateCollisions()
                 Box& bounds = collider->getBounds();
                 vector<Box> colBoxList;
                 octree->intersect(bounds, octree->root, colBoxList);
-                if (colBoxList.size() >= 5)
+                if (colBoxList.size() >= 10)
                 {
                     glm::vec3 avergageBoxPosition = glm::vec3(0, 0, 0);
                     for (int i = 0; i < colBoxList.size(); i++)
@@ -152,6 +152,17 @@ void Scene::calculateCollisions()
                 }
 
                 // Check for collisions with other objects
+                for (GameObject* otherGameObject : gameObjects)
+                {
+                    Collider* otherCollider = otherGameObject->getComponent<Collider>();
+                    if (gameObject != otherGameObject && otherCollider != nullptr && otherGameObject->canCollideWith(gameObject)
+                        && collider->getBounds().overlap(otherCollider->getBounds()))
+                    {
+                        ofVec3f normal = gameObject->transform.position - otherGameObject->transform.position;
+                        gameObject->onCollisionTriggered(otherGameObject, normal);
+                        otherGameObject->onCollisionTriggered(gameObject, -normal);
+                    }
+                }
             }
         }
     }
