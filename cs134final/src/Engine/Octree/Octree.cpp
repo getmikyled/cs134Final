@@ -137,21 +137,7 @@ void Octree::create(int numLevels) {
 	// Set root box to the largest bounding box given all static meshes
 
 	
-	root.box = meshBounds(staticMeshes[0]->mesh);
-
-	for (int i = 1; i < staticMeshes.size(); i++)
-	{
-		Box tempBox = meshBounds(staticMeshes[i]->mesh);
-		float minX = min(tempBox.parameters[0].x(), root.box.parameters[0].x());
-		float minY = min(tempBox.parameters[0].y(), root.box.parameters[0].y());
-		float minZ = min(tempBox.parameters[0].z(), root.box.parameters[0].z());
-		float maxX = max(tempBox.parameters[1].x(), root.box.parameters[1].x());
-		float maxY = max(tempBox.parameters[1].y(), root.box.parameters[1].y());
-		float maxZ = max(tempBox.parameters[1].z(), root.box.parameters[1].z());
-		root.box.parameters[0] = Vector3(minX, minY, minZ);
-		root.box.parameters[1] = Vector3(maxX, maxY, maxZ);
-	}
-
+	root.box = getBounds();
 
 	// Add points from all meshes
 	
@@ -333,5 +319,22 @@ void Octree::draw(TreeNode & node, int numLevels, int level) {
 	
 }
 
+Box Octree::getBounds()
+{
+	Box rootBox = meshBounds(staticMeshes[0]->mesh);
 
+	for (int i = 1; i < staticMeshes.size(); i++)
+	{
+		Box tempBox = meshBounds(staticMeshes[i]->mesh);
+		float minX = min(tempBox.parameters[0].x(), rootBox.parameters[0].x());
+		float minY = min(tempBox.parameters[0].y(), rootBox.parameters[0].y());
+		float minZ = min(tempBox.parameters[0].z(), rootBox.parameters[0].z());
+		float maxX = max(tempBox.parameters[1].x(), rootBox.parameters[1].x());
+		float maxY = max(tempBox.parameters[1].y(), rootBox.parameters[1].y());
+		float maxZ = max(tempBox.parameters[1].z(), rootBox.parameters[1].z());
+		rootBox.parameters[0] = Vector3(minX, minY, minZ);
+		rootBox.parameters[1] = Vector3(maxX, maxY, maxZ);
+	}
 
+	return rootBox;
+}
