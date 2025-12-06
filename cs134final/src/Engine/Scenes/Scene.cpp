@@ -137,7 +137,6 @@ void Scene::calculateCollisions()
                 Box& bounds = collider->getBounds();
                 vector<Box> colBoxList;
                 octree->intersect(bounds, octree->root, colBoxList);
-                cout <<colBoxList.size() << endl;
                 if (colBoxList.size() >= 5)
                 {
                     glm::vec3 avergageBoxPosition = glm::vec3(0, 0, 0);
