@@ -264,6 +264,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="src\Gameplay\LandingZone.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Engine\Core\Component.cpp" />
@@ -308,6 +309,7 @@
     <ClInclude Include="src\Gameplay\BeamableObject.h" />
     <ClInclude Include="src\Gameplay\BeamableObjectSpawner.h" />
     <ClInclude Include="src\Gameplay\GameManager.h" />
+    <ClInclude Include="src\Gameplay\LandingZone.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Engine\Core\Component.h" />
     <ClInclude Include="src\Engine\Core\GameObject.h" />
