@@ -1,6 +1,6 @@
 #include "GameplayUI.h"
 
-#include "GameManager.h"
+#include "../Gameplay/GameManager.h"
 
 void GameplayUI::update()
 {
