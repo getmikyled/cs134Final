@@ -25,10 +25,8 @@ void Player::onDisable()
 void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
 {
     GameObject::onCollisionTriggered(argGameObject, normal);
-    std::cout << rigidbody->velocity << std::endl;
     if (rigidbody->velocity.length() > 20)
     {
-        std::cout << "Player - BLAST OFF" << std::endl;
         rigidbody->maxSpeed = 1000;
         rigidbody->forces.push_back(new Force(normal, 20000, false));
     }
