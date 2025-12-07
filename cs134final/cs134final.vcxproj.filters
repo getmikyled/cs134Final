@@ -7,9 +7,6 @@
 		<ClCompile Include="src\main.cpp">
 			<Filter>src</Filter>
 		</ClCompile>
-		<ClCompile Include="src\Core\GameManager.cpp">
-			<Filter>src\Core</Filter>
-		</ClCompile>
 		<ClCompile Include="src\Engine\Core\Component.cpp">
 			<Filter>src\Engine\Core</Filter>
 		</ClCompile>
@@ -27,6 +24,15 @@
 		</ClCompile>
 		<ClCompile Include="src\Engine\Octree\box.cc">
 			<Filter>src\Engine\Octree</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Engine\Physics\Collider.cpp">
+			<Filter>src\Engine\Physics</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Engine\Physics\Forces.cpp">
+			<Filter>src\Engine\Physics</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Engine\Physics\Rigidbody.cpp">
+			<Filter>src\Engine\Physics</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Engine\Scenes\Scene.cpp">
 			<Filter>src\Engine\Scenes</Filter>
@@ -46,14 +52,20 @@
 		<ClCompile Include="src\Engine\UserInterface\UserInterface.cpp">
 			<Filter>src\Engine\UserInterface</Filter>
 		</ClCompile>
-		<ClCompile Include="src\Entities\Entity.cpp">
-			<Filter>src\Entities</Filter>
+		<ClCompile Include="src\Gameplay\BeamableObject.cpp">
+			<Filter>src\Gameplay</Filter>
 		</ClCompile>
-		<ClCompile Include="src\Entities\Forces.cpp">
-			<Filter>src\Entities</Filter>
+		<ClCompile Include="src\Gameplay\BeamableObjectSpawner.cpp">
+			<Filter>src\Gameplay</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Gameplay\GameManager.cpp">
+			<Filter>src\Gameplay</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Graphics\Model.cpp">
 			<Filter>src\Graphics</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Player\Beam.cpp">
+			<Filter>src\Player</Filter>
 		</ClCompile>
 		<ClCompile Include="src\Player\Player.cpp">
 			<Filter>src\Player</Filter>
@@ -63,6 +75,9 @@
 		</ClCompile>
 		<ClCompile Include="src\Scenes\MainMenuScene.cpp">
 			<Filter>src\Scenes</Filter>
+		</ClCompile>
+		<ClCompile Include="src\UI\GameplayUI.cpp">
+			<Filter>src\UI</Filter>
 		</ClCompile>
 		<ClCompile Include="src\UI\MainMenuUI.cpp">
 			<Filter>src\UI</Filter>
@@ -123,85 +138,82 @@
 		<Filter Include="src">
 			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
 		</Filter>
-		<Filter Include="src\Core">
-			<UniqueIdentifier>{A0AC489A--334-6-42-41-B-65B-CE7A77E682F4}</UniqueIdentifier>
-		</Filter>
 		<Filter Include="src\Engine">
-			<UniqueIdentifier>{8D528010--E96-7-42-93-B-6EB-05A1D8B43907}</UniqueIdentifier>
+			<UniqueIdentifier>{04295CD5--6B1-C-4C-28-9-6A6-3A892D759F21}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\Core">
-			<UniqueIdentifier>{9717CFEB--DB8-8-4E-3F-B-6D2-7845AD54C8EF}</UniqueIdentifier>
+			<UniqueIdentifier>{CB48E19C--F77-1-48-DB-A-F96-495A907E9BDC}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\Octree">
-			<UniqueIdentifier>{0695C01B--CC6-F-44-EE-A-E9C-802A8CCC5042}</UniqueIdentifier>
+			<UniqueIdentifier>{7B9E3B01--310-2-4C-15-9-CAB-4AA33FAE887A}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\Engine\Physics">
+			<UniqueIdentifier>{557E3935--5EF-6-44-DE-A-FBA-03AE0F366D65}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\Scenes">
-			<UniqueIdentifier>{4C76AF62--449-7-48-C4-8-D96-DF0DC397C4C8}</UniqueIdentifier>
+			<UniqueIdentifier>{7EE54757--191-D-44-89-8-ED0-5A1D7F359CC3}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\UserInterface">
-			<UniqueIdentifier>{4141BA61--09B-E-4D-0E-9-D8A-712E866843A1}</UniqueIdentifier>
+			<UniqueIdentifier>{90156F03--836-5-4D-E7-A-03E-B4757B32DA32}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Engine\UserInterface\Elements">
-			<UniqueIdentifier>{654B0594--B6E-8-41-88-9-1FE-33AE02BA543B}</UniqueIdentifier>
+			<UniqueIdentifier>{03CD1C67--947-F-40-F3-9-B80-C86AF0C56D9F}</UniqueIdentifier>
 		</Filter>
-		<Filter Include="src\Entities">
-			<UniqueIdentifier>{EDEB9022--22D-C-46-E9-9-91A-E56889AAE483}</UniqueIdentifier>
+		<Filter Include="src\Gameplay">
+			<UniqueIdentifier>{7E30CD7C--035-B-42-1B-A-117-7CAD788DB7F6}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Graphics">
-			<UniqueIdentifier>{4A3516BB--1FB-3-4D-0E-9-CAF-42130C1C010C}</UniqueIdentifier>
+			<UniqueIdentifier>{A49E2A7A--470-8-4F-D6-B-894-214B82A5D4D8}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Player">
-			<UniqueIdentifier>{864B244D--843-6-47-2F-8-521-8809871AC9C4}</UniqueIdentifier>
+			<UniqueIdentifier>{FA956976--825-3-40-6C-B-A0B-79495D668586}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\Scenes">
-			<UniqueIdentifier>{3AF0F5AB--5D5-4-4C-EF-A-711-FDCE0D9560B9}</UniqueIdentifier>
+			<UniqueIdentifier>{F2E3A721--239-A-47-3A-A-776-1D1C2EEB123A}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="src\UI">
-			<UniqueIdentifier>{2123BB46--942-F-47-21-8-A9C-4BFDD18C0684}</UniqueIdentifier>
+			<UniqueIdentifier>{22FDD1E8--991-B-4A-D0-A-E3F-A85923DB9CBB}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons">
-			<UniqueIdentifier>{24CBD546--FDD-B-42-D2-9-4EF-45456889FE41}</UniqueIdentifier>
+			<UniqueIdentifier>{4AB44897--58A-D-43-2F-B-270-F4AE3AB38B84}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader">
-			<UniqueIdentifier>{32BE5DBA--D1B-C-4E-72-A-56A-4E961CC47D05}</UniqueIdentifier>
+			<UniqueIdentifier>{33BD8914--915-D-47-53-B-F26-E2920DDB6CA7}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\src">
-			<UniqueIdentifier>{61F01E25--F91-3-4D-02-B-AF0-391E9DFE2437}</UniqueIdentifier>
+			<UniqueIdentifier>{BF752EAA--AE9-F-44-5E-8-8B7-5BCEDA055A86}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs">
-			<UniqueIdentifier>{6A9B3AF9--8D7-7-42-42-A-0DD-FB56BA69DD78}</UniqueIdentifier>
+			<UniqueIdentifier>{9E71A3C5--813-7-42-59-A-2F1-106CABD5AA56}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp">
-			<UniqueIdentifier>{CC62FFD6--F6B-6-48-A8-9-349-6D96CB53ADC9}</UniqueIdentifier>
+			<UniqueIdentifier>{039C9C52--E86-9-43-EF-B-621-3C508FD5DB0F}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include">
-			<UniqueIdentifier>{62F41C19--E2B-7-46-EE-9-A39-7C9614DC6780}</UniqueIdentifier>
+			<UniqueIdentifier>{2E1FD6E9--82B-1-4B-B2-9-44F-E08C3B210C2C}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp">
-			<UniqueIdentifier>{563E337F--D9C-E-4C-F5-B-051-7593A1D79075}</UniqueIdentifier>
+			<UniqueIdentifier>{96438AF1--8B4-B-4B-4C-9-41A-4EEBC251E084}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\Compiler">
-			<UniqueIdentifier>{5656A853--B01-0-40-E2-8-665-5B2C0A1A2D3A}</UniqueIdentifier>
+			<UniqueIdentifier>{D79CC838--F84-6-4C-6C-B-407-C808AB4468C4}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\port">
-			<UniqueIdentifier>{2A94C984--920-2-4E-E4-8-440-0D5CE3075BA3}</UniqueIdentifier>
+			<UniqueIdentifier>{35D450A3--358-D-48-B6-9-EE4-1A0020EDEE7D}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\assimp\port\AndroidJNI">
-			<UniqueIdentifier>{54793419--5A2-0-42-B4-9-5D9-4DFBEF629AA3}</UniqueIdentifier>
+			<UniqueIdentifier>{43CB34D3--214-5-48-72-8-F0D-B8DE4AFAC9C6}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxGui">
-			<UniqueIdentifier>{4BC4C529--BFA-F-4C-19-8-D35-CC3DE39A21DC}</UniqueIdentifier>
+			<UniqueIdentifier>{D3BAE353--83A-2-40-83-A-303-54E511A7C3CD}</UniqueIdentifier>
 		</Filter>
 		<Filter Include="addons\ofxGui\src">
-			<UniqueIdentifier>{B129D334--C60-9-44-34-A-5C9-CA9151E20A2E}</UniqueIdentifier>
+			<UniqueIdentifier>{B753290B--B46-7-45-3E-B-205-C7685A029D5A}</UniqueIdentifier>
 		</Filter>
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="src\ofApp.h">
 			<Filter>src</Filter>
-		</ClInclude>
-		<ClInclude Include="src\Core\GameManager.h">
-			<Filter>src\Core</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Engine\Core\Component.h">
 			<Filter>src\Engine\Core</Filter>
@@ -227,6 +239,15 @@
 		<ClInclude Include="src\Engine\Octree\vector3.h">
 			<Filter>src\Engine\Octree</Filter>
 		</ClInclude>
+		<ClInclude Include="src\Engine\Physics\Collider.h">
+			<Filter>src\Engine\Physics</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Engine\Physics\Forces.h">
+			<Filter>src\Engine\Physics</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Engine\Physics\Rigidbody.h">
+			<Filter>src\Engine\Physics</Filter>
+		</ClInclude>
 		<ClInclude Include="src\Engine\Scenes\Scene.h">
 			<Filter>src\Engine\Scenes</Filter>
 		</ClInclude>
@@ -245,14 +266,20 @@
 		<ClInclude Include="src\Engine\UserInterface\UserInterface.h">
 			<Filter>src\Engine\UserInterface</Filter>
 		</ClInclude>
-		<ClInclude Include="src\Entities\Entity.h">
-			<Filter>src\Entities</Filter>
+		<ClInclude Include="src\Gameplay\BeamableObject.h">
+			<Filter>src\Gameplay</Filter>
 		</ClInclude>
-		<ClInclude Include="src\Entities\Forces.h">
-			<Filter>src\Entities</Filter>
+		<ClInclude Include="src\Gameplay\BeamableObjectSpawner.h">
+			<Filter>src\Gameplay</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Gameplay\GameManager.h">
+			<Filter>src\Gameplay</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Graphics\Model.h">
 			<Filter>src\Graphics</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Player\Beam.h">
+			<Filter>src\Player</Filter>
 		</ClInclude>
 		<ClInclude Include="src\Player\Player.h">
 			<Filter>src\Player</Filter>
@@ -262,6 +289,9 @@
 		</ClInclude>
 		<ClInclude Include="src\Scenes\MainMenuScene.h">
 			<Filter>src\Scenes</Filter>
+		</ClInclude>
+		<ClInclude Include="src\UI\GameplayUI.h">
+			<Filter>src\UI</Filter>
 		</ClInclude>
 		<ClInclude Include="src\UI\MainMenuUI.h">
 			<Filter>src\UI</Filter>
