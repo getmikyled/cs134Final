@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "InputSystem.h"
+#include "Octree.h"
 #include "of3dGraphics.h"
 #include "ofGraphics.h"
 
@@ -25,17 +26,22 @@ void Player::onDisable()
 void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
 {
     GameObject::onCollisionTriggered(argGameObject, normal);
-    /*if (rigidbody->velocity.length() > 20)
-    {
-        //rigidbody->maxSpeed = 1000;
-        //rigidbody->forces.push_back(new Force(normal, 20000, false));
-    }
-    else
-    {
-        //rigidbody->forces.push_back(new Force(normal, -gravity + rigidbody->velocity.length(), false));
-    }*/
 
-    rigidbody->velocity = .5 * (rigidbody->velocity - 2 * rigidbody->velocity.dot(normal) * normal);
+    Octree* octree = dynamic_cast<Octree*>(argGameObject);
+    if (octree != nullptr)
+    {
+        /*if (rigidbody->velocity.length() > 20)
+        {
+            //rigidbody->maxSpeed = 1000;
+            //rigidbody->forces.push_back(new Force(normal, 20000, false));
+        }
+        else
+        {
+            //rigidbody->forces.push_back(new Force(normal, -gravity + rigidbody->velocity.length(), false));
+        }*/
+
+        rigidbody->velocity = .5 * (rigidbody->velocity - 2 * rigidbody->velocity.dot(normal) * normal);
+    }
 }
 
 glm::vec3 Player::getFrontVector()
