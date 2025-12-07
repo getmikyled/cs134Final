@@ -23,7 +23,7 @@ public:
         
         // Initialize rigidbody
         rigidbody = addComponent<Rigidbody>();
-        rigidbody->maxSpeed = 300;
+        rigidbody->maxSpeed = 10;
         
         // Initialize camera
         camera = new ofEasyCam();
@@ -32,6 +32,8 @@ public:
         camera->disableMouseMiddleButton();
         camera->setNearClip(.1f);
         camera->setFarClip(100000.0f);
+
+        transform.scale = ofVec3f(.5, .5, .5);
     }
 
     ofEasyCam* camera;
@@ -54,7 +56,7 @@ public:
     Beam* beam;
 
     ofVec2f previousMousePosition = ofVec2f(0, 0);
-    float cameraDistance = 50;
+    float cameraDistance = 15;
     float cameraSensitivityX = 0.05f;
     float cameraSensitivityY = 0.05f;
     float cameraYaw = 0;
@@ -64,7 +66,7 @@ public:
     float inputY;
     float inputZ;
 
-    float gravity = -75;
-    float speed = 300;
+    float gravity = -30;
+    float speed = 100;
 
 };
