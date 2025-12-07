@@ -69,4 +69,7 @@ public:
     float gravity = -30;
     float speed = 100;
 
+    float maxTiltAngle = 50;
+    float tiltSpeedFactor = -2;
+
 };

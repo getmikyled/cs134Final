@@ -82,7 +82,17 @@ void Player::onUpdate(ofEventArgs& args)
     rigidbody->forces.push_back(new Force(getFrontVector(), speed*inputX, false));
     rigidbody->forces.push_back(new Force(getUpVector(), speed*inputY, false));
     rigidbody->forces.push_back(new Force(getRightVector(), speed*inputZ, false));
+
+
     
+
+
+    
+    float targetPitch = clamp(rigidbody->velocity.z * tiltSpeedFactor, -maxTiltAngle, maxTiltAngle);
+    float targetRoll = clamp(rigidbody->velocity.x * tiltSpeedFactor, -maxTiltAngle, maxTiltAngle);
+    
+    
+    transform.rotation = ofVec3f(-targetPitch, 0,  targetRoll);
     // Update player
     float yawRadians = ofDegToRad(cameraYaw);
     float pitchRadians = ofDegToRad(cameraPitch);
