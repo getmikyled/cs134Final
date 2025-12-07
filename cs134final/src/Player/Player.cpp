@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "InputSystem.h"
+#include "LandingZone.h"
 #include "Octree.h"
 #include "of3dGraphics.h"
 #include "ofGraphics.h"
@@ -41,6 +42,12 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
         }*/
 
         rigidbody->velocity = .5 * (rigidbody->velocity - 2 * rigidbody->velocity.dot(normal) * normal);
+    }
+
+    LandingZone* landingZone = dynamic_cast<LandingZone*>(argGameObject);
+    if (landingZone != nullptr)
+    {
+        cout << "in landing zone " << rigidbody->velocity.length() << endl;
     }
 }
 

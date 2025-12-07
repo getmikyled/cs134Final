@@ -38,9 +38,9 @@ public:
         player->beam = beam;
         lights.push_back(beam->light);
         
-        //mainCamera = player->camera;
-        mainCamera = new ofEasyCam();
-        mainCamera->enableMouseInput();
+        mainCamera = player->camera;
+        /*mainCamera = new ofEasyCam();
+        mainCamera->enableMouseInput();*/
 
         ofLight* directionalLight = new ofLight();
         directionalLight->setup();

@@ -10,7 +10,7 @@ public:
     {
         box = new Box(Vector3(0, 0, 0), Vector3(0, 0, 0));
 
-        collider = new Collider();
+        collider = addComponent<Collider>();
         collider->manualBounds = box;
     }
     
