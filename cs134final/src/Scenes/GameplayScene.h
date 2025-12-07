@@ -3,6 +3,7 @@
 #include "GameplayUI.h"
 #include "Scene.h"
 #include "Gameplay/BeamableObjectSpawner.h"
+#include "Gameplay/LandingZone.h"
 #include "Player/Player.h"
 
 class GameplayScene : public Scene
@@ -37,7 +38,9 @@ public:
         player->beam = beam;
         lights.push_back(beam->light);
         
-        mainCamera = player->camera;
+        //mainCamera = player->camera;
+        mainCamera = new ofEasyCam();
+        mainCamera->enableMouseInput();
 
         ofLight* directionalLight = new ofLight();
         directionalLight->setup();
@@ -57,6 +60,17 @@ public:
         // Set up beamable object spawner
         beamableObjectSpawner = new BeamableObjectSpawner();
         beamableObjectSpawner->spawnBeamableObjects(this, 20);
+
+        // Set up landing zones
+        landingZoneOne = createGameObject<LandingZone>();
+        landingZoneOne->box->parameters[0] = Vector3(-71, 15, 35);
+        landingZoneOne->box->parameters[1] = Vector3(-40, 30, 66);
+        landingZoneTwo = createGameObject<LandingZone>();
+        landingZoneTwo->box->parameters[0] = Vector3(45, 20, 25);
+        landingZoneTwo->box->parameters[1] = Vector3(81, 30, 45);
+        landingZoneThree = createGameObject<LandingZone>();
+        landingZoneThree->box->parameters[0] = Vector3(-51, 45, -107);
+        landingZoneThree->box->parameters[1] = Vector3(-25, 61, -81);
     }
 
     void draw(ofEventArgs& args) override;
@@ -74,6 +88,10 @@ public:
     Beam* beam;
 
     BeamableObjectSpawner* beamableObjectSpawner;
+
+    LandingZone* landingZoneOne;
+    LandingZone* landingZoneTwo;
+    LandingZone* landingZoneThree;
 
     ofVec3f intersectedPoint = ofVec3f(0, 0, 0);
 };

@@ -24,10 +24,14 @@ void ofApp::setup()
     // Setup gui
     gui.setup();
     gui.add(octreeLevels.setup("Octree Levels", 1, 0, 20));
-    gui.add(positionTest.setup("Position Test", ofVec3f(0, 0, 0),
+    /*gui.add(positionTest.setup("Position Test", ofVec3f(0, 0, 0),
         ofVec3f(-50, -50, -50), ofVec3f(50, 50, 50)));
     gui.add(rotationTest.setup("Rotation Test", ofVec3f(0, 0, 0),
-        ofVec3f(0, 0, 0), ofVec3f(360, 360, 360)));
+        ofVec3f(0, 0, 0), ofVec3f(360, 360, 360)));*/
+    gui.add(landingZoneMin.setup("Zone Min", ofVec3f(0, 0, 0),
+        ofVec3f(-500, -500, -500), ofVec3f(500, 500, 500)));
+    gui.add(landingZoneMax.setup("Zone Max", ofVec3f(0, 0, 0),
+    ofVec3f(-500, -500, -500), ofVec3f(500, 500, 500)));
 }
 
 //--------------------------------------------------------------
@@ -40,7 +44,7 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-   gui.draw();
+    gui.draw();
 }
 
 //--------------------------------------------------------------

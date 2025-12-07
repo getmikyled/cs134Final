@@ -33,6 +33,8 @@ class ofApp : public ofBaseApp{
 	ofxIntSlider octreeLevels;
 	ofxVec3Slider positionTest;
 	ofxVec3Slider rotationTest;
+	ofxVec3Slider landingZoneMin;
+	ofxVec3Slider landingZoneMax;
 
 	// Scenes
 	MainMenuScene* mainMenuScene;

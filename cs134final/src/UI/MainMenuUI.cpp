@@ -1,6 +1,6 @@
 #include "MainMenuUI.h"
 
-#include "Core/GameManager.h"
+#include "Gameplay/GameManager.h"
 
 void MainMenuUI::onPlayButtonPressed(ofMouseEventArgs& args)
 {
