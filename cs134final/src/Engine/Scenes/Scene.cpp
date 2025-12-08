@@ -114,6 +114,7 @@ void Scene::draw(ofEventArgs &args)
         gameObject->draw();
     }
 
+    
 
     if (mainCamera != nullptr)  mainCamera->end();
     ofDisableAlphaBlending();
@@ -137,17 +138,20 @@ void Scene::calculateCollisions()
                 Box& bounds = collider->getBounds();
                 vector<Box> colBoxList;
                 octree->intersect(bounds, octree->root, colBoxList);
-                if (colBoxList.size() >= 10)
+                if (colBoxList.size() >= 5)
                 {
-                    glm::vec3 avergageBoxPosition = glm::vec3(0, 0, 0);
+                    glm::vec3 averageBoxPosition = glm::vec3(0, 0, 0);
                     for (int i = 0; i < colBoxList.size(); i++)
                     {
                         Vector3 center = bounds.center();
-                        avergageBoxPosition += glm::vec3(center.x(), center.y(), center.z());
+                        averageBoxPosition += glm::vec3(center.x(), center.y(), center.z());
                     }
-                    avergageBoxPosition /= colBoxList.size();
+                    averageBoxPosition /= colBoxList.size();
 
-                    glm::vec3 direction = normalize(avergageBoxPosition - glm::vec3(gameObject->transform.position));
+                    glm::vec3 direction = normalize(averageBoxPosition - glm::vec3(gameObject->transform.position));
+
+
+                        
                     gameObject->onCollisionTriggered(octree, direction);
                 }
 

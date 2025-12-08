@@ -31,16 +31,8 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
     Octree* octree = dynamic_cast<Octree*>(argGameObject);
     if (octree != nullptr)
     {
-        /*if (rigidbody->velocity.length() > 20)
-        {
-            //rigidbody->maxSpeed = 1000;
-            //rigidbody->forces.push_back(new Force(normal, 20000, false));
-        }
-        else
-        {
-            //rigidbody->forces.push_back(new Force(normal, -gravity + rigidbody->velocity.length(), false));
-        }*/
 
+        transform.position += normal;
         rigidbody->velocity = .5 * (rigidbody->velocity - 2 * rigidbody->velocity.dot(normal) * normal);
     }
 
@@ -122,4 +114,21 @@ void Player::onMouseMoved(ofMouseEventArgs& args)
 
     cameraYaw += mouseX * cameraSensitivityX;
     cameraPitch = std::clamp(cameraPitch + mouseY * cameraSensitivityY, 0.0f, 70.0f);
+}
+
+void Player::draw()
+{
+
+    Box box = ufoCollider->getBounds();
+    GameObject::draw();
+    ofNoFill();
+    Vector3 min = box.parameters[0];
+    Vector3 max = box.parameters[1];
+    Vector3 size = max - min;
+    Vector3 center = size / 2 + min;
+    ofVec3f p = ofVec3f(center.x(), center.y(), center.z());
+    float w = size.x();
+    float h = size.y();
+    float d = size.z();
+    ofDrawBox(p, w, h, d);
 }

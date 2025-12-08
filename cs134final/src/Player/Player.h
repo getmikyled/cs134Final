@@ -44,6 +44,8 @@ public:
     void onMouseMoved(ofMouseEventArgs& args);
     void onCollisionTriggered(GameObject* argGameObject, ofVec3f normal) override;
 
+    void draw();
+
     glm::vec3 getFrontVector();
     glm::vec3 getRightVector();
     glm::vec3 getUpVector();
