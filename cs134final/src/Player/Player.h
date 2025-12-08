@@ -50,6 +50,8 @@ public:
     glm::vec3 getRightVector();
     glm::vec3 getUpVector();
 
+    void onCrashLanding();
+
     // Components
     Rigidbody* rigidbody;
     Model* ufoModel;
@@ -64,6 +66,8 @@ public:
     float cameraYaw = 0;
     float cameraPitch = 20;
 
+    float crashVelocity = 4;
+
     float inputX;
     float inputY;
     float inputZ;
@@ -73,5 +77,7 @@ public:
 
     float maxTiltAngle = 50;
     float tiltSpeedFactor = -2;
+
+    bool inLandingZone = false;
 
 };

@@ -31,17 +31,27 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
     Octree* octree = dynamic_cast<Octree*>(argGameObject);
     if (octree != nullptr)
     {
+        // Handle crash type
+        if (rigidbody->velocity.length() > crashVelocity)
+        {
+            onCrashLanding();
+        }
 
+        // Perform collision reaction
         transform.position += normal;
         rigidbody->velocity = .5 * (rigidbody->velocity - 2 * rigidbody->velocity.dot(normal) * normal);
     }
 
     LandingZone* landingZone = dynamic_cast<LandingZone*>(argGameObject);
-    if (landingZone != nullptr)
-    {
-        cout << "in landing zone " << rigidbody->velocity.length() << endl;
-    }
+    inLandingZone = landingZone != nullptr;
 }
+
+void Player::onCrashLanding()
+{
+    // Endlessette add code here
+    cout << "CRASH LANDING" << endl;
+}
+
 
 glm::vec3 Player::getFrontVector()
 {
