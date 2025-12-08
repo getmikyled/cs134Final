@@ -7,6 +7,13 @@ class MainMenuUI : public UserInterface
 public:
     MainMenuUI()
     {
+        // Set up paused label
+        titleLabel = new Label();
+        titleLabel->text = "UFO";
+        titleLabel->fontSize = 0.09f;
+        titleLabel->position = ofVec2f(0.1f, 0.15f);
+        uiElements.emplace_back(titleLabel);
+        
         // Initialize play button
         playButton = new Label();
         playButton->text = "PLAY";
@@ -25,6 +32,7 @@ public:
         ofAddListener(quitButton->mousePressedEvent, this, &MainMenuUI::onQuitButtonPressed);
     }
 
+    Label* titleLabel;
     Label* playButton;
     Label* quitButton;
 
