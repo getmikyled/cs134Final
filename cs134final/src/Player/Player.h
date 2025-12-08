@@ -34,7 +34,7 @@ public:
         camera->setFarClip(100000.0f);
 
         transform.scale = ofVec3f(.5, .5, .5);
-        ufoCollider->collisionSizeMult = .7;
+        ufoCollider->collisionSizeMult = .9;
     }
 
     ofEasyCam* camera;

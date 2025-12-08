@@ -8,6 +8,7 @@ void GameplayScene::onEnable()
 {
     Scene::onEnable();
 
+    
     setUserInterface(gameplayUi);
     player->transform.position = ofVec3f(55, 28, 35);
     player->rigidbody->velocity = ofVec3f(0, 0, 0);
@@ -71,6 +72,6 @@ void GameplayScene::draw(ofEventArgs& args)
 
     mainCamera->begin();
     ofSetColor(ofColor::lightGreen);
-    ofDrawSphere(intersectedPoint, 2);
+    //ofDrawSphere(intersectedPoint, 2);
     mainCamera->end();
 }

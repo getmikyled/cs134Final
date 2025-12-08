@@ -36,16 +36,7 @@ public:
         treesFencesModel = environment->addComponent<Model>();
         treesFencesModel->load("models/terrain/treesandfence.obj");
 
-        // Set up player
-        player = createGameObject<Player>();
-        player->transform.position = ofVec3f(55, 28, 35);
-        beam = createGameObject<Beam>();
-        player->beam = beam;
-        lights.push_back(beam->light);
         
-        mainCamera = player->camera;
-        /*mainCamera = new ofEasyCam();
-        mainCamera->enableMouseInput();*/
 
         ofLight* directionalLight = new ofLight();
         directionalLight->setup();
@@ -62,9 +53,25 @@ public:
         addGameObject(octree);
         std::cout << "FINISHED" << std::endl;
 
+
+
         // Set up beamable object spawner
         beamableObjectSpawner = new BeamableObjectSpawner();
-        beamableObjectSpawner->spawnBeamableObjects(this, 20);
+        beamableObjectSpawner->spawnBeamableObjects(this, 100);
+
+        
+        // Set up player
+        player = createGameObject<Player>();
+        player->transform.position = ofVec3f(55, 28, 35);
+        beam = createGameObject<Beam>();
+        player->beam = beam;
+        lights.push_back(beam->light);
+        
+        mainCamera = player->camera;
+        /*mainCamera = new ofEasyCam();
+        mainCamera->enableMouseInput();*/
+
+        
 
         // Set up landing zones
         landingZoneOne = createGameObject<LandingZone>();
