@@ -171,3 +171,17 @@ void Scene::calculateCollisions()
         }
     }
 }
+
+void Scene::setUserInterface(UserInterface* argUserInterface)
+{
+    if (isActive)
+    {
+        if (userInterface != nullptr)
+        {
+            userInterface->onDisable();
+        }
+        
+        userInterface = argUserInterface;
+        userInterface->onEnable();
+    }
+}

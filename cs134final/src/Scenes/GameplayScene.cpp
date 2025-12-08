@@ -1,9 +1,21 @@
 #include "GameplayScene.h"
+
+#include "GameManager.h"
+#include "InputSystem.h"
 #include "Engine/Octree/ray.h"
 
 void GameplayScene::update(ofEventArgs& args)
 {
     Scene::update(args);
+
+    if (InputSystem::getInstance().ctrlPressed)
+    {
+        GameManager::getInstance().setGameState(PAUSED);
+    }
+    else
+    {
+        GameManager::getInstance().setGameState(GAMEPLAY);
+    }
 
     // Altitude sensor
     TreeNode intersectedNode;

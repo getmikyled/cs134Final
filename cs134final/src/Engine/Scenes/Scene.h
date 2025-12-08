@@ -47,6 +47,7 @@ public:
     virtual void update(ofEventArgs & args);
     virtual void draw(ofEventArgs & args);
     virtual void calculateCollisions();
+    void setUserInterface(UserInterface* argUserInterface);
 
     bool isActive = false;
     

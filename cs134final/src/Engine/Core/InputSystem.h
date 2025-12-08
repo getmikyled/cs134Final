@@ -29,6 +29,7 @@ public:
     bool rightArrowPressed = false;
     bool upArrowPressed = false;
     bool downArrowPressed = false;
+    bool escPressed = false;
     
     bool wPressed = false;
     bool aPressed = false;

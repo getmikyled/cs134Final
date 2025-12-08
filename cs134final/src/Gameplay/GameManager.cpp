@@ -1,11 +1,17 @@
 #include "GameManager.h"
 
+#include "GameplayScene.h"
 #include "InputSystem.h"
 #include "ofAppRunner.h"
 #include "SceneManager.h"
 
 void GameManager::setGameState(GameState argState)
 {
+    if (gameState == argState)
+    {
+        return;
+    }
+    
     GameState prevState = gameState;
     gameState = argState;
 
@@ -20,6 +26,9 @@ void GameManager::setGameState(GameState argState)
             break;
         case GAMEPLAY:
             onGameplayStateExited();
+            break;
+        case YOU_WIN:
+            onYouWinStateExited();
             break;
         case PAUSED:
             onPausedStateExited();
@@ -38,8 +47,11 @@ void GameManager::setGameState(GameState argState)
         case GAMEPLAY:
             onGameplayStateEntered();
             break;
+        case YOU_WIN:
+            onYouWinStateEntered();
+            break;
         case PAUSED:
-            onPausedStateExited();
+            onPausedStateEntered();
             break;
     }
 }
@@ -80,6 +92,13 @@ void GameManager::onGameplayStateEntered()
     resetGameTimer();
     startGameTimer();
 
+    // Set ui
+    GameplayScene* gameplayScene = dynamic_cast<GameplayScene*>(SceneManager::getInstance().getActiveScene());
+    if (gameplayScene)
+    {
+        gameplayScene->setUserInterface(gameplayScene->gameplayUi);
+    }
+
     // Set mouse control
     InputSystem::getInstance().setMouseControl(false);
 
@@ -110,6 +129,12 @@ void GameManager::onPausedStateEntered()
 {
     // Set mouse input
     InputSystem::getInstance().setMouseControl(true);
+
+    GameplayScene* gameplayScene = dynamic_cast<GameplayScene*>(SceneManager::getInstance().getActiveScene());
+    if (gameplayScene)
+    {
+        gameplayScene->setUserInterface(gameplayScene->pauseMenuUi);
+    }
 }
 
 void GameManager::onPausedStateExited()
@@ -121,12 +146,37 @@ void GameManager::onGameOverStateEntered()
 {
     // Set mouse input
     InputSystem::getInstance().setMouseControl(true);
+
+    GameplayScene* gameplayScene = dynamic_cast<GameplayScene*>(SceneManager::getInstance().getActiveScene());
+    if (gameplayScene)
+    {
+        gameplayScene->setUserInterface(gameplayScene->gameOverUi);
+    }
 }
 
 void GameManager::onGameOverStateExited()
 {
     
 }
+
+void GameManager::onYouWinStateEntered()
+{
+    // Set mouse input
+    InputSystem::getInstance().setMouseControl(true);
+
+    GameplayScene* gameplayScene = dynamic_cast<GameplayScene*>(SceneManager::getInstance().getActiveScene());
+    if (gameplayScene)
+    {
+        gameplayScene->setUserInterface(gameplayScene->youWinUi);
+    }
+}
+
+void GameManager::onYouWinStateExited()
+{
+    
+}
+
+
 
 int GameManager::getScore()
 {

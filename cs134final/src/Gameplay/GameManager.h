@@ -26,6 +26,8 @@ public:
     void onGameplayStateExited();
     void onUpdateGameplayState();
     void onPausedStateEntered();
+    void onYouWinStateEntered();
+    void onYouWinStateExited();
     void onGameOverStateEntered();
     void onGameOverStateExited();
     void onPausedStateExited();

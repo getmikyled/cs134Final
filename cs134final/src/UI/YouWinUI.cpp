@@ -2,12 +2,12 @@
 
 #include "GameManager.h"
 
-void YouWinUI::onMainMenuButtonPressed(ofEventArgs& args)
+void YouWinUI::onMainMenuButtonPressed(ofMouseEventArgs& args)
 {
     GameManager::getInstance().setGameState(MAIN_MENU);
 }
 
-void onQuitButtonPressed(ofEventArgs& args)
+void YouWinUI::onQuitButtonPressed(ofMouseEventArgs& args)
 {
     ofExit();
 }

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GameOverUI.h"
 #include "GameplayUI.h"
 #include "PauseMenuUI.h"
 #include "Scene.h"
@@ -15,9 +16,10 @@ public:
     {
         // Set up ui
         gameplayUi = new GameplayUI();
-        pauseMenuUI = new PauseMenuUI();
-        youWinUI = new YouWinUI();
-        userInterface = gameplayUi;
+        pauseMenuUi = new PauseMenuUI();
+        youWinUi = new YouWinUI();
+        gameOverUi = new GameOverUI();
+        userInterface = gameplayUi;;
 
         // Set up environment
         environment = createGameObject<GameObject>();
@@ -80,8 +82,9 @@ public:
     void update(ofEventArgs& args) override;
 
     GameplayUI* gameplayUi;
-    PauseMenuUI* pauseMenuUI;
-    YouWinUI* youWinUI;
+    PauseMenuUI* pauseMenuUi;
+    YouWinUI* youWinUi;
+    GameOverUI* gameOverUi;
 
     Model* terrainModel;
     Model* buildingsModel;

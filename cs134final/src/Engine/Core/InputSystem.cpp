@@ -65,8 +65,9 @@ void InputSystem::onKeyPressed(int key)
     case 'D':
         dPressed = true;
         break;
-
-        
+    case OF_KEY_ESC:
+        escPressed = true;
+        break;
     case ' ':
         spacePressed = true;
         break;
@@ -109,7 +110,9 @@ void InputSystem::onKeyReleased(int key)
     case 'D':
         dPressed = false;
         break;
-        
+    case OF_KEY_ESC:
+        escPressed = false;
+        break;
     case ' ':
         spacePressed = false;
         break;

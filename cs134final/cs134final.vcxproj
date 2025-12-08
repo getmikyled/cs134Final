@@ -131,6 +131,7 @@
     <ClCompile Include="src\Player\Player.cpp" />
     <ClCompile Include="src\Scenes\GameplayScene.cpp" />
     <ClCompile Include="src\Scenes\MainMenuScene.cpp" />
+    <ClCompile Include="src\UI\GameOverUI.cpp" />
     <ClCompile Include="src\UI\GameplayUI.cpp" />
     <ClCompile Include="src\UI\MainMenuUI.cpp" />
     <ClCompile Include="src\UI\PauseMenuUI.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="src\Player\Player.h" />
     <ClInclude Include="src\Scenes\GameplayScene.h" />
     <ClInclude Include="src\Scenes\MainMenuScene.h" />
+    <ClInclude Include="src\UI\GameOverUI.h" />
     <ClInclude Include="src\UI\GameplayUI.h" />
     <ClInclude Include="src\UI\MainMenuUI.h" />
     <ClInclude Include="src\UI\PauseMenuUI.h" />

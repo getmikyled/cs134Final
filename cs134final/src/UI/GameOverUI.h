@@ -1,18 +1,19 @@
 #pragma once
 #include "Label.h"
 #include "UserInterface.h"
+#include "YouWinUI.h"
 
-class YouWinUI : public UserInterface
+class GameOverUI : public UserInterface
 {
 public:
-    YouWinUI()
+    GameOverUI()
     {
         // Set up you win label
-        youWinLabel = new Label();
-        youWinLabel->text = "YOU WIN";
-        youWinLabel->fontSize = 0.09f;
-        youWinLabel->position = ofVec2f(0.1f, 0.15f);
-        uiElements.emplace_back(youWinLabel);
+        gameOverLabel = new Label();
+        gameOverLabel->text = "GAME OVER";
+        gameOverLabel->fontSize = 0.09f;
+        gameOverLabel->position = ofVec2f(0.1f, 0.15f);
+        uiElements.emplace_back(gameOverLabel);
         
         // Initialize play button
         mainMenuButton = new Label();
@@ -28,14 +29,14 @@ public:
         quitButton->position = ofVec2f(0.15f, 0.7f);
         uiElements.emplace_back(quitButton);
         
-        ofAddListener(mainMenuButton->mousePressedEvent, this, &YouWinUI::onMainMenuButtonPressed);
-        ofAddListener(quitButton->mousePressedEvent, this, &YouWinUI::onQuitButtonPressed);
+        ofAddListener(mainMenuButton->mousePressedEvent, this, &GameOverUI::onMainMenuButtonPressed);
+        ofAddListener(quitButton->mousePressedEvent, this, &GameOverUI::onQuitButtonPressed);
     }
 
     void onMainMenuButtonPressed(ofMouseEventArgs& args);
     void onQuitButtonPressed(ofMouseEventArgs& args);
 
-    Label* youWinLabel;
+    Label* gameOverLabel;
     Label* mainMenuButton;    
     Label* quitButton;
 };
