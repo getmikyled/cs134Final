@@ -12,6 +12,7 @@ public:
     void update() override;
     
     Box getBounds();
+    float collisionSizeMult = 1;
 
     Box* manualBounds;
     Model* model;

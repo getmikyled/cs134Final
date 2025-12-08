@@ -48,6 +48,8 @@ public:
     virtual void onCollisionTriggered(GameObject* argGameObject, ofVec3f normal);
     virtual bool canCollideWith(GameObject* argGameObject);
 
+    
+
     bool pendingDestroy = false;
     
     Transform transform;

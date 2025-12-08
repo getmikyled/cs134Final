@@ -17,7 +17,7 @@ Box Collider::getBounds()
     {
 
         ofMatrix4x4 T = glm::translate(glm::mat4(1.0f), (glm::vec3)gameObject->transform.position);
-        ofMatrix4x4 S = glm::scale(glm::mat4(1.0f), (glm::vec3)gameObject->transform.scale);
+        ofMatrix4x4 S = glm::scale(glm::mat4(1.0f), (glm::vec3)(gameObject->transform.scale * collisionSizeMult));
 
 
         
