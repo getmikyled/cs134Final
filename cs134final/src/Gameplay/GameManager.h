@@ -6,7 +6,8 @@ enum GameState
     MAIN_MENU = 0,
     GAMEPLAY = 1,
     PAUSED = 2,
-    GAME_OVER = 3
+    GAME_OVER = 3,
+    YOU_WIN = 4
 };
 
 class GameManager

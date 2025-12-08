@@ -1,4 +1,6 @@
 #include "Player.h"
+
+#include "GameManager.h"
 #include "InputSystem.h"
 #include "LandingZone.h"
 #include "Octree.h"
@@ -32,7 +34,6 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
     if (octree != nullptr)
     {
         // Perform collision reaction
-        cout << inputY << endl;
         if (inputY == 0)
         {
             rigidbody->velocity = .5 * (rigidbody->velocity - 2 * rigidbody->velocity.dot(normal) * normal);
@@ -43,6 +44,11 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
         if (rigidbody->velocity.length() > crashVelocity)
         {
             onCrashLanding();
+            GameManager::getInstance().setGameState(GAME_OVER);
+        }
+        else if (inLandingZone)
+        {
+            GameManager::getInstance().setGameState(YOU_WIN);
         }
     }
 

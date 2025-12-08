@@ -1,7 +1,9 @@
 #pragma once
 
 #include "GameplayUI.h"
+#include "PauseMenuUI.h"
 #include "Scene.h"
+#include "YouWinUI.h"
 #include "Gameplay/BeamableObjectSpawner.h"
 #include "Gameplay/LandingZone.h"
 #include "Player/Player.h"
@@ -11,9 +13,10 @@ class GameplayScene : public Scene
 public:
     GameplayScene()
     {
-
         // Set up ui
         gameplayUi = new GameplayUI();
+        pauseMenuUI = new PauseMenuUI();
+        youWinUI = new YouWinUI();
         userInterface = gameplayUi;
 
         // Set up environment
@@ -77,6 +80,8 @@ public:
     void update(ofEventArgs& args) override;
 
     GameplayUI* gameplayUi;
+    PauseMenuUI* pauseMenuUI;
+    YouWinUI* youWinUI;
 
     Model* terrainModel;
     Model* buildingsModel;
