@@ -104,6 +104,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Gameplay\BeamableUtility.cpp" />
     <ClCompile Include="src\Gameplay\LandingZone.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Gameplay\BeamableUtility.h" />
     <ClInclude Include="src\Gameplay\LandingZone.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Engine\Core\Component.h" />

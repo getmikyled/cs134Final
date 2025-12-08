@@ -1,4 +1,5 @@
 #pragma once
+#include "BeamableUtility.h"
 #include "GameObject.h"
 #include "Model.h"
 #include "Engine/Physics/Collider.h"
@@ -10,7 +11,7 @@ public:
     {
         
         model = addComponent<Model>();
-        model->load("models/objects/testAnimal.obj");
+        model->load(BeamableUtility::getRandomModel());
 
         collider = addComponent<Collider>();
         collider->model = model;
