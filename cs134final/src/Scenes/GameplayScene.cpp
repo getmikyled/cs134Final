@@ -16,7 +16,7 @@ void GameplayScene::onEnable()
         
     // Set up player
     player = createGameObject<Player>();
-    player->transform.position = ofVec3f(55, 25, 35);
+    player->transform.position = ofVec3f(55, 24.8, 35);
     player->rigidbody->velocity = ofVec3f(0, 0, 0);
 
     beam = createGameObject<Beam>();

@@ -143,7 +143,7 @@ void GameManager::onYouWinStateEntered()
     {
         gameplayScene->setUserInterface(gameplayScene->youWinUi);
     }
-    gameplayScene->youWinUi->youWinLabel->text = "YOU WIN - " + ofToString(score) + " pts";
+    gameplayScene->youWinUi->pointsLabel->text = ofToString(score) + " pts";
 }
 
 void GameManager::onYouWinStateExited()

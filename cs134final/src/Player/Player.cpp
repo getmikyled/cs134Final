@@ -51,6 +51,8 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
             else if (inLandingZone && GameManager::getInstance().getScore() > 0)
             {
                 GameManager::getInstance().setGameState(YOU_WIN);
+                beam->pendingDestroy = true;
+                pendingDestroy = true;
             }
         }
     }

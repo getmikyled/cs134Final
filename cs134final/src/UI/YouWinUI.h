@@ -13,6 +13,13 @@ public:
         youWinLabel->fontSize = 0.09f;
         youWinLabel->position = ofVec2f(0.1f, 0.15f);
         uiElements.emplace_back(youWinLabel);
+
+        // Set up points label
+        pointsLabel = new Label();
+        pointsLabel->text = "pts";
+        pointsLabel->fontSize = 0.03f;
+        pointsLabel->position = ofVec2f(0.15f, 0.35f);
+        uiElements.emplace_back(pointsLabel);
         
         // Initialize play button
         mainMenuButton = new Label();
@@ -36,6 +43,7 @@ public:
     void onQuitButtonPressed(ofMouseEventArgs& args);
 
     Label* youWinLabel;
+    Label* pointsLabel;
     Label* mainMenuButton;    
     Label* quitButton;
 };
