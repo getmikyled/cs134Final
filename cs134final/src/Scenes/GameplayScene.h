@@ -55,21 +55,7 @@ public:
 
 
 
-        // Set up beamable object spawner
-        beamableObjectSpawner = new BeamableObjectSpawner();
-        beamableObjectSpawner->spawnBeamableObjects(this, 100);
-
         
-        // Set up player
-        player = createGameObject<Player>();
-        player->transform.position = ofVec3f(55, 28, 35);
-        beam = createGameObject<Beam>();
-        player->beam = beam;
-        lights.push_back(beam->light);
-        
-        mainCamera = player->camera;
-        /*mainCamera = new ofEasyCam();
-        mainCamera->enableMouseInput();*/
 
         
 

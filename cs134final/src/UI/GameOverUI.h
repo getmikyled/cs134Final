@@ -10,7 +10,7 @@ public:
     {
         // Set up you win label
         gameOverLabel = new Label();
-        gameOverLabel->text = "GAME OVER";
+        gameOverLabel->text = "CRASHED";
         gameOverLabel->fontSize = 0.09f;
         gameOverLabel->position = ofVec2f(0.1f, 0.15f);
         uiElements.emplace_back(gameOverLabel);

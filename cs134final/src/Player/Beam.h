@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "Model.h"
 #include "ofLight.h"
+#include "ofMain.h"
 #include "Engine/Physics/Collider.h"
 
 class Beam : public GameObject
@@ -25,6 +26,7 @@ public:
         light->setAttenuation(2.0f, 0.001f, 0.01f);
         light->setDiffuseColor(ofColor::green);
         light->setSpecularColor(ofColor::green);
+        pickupSound.load("sfx/pop.mp3");
     }
 
     void onUpdate(ofEventArgs& args) override;
@@ -32,4 +34,5 @@ public:
     Model* model;
     Collider* collider;
     ofLight* light;
+    ofSoundPlayer pickupSound;
 };

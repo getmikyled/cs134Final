@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "ofEasyCam.h"
 #include "ofxAssimpModelLoader.h"
+#include "ofMain.h"
 #include "Engine/Physics/Collider.h"
 #include "Engine/Physics/Rigidbody.h"
 #include "Graphics/Model.h"
@@ -35,10 +36,14 @@ public:
 
         transform.scale = ofVec3f(.5, .5, .5);
         ufoCollider->collisionSizeMult = .9;
+        crashSound.load("sfx/explode.mp3");
+        crashSound.setVolume(.5);
+
+        
     }
 
     ofEasyCam* camera;
-
+    ofSoundPlayer crashSound;
     void onEnable() override;
     void onDisable() override;
     void onUpdate(ofEventArgs& args) override;

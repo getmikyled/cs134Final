@@ -27,8 +27,15 @@ void BeamableObject::onCollisionTriggered(GameObject* argGameObject, ofVec3f nor
        Player* player = dynamic_cast<Player*>(argGameObject);
        if (player != nullptr)
        {
+           pickupSound.play();
            pendingDestroy = true;
            GameManager::getInstance().addScore(5);
        }
    }
+}
+
+void BeamableObject::onDisable()
+{
+    GameObject::onDisable();
+    pendingDestroy = true;
 }

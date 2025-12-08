@@ -21,6 +21,7 @@ void BeamableObjectSpawner::spawnBeamableObjects(Scene* scene, int argAmount)
                 {
                     ofMesh& mesh = scene->octree->staticMeshes[i]->model->getMesh(0);
                     spawnBeamableObject(scene, mesh.getVertex(intersectedNode.points[i][0]));
+                    
                 }
             }
         }
@@ -35,5 +36,6 @@ void BeamableObjectSpawner::spawnBeamableObject(Scene* scene, ofVec3f position)
 {
     BeamableObject* beamableObject = scene->createGameObject<BeamableObject>();
     beamableObject->transform.position = position;
+    
 }
 

@@ -66,6 +66,10 @@ void Player::onCrashLanding()
 {
     // Endlessette add code here
     cout << "CRASH LANDING" << endl;
+    crashSound.play();
+    beam->pendingDestroy = true;
+    pendingDestroy = true;
+    
 }
 
 

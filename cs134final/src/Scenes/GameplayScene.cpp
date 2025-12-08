@@ -6,12 +6,32 @@
 
 void GameplayScene::onEnable()
 {
+    
+
+    // Set up beamable object spawner
+    beamableObjectSpawner = new BeamableObjectSpawner();
+    beamableObjectSpawner->spawnBeamableObjects(this, 100);
+
+        
+    // Set up player
+    player = createGameObject<Player>();
+    player->transform.position = ofVec3f(55, 25, 35);
+    player->rigidbody->velocity = ofVec3f(0, 0, 0);
+
+    beam = createGameObject<Beam>();
+    player->beam = beam;
+    lights.push_back(beam->light);
+
     Scene::onEnable();
+        
+    mainCamera = player->camera;
+    /*mainCamera = new ofEasyCam();
+    mainCamera->enableMouseInput();*/
 
     
     setUserInterface(gameplayUi);
-    player->transform.position = ofVec3f(55, 28, 35);
-    player->rigidbody->velocity = ofVec3f(0, 0, 0);
+    /*player->transform.position = ofVec3f(55, 28, 35);
+    player->rigidbody->velocity = ofVec3f(0, 0, 0);*/
 
     ofAddListener(ofEvents().keyPressed, this, &GameplayScene::onKeyPressed);
 }
@@ -62,7 +82,7 @@ void GameplayScene::update(ofEventArgs& args)
     }
     else
     {
-        gameplayUi->setAltitude(-1);
+        //gameplayUi->setAltitude(-1);
     }
 }
 
