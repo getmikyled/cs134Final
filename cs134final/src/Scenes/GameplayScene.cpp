@@ -12,6 +12,7 @@ void GameplayScene::onEnable()
     beamableObjectSpawner = new BeamableObjectSpawner();
     beamableObjectSpawner->spawnBeamableObjects(this, 100);
 
+    GameManager::getInstance().score = 0;
         
     // Set up player
     player = createGameObject<Player>();
@@ -32,6 +33,8 @@ void GameplayScene::onEnable()
     setUserInterface(gameplayUi);
     /*player->transform.position = ofVec3f(55, 28, 35);
     player->rigidbody->velocity = ofVec3f(0, 0, 0);*/
+
+    
 
     ofAddListener(ofEvents().keyPressed, this, &GameplayScene::onKeyPressed);
 }

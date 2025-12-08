@@ -41,8 +41,8 @@ public:
     
     GameState gameState = MAIN_MENU;
 
-private:
     int score = 0;
+private:
     
     GameManager() {} // Private constructor
     GameManager(const GameManager&) = delete;
