@@ -41,14 +41,17 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
         
         
         // Handle crash type
-        if (rigidbody->velocity.length() > crashVelocity)
+        if (GameManager::getInstance().gameState == GAMEPLAY)
         {
-            onCrashLanding();
-            GameManager::getInstance().setGameState(GAME_OVER);
-        }
-        else if (inLandingZone && GameManager::getInstance().getScore() > 0)
-        {
-            GameManager::getInstance().setGameState(YOU_WIN);
+            if (rigidbody->velocity.length() > crashVelocity)
+            {
+                onCrashLanding();
+                GameManager::getInstance().setGameState(GAME_OVER);
+            }
+            else if (inLandingZone && GameManager::getInstance().getScore() > 0)
+            {
+                GameManager::getInstance().setGameState(YOU_WIN);
+            }
         }
     }
 
