@@ -15,7 +15,13 @@ Box Collider::getBounds()
     // Return bounds of model if it exists
     if (model != nullptr)
     {
-        glm::mat4x4 transform = gameObject->transform.getTransform();
+
+        ofMatrix4x4 T = glm::translate(glm::mat4(1.0f), (glm::vec3)gameObject->transform.position);
+        ofMatrix4x4 S = glm::scale(glm::mat4(1.0f), (glm::vec3)gameObject->transform.scale);
+
+
+        
+        glm::mat4x4 transform = S * T;
         glm::vec3 min = transform * glm::vec4(model->model->getSceneMin() + model->model->getPosition(), 1.0f);
         glm::vec3 max = transform * glm::vec4(model->model->getSceneMax() + model->model->getPosition(), 1.0f);
 

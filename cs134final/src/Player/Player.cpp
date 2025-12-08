@@ -118,9 +118,9 @@ void Player::onMouseMoved(ofMouseEventArgs& args)
 
 void Player::draw()
 {
-
-    Box box = ufoCollider->getBounds();
     GameObject::draw();
+    /*Box box = ufoCollider->getBounds();
+    
     ofNoFill();
     Vector3 min = box.parameters[0];
     Vector3 max = box.parameters[1];
@@ -130,5 +130,5 @@ void Player::draw()
     float w = size.x();
     float h = size.y();
     float d = size.z();
-    ofDrawBox(p, w, h, d);
+    ofDrawBox(p, w, h, d);*/
 }
