@@ -33,7 +33,7 @@ public:
 
         // Set up player
         player = createGameObject<Player>();
-        player->transform.position = ofVec3f(0, 50, 0);
+        player->transform.position = ofVec3f(55, 28, 35);
         beam = createGameObject<Beam>();
         player->beam = beam;
         lights.push_back(beam->light);

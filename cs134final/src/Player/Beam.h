@@ -9,6 +9,8 @@ class Beam : public GameObject
 public:
     Beam()
     {
+
+        transform.scale = ofVec3f(0.5f, 0.5f, 0.5f);
         // Initialize ufo beam
         model = addComponent<Model>();
         model->load("models/objects/ufo_beam.obj");

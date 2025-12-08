@@ -31,19 +31,26 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
     Octree* octree = dynamic_cast<Octree*>(argGameObject);
     if (octree != nullptr)
     {
+        // Perform collision reaction
+        cout << inputY << endl;
+        if (inputY == 0)
+        {
+            rigidbody->velocity = .5 * (rigidbody->velocity - 2 * rigidbody->velocity.dot(normal) * normal);
+        }
+        
+        
         // Handle crash type
         if (rigidbody->velocity.length() > crashVelocity)
         {
             onCrashLanding();
         }
-
-        // Perform collision reaction
-        transform.position += normal;
-        rigidbody->velocity = .5 * (rigidbody->velocity - 2 * rigidbody->velocity.dot(normal) * normal);
     }
 
     LandingZone* landingZone = dynamic_cast<LandingZone*>(argGameObject);
-    inLandingZone = landingZone != nullptr;
+    if (landingZone != nullptr)
+    {
+        inLandingZone = true;
+    }
 }
 
 void Player::onCrashLanding()
@@ -75,6 +82,9 @@ void Player::onUpdate(ofEventArgs& args)
 {
     GameObject::onUpdate(args);
 
+    // Refresh collision vars
+    inLandingZone = false;
+
     // Update beam
     beam->transform.position = transform.position;
     beam->transform.rotation = transform.rotation;
@@ -84,7 +94,6 @@ void Player::onUpdate(ofEventArgs& args)
         - (InputSystem::getInstance().sPressed || InputSystem::getInstance().downArrowPressed);
 
     inputY = InputSystem::getInstance().spacePressed;
-
     inputZ = (InputSystem::getInstance().dPressed || InputSystem::getInstance().rightArrowPressed)
         - (InputSystem::getInstance().aPressed || InputSystem::getInstance().leftArrowPressed);
     
