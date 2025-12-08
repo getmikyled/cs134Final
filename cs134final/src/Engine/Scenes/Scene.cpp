@@ -134,6 +134,19 @@ void Scene::calculateCollisions()
             Collider* collider = gameObject->getComponent<Collider>();
             if (collider != nullptr)
             {
+                // Check for collisions with other objects
+                for (GameObject* otherGameObject : gameObjects)
+                {
+                    Collider* otherCollider = otherGameObject->getComponent<Collider>();
+                    if (gameObject != otherGameObject && otherCollider != nullptr && otherGameObject->canCollideWith(gameObject)
+                        && collider->getBounds().overlap(otherCollider->getBounds()))
+                    {
+                        ofVec3f normal = gameObject->transform.position - otherGameObject->transform.position;
+                        gameObject->onCollisionTriggered(otherGameObject, normal);
+                        otherGameObject->onCollisionTriggered(gameObject, -normal);
+                    }
+                }
+                
                 // Check for collisions with octree
                 Box& bounds = collider->getBounds();
                 vector<Box> colBoxList;
@@ -154,19 +167,6 @@ void Scene::calculateCollisions()
                         
                     gameObject->onCollisionTriggered(octree, direction);
                 }
-
-                // Check for collisions with other objects
-                for (GameObject* otherGameObject : gameObjects)
-                {
-                    Collider* otherCollider = otherGameObject->getComponent<Collider>();
-                    if (gameObject != otherGameObject && otherCollider != nullptr && otherGameObject->canCollideWith(gameObject)
-                        && collider->getBounds().overlap(otherCollider->getBounds()))
-                    {
-                        ofVec3f normal = gameObject->transform.position - otherGameObject->transform.position;
-                        gameObject->onCollisionTriggered(otherGameObject, normal);
-                        otherGameObject->onCollisionTriggered(gameObject, -normal);
-                    }
-                }
             }
         }
     }
@@ -174,14 +174,12 @@ void Scene::calculateCollisions()
 
 void Scene::setUserInterface(UserInterface* argUserInterface)
 {
-    if (isActive)
+    UserInterface* prevUserInterface = userInterface;
+    userInterface = argUserInterface;
+
+    if (prevUserInterface != nullptr)
     {
-        if (userInterface != nullptr)
-        {
-            userInterface->onDisable();
-        }
-        
-        userInterface = argUserInterface;
-        userInterface->onEnable();
+        prevUserInterface->onDisable();
     }
+    userInterface->onEnable();
 }

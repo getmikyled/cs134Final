@@ -4,18 +4,44 @@
 #include "InputSystem.h"
 #include "Engine/Octree/ray.h"
 
+void GameplayScene::onEnable()
+{
+    Scene::onEnable();
+
+    setUserInterface(gameplayUi);
+    player->transform.position = ofVec3f(55, 28, 35);
+    player->rigidbody->velocity = ofVec3f(0, 0, 0);
+
+    ofAddListener(ofEvents().keyPressed, this, &GameplayScene::onKeyPressed);
+}
+
+void GameplayScene::onDisable()
+{
+    Scene::onDisable();
+
+    ofRemoveListener(ofEvents().keyPressed, this, &GameplayScene::onKeyPressed);
+}
+
+
+void GameplayScene::onKeyPressed(ofKeyEventArgs& args)
+{
+    if (GameManager::getInstance().gameState == GAMEPLAY && args.key == OF_KEY_LEFT_CONTROL)
+    {
+        if (userInterface == pauseMenuUi)
+        {
+            setUserInterface(gameplayUi);
+        }
+        else if (userInterface == gameplayUi)
+        {
+            setUserInterface(pauseMenuUi);
+        }
+    }
+}
+
+
 void GameplayScene::update(ofEventArgs& args)
 {
     Scene::update(args);
-
-    if (InputSystem::getInstance().ctrlPressed)
-    {
-        GameManager::getInstance().setGameState(PAUSED);
-    }
-    else
-    {
-        GameManager::getInstance().setGameState(GAMEPLAY);
-    }
 
     // Altitude sensor
     TreeNode intersectedNode;

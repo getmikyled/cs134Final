@@ -46,7 +46,7 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
             onCrashLanding();
             GameManager::getInstance().setGameState(GAME_OVER);
         }
-        else if (inLandingZone)
+        else if (inLandingZone && GameManager::getInstance().getScore() > 0)
         {
             GameManager::getInstance().setGameState(YOU_WIN);
         }

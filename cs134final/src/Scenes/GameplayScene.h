@@ -78,6 +78,10 @@ public:
         landingZoneThree->box->parameters[1] = Vector3(-25, 61, -81);
     }
 
+    void onEnable() override;
+    void onDisable() override;
+    void onKeyPressed(ofKeyEventArgs& args);
+
     void draw(ofEventArgs& args) override;
     void update(ofEventArgs& args) override;
 

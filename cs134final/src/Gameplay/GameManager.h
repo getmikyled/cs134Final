@@ -5,7 +5,6 @@ enum GameState
 {
     MAIN_MENU = 0,
     GAMEPLAY = 1,
-    PAUSED = 2,
     GAME_OVER = 3,
     YOU_WIN = 4
 };
@@ -25,12 +24,10 @@ public:
     void onGameplayStateEntered();
     void onGameplayStateExited();
     void onUpdateGameplayState();
-    void onPausedStateEntered();
     void onYouWinStateEntered();
     void onYouWinStateExited();
     void onGameOverStateEntered();
     void onGameOverStateExited();
-    void onPausedStateExited();
 
     int getScore();
     void addScore(int argScore);
@@ -42,9 +39,9 @@ public:
     bool gameTimerActive = false;
     double gameTimer = 0;
     
+    GameState gameState = MAIN_MENU;
 
 private:
-    GameState gameState = MAIN_MENU;
     int score = 0;
     
     GameManager() {} // Private constructor

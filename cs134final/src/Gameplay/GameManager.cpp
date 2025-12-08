@@ -30,9 +30,6 @@ void GameManager::setGameState(GameState argState)
         case YOU_WIN:
             onYouWinStateExited();
             break;
-        case PAUSED:
-            onPausedStateExited();
-        break;
     }
 
     // On enter state methods
@@ -50,9 +47,6 @@ void GameManager::setGameState(GameState argState)
         case YOU_WIN:
             onYouWinStateEntered();
             break;
-        case PAUSED:
-            onPausedStateEntered();
-            break;
     }
 }
 
@@ -65,8 +59,6 @@ void GameManager::onUpdateGameState()
         break;
     case GAMEPLAY:
         onUpdateGameplayState();
-        break;
-    case PAUSED:
         break;
     }
 }
@@ -122,24 +114,6 @@ void GameManager::onUpdateGameplayState()
             setGameState(GAME_OVER);
         }
     }
-}
-
-
-void GameManager::onPausedStateEntered()
-{
-    // Set mouse input
-    InputSystem::getInstance().setMouseControl(true);
-
-    GameplayScene* gameplayScene = dynamic_cast<GameplayScene*>(SceneManager::getInstance().getActiveScene());
-    if (gameplayScene)
-    {
-        gameplayScene->setUserInterface(gameplayScene->pauseMenuUi);
-    }
-}
-
-void GameManager::onPausedStateExited()
-{
-    
 }
 
 void GameManager::onGameOverStateEntered()
