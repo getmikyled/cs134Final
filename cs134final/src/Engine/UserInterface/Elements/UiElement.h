@@ -7,8 +7,8 @@
 class UiElement
 {
 public:
-    virtual void onUpdate(ofEventArgs &args) {};
-    virtual void onDraw(ofEventArgs &args) {};
+    virtual void onUpdate(ofEventArgs &args) {}
+    virtual void onDraw(ofEventArgs &args) {}
 
     virtual void onEnable();
     virtual void onDisable();

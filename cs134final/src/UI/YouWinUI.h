@@ -8,30 +8,26 @@ public:
     YouWinUI()
     {
         // Set up you win label
-        youWinLabel = new Label();
+        youWinLabel = new Label(0.09f);
         youWinLabel->text = "YOU WIN";
-        youWinLabel->fontSize = 0.09f;
         youWinLabel->position = ofVec2f(0.1f, 0.15f);
         uiElements.emplace_back(youWinLabel);
 
         // Set up points label
-        pointsLabel = new Label();
+        pointsLabel = new Label(0.03f);
         pointsLabel->text = "pts";
-        pointsLabel->fontSize = 0.03f;
         pointsLabel->position = ofVec2f(0.15f, 0.35f);
         uiElements.emplace_back(pointsLabel);
         
         // Initialize play button
-        mainMenuButton = new Label();
+        mainMenuButton = new Label(0.05f);
         mainMenuButton->text = "MAIN MENU";
-        mainMenuButton->fontSize = 0.05f;
         mainMenuButton->position = ofVec2f(0.15f, 0.5f);
         uiElements.emplace_back(mainMenuButton);
 
         // Initialize quit button
-        quitButton = new Label();
+        quitButton = new Label(0.05f);
         quitButton->text = "QUIT";
-        quitButton->fontSize = 0.05f;
         quitButton->position = ofVec2f(0.15f, 0.7f);
         uiElements.emplace_back(quitButton);
         

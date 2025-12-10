@@ -4,7 +4,6 @@
 
 void Label::onUpdate(ofEventArgs& args)
 {
-    font->load("fonts/JosefinSans-SemiBold.ttf", ofGetWindowWidth() * fontSize);
 }
 
 void Label::onDraw(ofEventArgs& args)

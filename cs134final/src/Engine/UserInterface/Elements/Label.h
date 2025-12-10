@@ -5,9 +5,10 @@
 class Label : public UiElement
 {
 public:
-    Label()
+    Label(float fontsize)
     {
         font = new ofTrueTypeFont();
+        fontSize = fontsize;
         font->load("fonts/JosefinSans-SemiBold.ttf", ofGetWindowWidth() * fontSize);
     }
 

@@ -32,6 +32,8 @@ public:
     {
         
     }
+
+    virtual void initialize() {}
     
     void draw() override;
     vector<Particle> particles;
@@ -66,6 +68,13 @@ class ExplosionVFX : public ParticleSystem
 public:
     ExplosionVFX()
     {
+        
+    }
+
+    void spawn(float time) override;
+
+    void initialize() override
+    {
         ImpulseRadialForce* force = new ImpulseRadialForce();
         force->indefinite = false;
         force->magnitude = particleMagnitude;
@@ -75,10 +84,9 @@ public:
             spawn(ofGetElapsedTimeMillis());
         }
     }
-
-    void spawn(float time) override;
     
-    float particleMagnitude = 5;
-    float particleLifespan = 10;
+    float particleMagnitude = 40;
+    float particleLifespan = 2.5;
+    float particleRadius = 1;
     int numParticles = 30;
 };

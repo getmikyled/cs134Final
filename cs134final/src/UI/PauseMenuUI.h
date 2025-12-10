@@ -8,24 +8,21 @@ public:
     PauseMenuUI()
     {
         // Set up paused label
-        pausedLabel = new Label();
+        pausedLabel = new Label(0.09f);
         pausedLabel->text = "PAUSED";
-        pausedLabel->fontSize = 0.09f;
         pausedLabel->position = ofVec2f(0.1f, 0.15f);
         uiElements.emplace_back(pausedLabel);
 
         // Set up restart button
-        restartButton = new Label();
+        restartButton = new Label(0.05f);
         restartButton->text = "RESTART";
-        restartButton->fontSize = 0.05f;
         restartButton->position = ofVec2f(0.1f, 0.5f);
         ofAddListener(restartButton->mouseReleasedEvent, this, &PauseMenuUI::onRestartButtonReleased);
         uiElements.emplace_back(restartButton);
 
         // Set up quit button
-        quitButton = new Label();
+        quitButton = new Label(0.05f);
         quitButton->text = "QUIT";
-        quitButton->fontSize = 0.05f;
         quitButton->position = ofVec2f(0.1f, 0.7f);
         ofAddListener(quitButton->mouseReleasedEvent, this, &PauseMenuUI::onQuitButtonReleased);
         uiElements.emplace_back(quitButton);

@@ -87,4 +87,6 @@ public:
 
     bool inLandingZone = false;
 
+    bool alive = true;
+
 };

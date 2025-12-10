@@ -75,6 +75,7 @@ void ExplosionVFX::spawn(float time) {
     
 
     particle.lifespan = ofRandom(particleLifespan-1, particleLifespan+1);
+    particle.radius = ofRandom(particleRadius-.2, particleRadius+.2);
     
     particle.birthtime = time;
     particle.position = gameObject->transform.position;
@@ -93,6 +94,6 @@ void ImpulseRadialForce::updateForce(Particle* particle) {
     // we basically create a random direction for each particle
     // the force is only added once after it is triggered.
     //
-    ofVec3f dir = ofVec3f(ofRandom(-1, 1), ofRandom(-height/2.0, height/2.0), ofRandom(-1, 1));
-    particle->forces += dir.getNormalized() * ofRandom(magnitude-2, magnitude+2);
+    ofVec3f dir = ofVec3f(ofRandom(-1, 1), ofRandom(-1, 1), ofRandom(-1, 1));
+    particle->forces += dir.getNormalized() * ofRandom(0, magnitude);
 }

@@ -66,8 +66,9 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
 
 void Player::onCrashLanding()
 {
+    alive = false;
     ExplosionVFX* explosionfx = addComponent<ExplosionVFX>();
-    explosionfx->gameObject = this;
+    explosionfx->initialize();
     crashSound.play();
     //beam->pendingDestroy = true;
     //pendingDestroy = true;
@@ -99,55 +100,63 @@ void Player::onUpdate(ofEventArgs& args)
 
     // Refresh collision vars
     inLandingZone = false;
-
-    // Update beam
-    beam->transform.position = transform.position;
-    beam->transform.rotation = transform.rotation;
+    if (alive)
+    {
+        // Update beam
+        beam->transform.position = transform.position;
+        beam->transform.rotation = transform.rotation;
     
-    // Update movement force
-    inputX = (InputSystem::getInstance().wPressed || InputSystem::getInstance().upArrowPressed)
-        - (InputSystem::getInstance().sPressed || InputSystem::getInstance().downArrowPressed);
+        // Update movement force
+        inputX = (InputSystem::getInstance().wPressed || InputSystem::getInstance().upArrowPressed)
+            - (InputSystem::getInstance().sPressed || InputSystem::getInstance().downArrowPressed);
 
-    inputY = InputSystem::getInstance().spacePressed;
-    inputZ = (InputSystem::getInstance().dPressed || InputSystem::getInstance().rightArrowPressed)
-        - (InputSystem::getInstance().aPressed || InputSystem::getInstance().leftArrowPressed);
+        inputY = InputSystem::getInstance().spacePressed;
+        inputZ = (InputSystem::getInstance().dPressed || InputSystem::getInstance().rightArrowPressed)
+            - (InputSystem::getInstance().aPressed || InputSystem::getInstance().leftArrowPressed);
     
-    rigidbody->forces.push_back(new Force(getFrontVector(), speed*inputX, false));
-    rigidbody->forces.push_back(new Force(getUpVector(), speed*inputY, false));
-    rigidbody->forces.push_back(new Force(getRightVector(), speed*inputZ, false));
-
-
-    
+        rigidbody->forces.push_back(new Force(getFrontVector(), speed*inputX, false));
+        rigidbody->forces.push_back(new Force(getUpVector(), speed*inputY, false));
+        rigidbody->forces.push_back(new Force(getRightVector(), speed*inputZ, false));
 
 
     
-    float targetPitch = clamp(rigidbody->velocity.z * tiltSpeedFactor, -maxTiltAngle, maxTiltAngle);
-    float targetRoll = clamp(rigidbody->velocity.x * tiltSpeedFactor, -maxTiltAngle, maxTiltAngle);
-    
-    
-    transform.rotation = ofVec3f(-targetPitch, 0,  targetRoll);
-    // Update player
-    float yawRadians = ofDegToRad(cameraYaw);
-    float pitchRadians = ofDegToRad(cameraPitch);
 
-    ofVec3f cameraOffset;
-    cameraOffset.x = cameraDistance * cosf(pitchRadians) * sinf(yawRadians);
-    cameraOffset.y = cameraDistance * sinf(pitchRadians);
-    cameraOffset.z = cameraDistance * cosf(pitchRadians) * cosf(yawRadians);
+
+    
+        float targetPitch = clamp(rigidbody->velocity.z * tiltSpeedFactor, -maxTiltAngle, maxTiltAngle);
+        float targetRoll = clamp(rigidbody->velocity.x * tiltSpeedFactor, -maxTiltAngle, maxTiltAngle);
+    
+    
+        transform.rotation = ofVec3f(-targetPitch, 0,  targetRoll);
+        // Update player
+        float yawRadians = ofDegToRad(cameraYaw);
+        float pitchRadians = ofDegToRad(cameraPitch);
+
+        ofVec3f cameraOffset;
+        cameraOffset.x = cameraDistance * cosf(pitchRadians) * sinf(yawRadians);
+        cameraOffset.y = cameraDistance * sinf(pitchRadians);
+        cameraOffset.z = cameraDistance * cosf(pitchRadians) * cosf(yawRadians);
      
-    camera->setPosition(transform.position + cameraOffset);
-    camera->lookAt(transform.position);
+        camera->setPosition(transform.position + cameraOffset);
+        camera->lookAt(transform.position);
+    }
+    
 }
 
 void Player::onMouseMoved(ofMouseEventArgs& args)
 {
-    float mouseX = previousMousePosition.x - args.x;
-    float mouseY = args.y - previousMousePosition.y;
 
-    previousMousePosition = ofVec2f(args.x, args.y);
+    if (alive)
+    {
+        float mouseX = previousMousePosition.x - args.x;
+        float mouseY = args.y - previousMousePosition.y;
 
-    cameraYaw += mouseX * cameraSensitivityX;
-    cameraPitch = std::clamp(cameraPitch + mouseY * cameraSensitivityY, 0.0f, 70.0f);
+        previousMousePosition = ofVec2f(args.x, args.y);
+
+        cameraYaw += mouseX * cameraSensitivityX;
+        cameraPitch = std::clamp(cameraPitch + mouseY * cameraSensitivityY, 0.0f, 70.0f);
+    }
+    
 }
 
 void Player::draw()

@@ -8,23 +8,20 @@ public:
     MainMenuUI()
     {
         // Set up paused label
-        titleLabel = new Label();
+        titleLabel = new Label(0.09f);
         titleLabel->text = "UFO";
-        titleLabel->fontSize = 0.09f;
         titleLabel->position = ofVec2f(0.1f, 0.15f);
         uiElements.emplace_back(titleLabel);
         
         // Initialize play button
-        playButton = new Label();
+        playButton = new Label(0.05f);
         playButton->text = "PLAY";
-        playButton->fontSize = 0.05f;
         playButton->position = ofVec2f(0.15f, 0.5f);
         uiElements.emplace_back(playButton);
 
         // Initialize quit button
-        quitButton = new Label();
+        quitButton = new Label(0.05f);
         quitButton->text = "QUIT";
-        quitButton->fontSize = 0.05f;
         quitButton->position = ofVec2f(0.15f, 0.7f);
         uiElements.emplace_back(quitButton);
         
