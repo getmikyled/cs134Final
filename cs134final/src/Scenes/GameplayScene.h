@@ -99,4 +99,6 @@ public:
     LandingZone* landingZoneThree;
 
     ofVec3f intersectedPoint = ofVec3f(0, 0, 0);
+
+    vector<vector<glm::vec3>> vertices;
 };

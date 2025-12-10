@@ -66,11 +66,11 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
 
 void Player::onCrashLanding()
 {
-    // Endlessette add code here
-    cout << "CRASH LANDING" << endl;
+    ExplosionVFX* explosionfx = addComponent<ExplosionVFX>();
+    explosionfx->gameObject = this;
     crashSound.play();
-    beam->pendingDestroy = true;
-    pendingDestroy = true;
+    //beam->pendingDestroy = true;
+    //pendingDestroy = true;
     
 }
 

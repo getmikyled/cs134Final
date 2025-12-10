@@ -21,6 +21,7 @@ void Particle::draw() {
     //	ofSetColor(color);
     ofSetColor(ofMap(normalizedAge(), 0, lifespan, 255, 10), 0, 0);
     ofDrawSphere(position, radius);
+    cout << "tried to draw particle" << endl;
 }
 
 

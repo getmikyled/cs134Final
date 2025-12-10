@@ -7,6 +7,7 @@
 #include "ofMain.h"
 #include "Engine/Physics/Collider.h"
 #include "Engine/Physics/Rigidbody.h"
+#include "Graphics/VFX/ParticleSystem.h"
 #include "Graphics/Model.h"
 
 class Player : public GameObject

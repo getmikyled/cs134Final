@@ -11,6 +11,14 @@ public:
         magnitude = argMagnitude;
         indefinite = argIndefinite;
     }
+
+    Force()
+    {
+        indefinite = false;
+        magnitude = 0;
+        direction = ofVec3f(0, 0, 0);
+    }
+    virtual ~Force() {}
     
     ofVec3f direction;
     float magnitude;

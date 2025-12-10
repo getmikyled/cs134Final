@@ -80,9 +80,7 @@ void GameManager::onMainMenuStateExited()
 
 void GameManager::onGameplayStateEntered()
 {
-    // Reset game timer
     resetGameTimer();
-    startGameTimer();
 
     // Set ui
     GameplayScene* gameplayScene = dynamic_cast<GameplayScene*>(SceneManager::getInstance().getActiveScene());
@@ -96,6 +94,10 @@ void GameManager::onGameplayStateEntered()
 
     // Set active scene
     SceneManager::getInstance().setActiveScene(1);
+
+    // Reset game timer
+    
+    startGameTimer();
 }
 
 void GameManager::onGameplayStateExited()

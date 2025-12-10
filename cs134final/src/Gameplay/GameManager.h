@@ -35,7 +35,7 @@ public:
     void resetGameTimer();
     void startGameTimer();
     void stopGameTimer();
-    float gameTimerDuration = 60;
+    float gameTimerDuration = 120;
     bool gameTimerActive = false;
     double gameTimer = 0;
     

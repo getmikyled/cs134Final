@@ -10,7 +10,7 @@ void GameplayScene::onEnable()
 
     // Set up beamable object spawner
     beamableObjectSpawner = new BeamableObjectSpawner();
-    beamableObjectSpawner->spawnBeamableObjects(this, 100);
+    beamableObjectSpawner->spawnBeamableObjects(this, 70);
 
     GameManager::getInstance().score = 0;
         
@@ -37,6 +37,12 @@ void GameplayScene::onEnable()
     
 
     ofAddListener(ofEvents().keyPressed, this, &GameplayScene::onKeyPressed);
+
+    for (int i = 0; i < octree->staticMeshes.size(); i++)
+    {
+        vertices.push_back(octree->staticMeshes[i]->mesh.getVertices());
+    }
+    
 }
 
 void GameplayScene::onDisable()
@@ -77,8 +83,7 @@ void GameplayScene::update(ofEventArgs& args)
         {
             if (intersectedNode.points[i].size() > 0)
             {
-                ofMesh& mesh = octree->staticMeshes[i]->model->getMesh(0);
-                intersectedPoint = mesh.getVertex(intersectedNode.points[i][0]);
+                intersectedPoint = vertices[i][0];
                 gameplayUi->setAltitude(int(playerPosition.y() - intersectedPoint.y));
             }
         }
