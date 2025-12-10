@@ -106,6 +106,8 @@
   <ItemGroup>
     <ClCompile Include="src\Gameplay\BeamableUtility.cpp" />
     <ClCompile Include="src\Gameplay\LandingZone.cpp" />
+    <ClCompile Include="src\Graphics\VFX\Particle.cpp" />
+    <ClCompile Include="src\Graphics\VFX\ParticleSystem.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Engine\Core\Component.cpp" />
@@ -154,6 +156,8 @@
   <ItemGroup>
     <ClInclude Include="src\Gameplay\BeamableUtility.h" />
     <ClInclude Include="src\Gameplay\LandingZone.h" />
+    <ClInclude Include="src\Graphics\VFX\Particle.h" />
+    <ClInclude Include="src\Graphics\VFX\ParticleSystem.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Engine\Core\Component.h" />
     <ClInclude Include="src\Engine\Core\GameObject.h" />
