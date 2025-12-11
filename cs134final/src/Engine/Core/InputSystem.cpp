@@ -72,6 +72,7 @@ void InputSystem::onKeyPressed(int key)
         spacePressed = true;
         break;
     }
+    
 }
 
 void InputSystem::onKeyReleased(int key)

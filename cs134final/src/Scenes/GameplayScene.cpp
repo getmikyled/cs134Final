@@ -23,6 +23,14 @@ void GameplayScene::onEnable()
     player->beam = beam;
     lights.push_back(beam->light);
 
+    topDownCam = new ofEasyCam();
+    topDownCam->setPosition(ofVec3f(50,100,50));
+    topDownCam->lookAt(ofVec3f(0, 0, 0));
+
+    cityViewCam = new ofEasyCam();
+    cityViewCam->setPosition(ofVec3f(25,10,25));
+    cityViewCam->lookAt(ofVec3f(0, 15, 0));
+
     Scene::onEnable();
         
     mainCamera = player->camera;
@@ -65,6 +73,21 @@ void GameplayScene::onKeyPressed(ofKeyEventArgs& args)
         {
             setUserInterface(pauseMenuUi);
         }
+    }
+
+    switch (args.key)
+    {
+        case '1':
+            mainCamera = player->camera;
+            break;
+        case '2':
+            mainCamera = topDownCam;
+            break;
+        case '3':
+            mainCamera = cityViewCam;
+            break;
+        default:
+            break;
     }
 }
 

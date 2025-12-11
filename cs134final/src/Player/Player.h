@@ -44,10 +44,7 @@ public:
     }
 
     ofEasyCam* camera;
-    ofEasyCam* topDownCam;
-    ofEasyCam* cityViewCam;
-
-    ofEasyCam* currentCam;
+    
     
     ofSoundPlayer crashSound;
     void onEnable() override;
