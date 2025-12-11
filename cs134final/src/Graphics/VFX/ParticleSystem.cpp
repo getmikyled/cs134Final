@@ -47,7 +47,10 @@ void ParticleSystem::update() {
 
 
     for (int i = 0; i < particles.size(); i++)
+    {
         particles[i].integrate();
+    }
+        
 
     for (int i = 0; i < forces.size(); i++) {
         if (!forces[i]->indefinite)
@@ -75,7 +78,7 @@ void ExplosionVFX::spawn(float time) {
     
 
     particle.lifespan = ofRandom(particleLifespan-1, particleLifespan+1);
-    particle.radius = ofRandom(particleRadius-.2, particleRadius+.2);
+    particle.radiusmax = ofRandom(particleRadius-.2, particleRadius+.2);
     
     particle.birthtime = time;
     particle.position = gameObject->transform.position;
@@ -85,7 +88,7 @@ void ExplosionVFX::spawn(float time) {
 
 
 ImpulseRadialForce::ImpulseRadialForce(float speed) {
-    this->magnitude = magnitude;
+    magnitude = speed;
     indefinite = false;
 }
 

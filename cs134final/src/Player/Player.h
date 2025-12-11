@@ -44,6 +44,11 @@ public:
     }
 
     ofEasyCam* camera;
+    ofEasyCam* topDownCam;
+    ofEasyCam* cityViewCam;
+
+    ofEasyCam* currentCam;
+    
     ofSoundPlayer crashSound;
     void onEnable() override;
     void onDisable() override;
@@ -87,6 +92,6 @@ public:
 
     bool inLandingZone = false;
 
-    bool alive = true;
+    bool active = true;
 
 };

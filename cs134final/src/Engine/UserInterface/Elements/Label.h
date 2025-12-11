@@ -9,7 +9,8 @@ public:
     {
         font = new ofTrueTypeFont();
         fontSize = fontsize;
-        font->load("fonts/JosefinSans-SemiBold.ttf", ofGetWindowWidth() * fontSize);
+        currentWindowWidth = ofGetWindowWidth();
+        font->load("fonts/JosefinSans-SemiBold.ttf", currentWindowWidth * fontSize);
     }
 
     void onUpdate(ofEventArgs& args) override;
@@ -19,6 +20,7 @@ public:
     ofColor fontColor = ofColor::white;
     float fontSize = 0.1f;
     std::string text = "Text";
+    int currentWindowWidth;
 
 private:
     ofTrueTypeFont* font;

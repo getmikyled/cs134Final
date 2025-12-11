@@ -14,6 +14,7 @@ public:
     float	damping;
     float   mass;
     float   lifespan;
+    float radiusmax;
     float   radius;
     float   birthtime;
     void    integrate();
@@ -21,4 +22,6 @@ public:
     float   normalizedAge();   
     ofColor color;
     float alpha;
+
+    vector<ofFloatColor> colors;
 };

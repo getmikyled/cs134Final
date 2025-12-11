@@ -75,9 +75,9 @@ public:
 
     void initialize() override
     {
-        ImpulseRadialForce* force = new ImpulseRadialForce();
+        ImpulseRadialForce* force = new ImpulseRadialForce(particleMagnitude);
         force->indefinite = false;
-        force->magnitude = particleMagnitude;
+        //force->magnitude = particleMagnitude;
         forces.push_back(force);
         for (int i = 0; i < numParticles; i++)
         {
@@ -85,8 +85,8 @@ public:
         }
     }
     
-    float particleMagnitude = 40;
-    float particleLifespan = 2.5;
-    float particleRadius = 1;
+    float particleMagnitude = 600;
+    float particleLifespan = 2;
+    float particleRadius = 3;
     int numParticles = 30;
 };

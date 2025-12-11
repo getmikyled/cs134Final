@@ -24,6 +24,9 @@ void Player::onDisable()
     ofRemoveListener(ofEvents().mouseMoved, this, &Player::onMouseMoved);
     
     rigidbody->forces.clear();
+    pendingDestroy = true;
+    beam->pendingDestroy = true;
+    
 }
 
 void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
@@ -50,9 +53,8 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
             }
             else if (inLandingZone && GameManager::getInstance().getScore() > 0)
             {
+                active = false;
                 GameManager::getInstance().setGameState(YOU_WIN);
-                beam->pendingDestroy = true;
-                pendingDestroy = true;
             }
         }
     }
@@ -66,12 +68,12 @@ void Player::onCollisionTriggered(GameObject* argGameObject, ofVec3f normal)
 
 void Player::onCrashLanding()
 {
-    alive = false;
+    active = false;
+    ufoModel->isVisible = false;
+    beam->model->isVisible = false;
     ExplosionVFX* explosionfx = addComponent<ExplosionVFX>();
     explosionfx->initialize();
     crashSound.play();
-    //beam->pendingDestroy = true;
-    //pendingDestroy = true;
     
 }
 
@@ -100,7 +102,7 @@ void Player::onUpdate(ofEventArgs& args)
 
     // Refresh collision vars
     inLandingZone = false;
-    if (alive)
+    if (active)
     {
         // Update beam
         beam->transform.position = transform.position;
@@ -146,7 +148,7 @@ void Player::onUpdate(ofEventArgs& args)
 void Player::onMouseMoved(ofMouseEventArgs& args)
 {
 
-    if (alive)
+    if (active)
     {
         float mouseX = previousMousePosition.x - args.x;
         float mouseY = args.y - previousMousePosition.y;

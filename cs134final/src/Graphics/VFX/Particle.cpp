@@ -11,17 +11,34 @@ Particle::Particle() {
     lifespan = 5;
     birthtime = 0;
     radius = .1;
-    damping = .99;
+    damping = .97;
     mass = 1;
     color = ofColor::aquamarine;
     alpha = 1;
+
+    colors.emplace_back(ofColor(255, 117, 31, 255)); //bright orange
+    colors.emplace_back(ofColor(181, 20, 66, 200));
+    colors.emplace_back(ofColor(61, 47, 84, 100));
+    colors.emplace_back(ofColor(33, 33, 33, 0));
+    
 }
 
 void Particle::draw() {
     //	ofSetColor(color);
-    ofSetColor(ofMap(normalizedAge(), 0, lifespan, 255, 10), 0, 0);
+    
+    //ofSetColor(ofMap(normalizedAge(), 0, 1, 255, 10), 0, 0);
+    radius = radiusmax * (1 - normalizedAge());
+    ofFill();
+    float lerpval = normalizedAge() * (colors.size()-1); // range from 0-3
+    int key = floor(lerpval); // 0 1 or 2
+
+    if (key >= colors.size()-1) key = colors.size() - 2; // if key >= 3, set key to 2
+    lerpval -= float(key);
+    ofSetColor(colors[key].lerp(colors[key+1], lerpval));
+    cout << colors[key].lerp(colors[key+1], lerpval) << endl;
+    
+    
     ofDrawSphere(position, radius);
-    cout << "tried to draw particle" << endl;
 }
 
 

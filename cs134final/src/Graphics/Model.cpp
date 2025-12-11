@@ -5,14 +5,18 @@
 
 void Model::draw()
 {
-    ofPushMatrix();
-    ofSetColor(color);
+    if (isVisible)
+    {
+        ofPushMatrix();
+        ofSetColor(color);
     
-    ofMultMatrix(gameObject->transform.getTransform());
-    model->drawFaces();
+        ofMultMatrix(gameObject->transform.getTransform());
+        model->drawFaces();
     
-    ofPopMatrix();
+        ofPopMatrix();
+    }
 }
+    
 
 void Model::load(std::string path)
 {

@@ -18,4 +18,5 @@ public:
     
     ofxAssimpModelLoader* model;
     ofMesh mesh;
+    bool isVisible = true;
 };
